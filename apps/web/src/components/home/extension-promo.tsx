@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/landing/scroll-reveal";
 export function ExtensionPromo() {
   return (
     <section id="extension" className="relative isolate flex min-h-[calc(100svh-1rem)] w-full items-center overflow-hidden bg-transparent px-6 py-24 lg:px-10">
-      <ScrollReveal className="relative z-10 w-full">
+      <ScrollReveal className="relative z-10 w-full lg:-translate-x-10">
         <div className="mx-auto flex w-full max-w-lg flex-col gap-5">
           <div className="flex w-full justify-center">
             <div className="relative flex h-72 w-full max-w-md flex-col overflow-hidden rounded-xl border border-border/80 bg-card/60 shadow-lg md:h-[21rem]">
