@@ -34,6 +34,10 @@ def create_tip(req: TipCreateRequest):
 def list_tips(user_id: Optional[str] = None):
     query = supabase.table("community_tips").select("*")
     if user_id:
-        query = query.eq("subscriber_id", user_id)
+        sub_res = supabase.table("subscribers").select("id").eq("user_id", user_id).execute()
+        subscriber_id = sub_res.data[0]["id"] if sub_res.data else None
+        if not subscriber_id:
+            return []
+        query = query.eq("subscriber_id", subscriber_id)
     res = query.order("created_at", desc=True).execute()
     return res.data

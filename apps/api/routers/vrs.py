@@ -6,7 +6,7 @@ router = APIRouter(prefix="/vrs", tags=["vrs"])
 
 @router.get("/", response_model=list[VRSScore])
 def get_vrs_scores():
-    res = supabase.table("vrs_scores").select("*").execute()
+    res = supabase.table("vrs_scores").select("*").order("computed_at", desc=True).execute()
     return res.data
 
 @router.get("/{narrative_id}/history", response_model=list[VRSScore])

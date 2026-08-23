@@ -46,58 +46,17 @@ export function TipSubmissionForm({ userId, narratives }: { userId: string, narr
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
         <label className="text-sm font-medium text-slate-200">What did you observe?</label>
         <Textarea 
-          placeholder="Describe the narrative or campaign..." 
+          placeholder="Describe the narrative, source, and context..." 
           required
           value={formData.description}
           onChange={e => setFormData({...formData, description: e.target.value})}
           className="bg-slate-950 border-slate-800 text-slate-200 min-h-[100px]"
         />
-      </div>
-      
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-slate-200">Source URL (Optional)</label>
-        <Input 
-          type="url"
-          placeholder="https://..." 
-          value={formData.source_url}
-          onChange={e => setFormData({...formData, source_url: e.target.value})}
-          className="bg-slate-950 border-slate-800 text-slate-200"
-        />
-      </div>
-      
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-slate-200">Platform (Optional)</label>
-        <select
-          value={formData.platform}
-          onChange={e => setFormData({...formData, platform: e.target.value})}
-          className="w-full bg-slate-950 border border-slate-800 rounded-md px-3 py-2 text-sm text-slate-200"
-        >
-          <option value="">Select platform...</option>
-          <option value="twitter">Twitter / X</option>
-          <option value="telegram">Telegram</option>
-          <option value="reddit">Reddit</option>
-          <option value="tiktok">TikTok</option>
-          <option value="facebook">Facebook</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-slate-200">Related Narrative (Optional)</label>
-        <select
-          value={formData.related_narrative_id}
-          onChange={e => setFormData({...formData, related_narrative_id: e.target.value})}
-          className="w-full bg-slate-950 border border-slate-800 rounded-md px-3 py-2 text-sm text-slate-200"
-        >
-          <option value="">Doesn't match known narratives</option>
-          {narratives.map(n => (
-            <option key={n.id} value={n.id}>{n.name}</option>
-          ))}
-        </select>
+        <p className="text-xs text-slate-500">Include any URLs, platform names, or related narratives directly in your description.</p>
       </div>
 
       <Button 
