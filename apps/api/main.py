@@ -1,4 +1,4 @@
-from routers import alerts, digest
+from routers import alerts, digest, forecast
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from config import settings
@@ -26,6 +26,7 @@ app.include_router(subscribers.router)
 app.include_router(tips.router)
 app.include_router(alerts.router)
 app.include_router(digest.router)
+app.include_router(forecast.router)
 app.include_router(ingest.router)
 
 @app.get("/health")
