@@ -111,14 +111,14 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
 
             <section className="bg-card border border-border rounded-2xl p-6 shadow-sm">
               <div className="flex items-center gap-2 mb-6 text-foreground font-bold">
-                <ListChecks className="w-5 h-5 text-indigo-500" />
+                <ListChecks className="w-5 h-5 text-primary" />
                 <h3>Quick Talking Points</h3>
               </div>
               <ul className="space-y-4">
                 {claim.talking_points && claim.talking_points.length > 0 ? (
                   claim.talking_points.map((point, idx) => (
                     <li key={idx} className="flex gap-3 text-sm text-muted-foreground">
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-semibold text-xs border border-indigo-100">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-semibold text-xs border border-primary/20">
                         {idx + 1}
                       </span>
                       <span className="pt-0.5 leading-relaxed">{point}</span>
@@ -132,7 +132,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
 
             <section className="bg-card border border-border rounded-2xl p-6 shadow-sm">
               <div className="flex items-center gap-2 mb-6 text-foreground font-bold">
-                <Share2 className="w-5 h-5 text-blue-500" />
+                <Share2 className="w-5 h-5 text-accent" />
                 <h3>Help Stop the Spread</h3>
               </div>
               <p className="text-sm text-muted-foreground mb-4">

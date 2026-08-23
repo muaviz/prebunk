@@ -30,7 +30,7 @@ export function ExtensionPromo() {
                <div className="w-3 h-3 rounded-full bg-green-400"></div>
             </div>
             <div className="p-4 relative h-full">
-              <p className="text-sm bg-blue-50 text-blue-900 inline-block p-1 rounded italic mb-4 blur-[1px]">
+              <p className="text-sm bg-emerald-50 text-emerald-900 inline-block p-1 rounded italic mb-4 blur-[1px]">
                  "Eurabia is inevitable unless we remove kebab from our continent..."
               </p>
               
@@ -40,7 +40,7 @@ export function ExtensionPromo() {
                    <span className="font-semibold text-xs">Prebunk Analysis</span>
                 </div>
                 <div className="p-4 space-y-3">
-                  <div className="text-xs font-semibold text-white bg-indigo-500 inline-block px-2 py-0.5 rounded">AI Detected</div>
+                  <div className="text-xs font-semibold text-white bg-accent inline-block px-2 py-0.5 rounded">AI Detected</div>
                   <p className="text-sm font-bold">White Supremacist Tropes</p>
                   <p className="text-xs text-muted-foreground">"Eurabia" is a conspiracy theory about demographic takeover. "Remove kebab" is a violent meme referencing the ethnic cleansing of Bosnian Muslims...</p>
                   <div className="h-2 bg-muted rounded w-full mt-2"></div>

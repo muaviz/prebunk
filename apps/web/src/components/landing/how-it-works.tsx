@@ -3,17 +3,17 @@ import { Search, Sparkles, ShieldCheck } from "lucide-react";
 export function HowItWorks() {
   const steps = [
     {
-      icon: <Search className="h-6 w-6 text-blue-500" />,
+      icon: <Search className="h-6 w-6 text-primary" />,
       title: "1. We Predict",
       description: "We monitor early-stage chatter to detect emerging anti-Muslim claims before they reach the mainstream."
     },
     {
-      icon: <Sparkles className="h-6 w-6 text-purple-500" />,
+      icon: <Sparkles className="h-6 w-6 text-accent" />,
       title: "2. We Pre-bunk",
       description: "Our system deconstructs the narrative and builds fact-backed, religiously-grounded refutations in advance."
     },
     {
-      icon: <ShieldCheck className="h-6 w-6 text-emerald-500" />,
+      icon: <ShieldCheck className="h-6 w-6 text-emerald-700" />,
       title: "3. You Prepare",
       description: "When the claim finally hits your social feed, you're already equipped with the exact scripts to confidently shut it down."
     }
