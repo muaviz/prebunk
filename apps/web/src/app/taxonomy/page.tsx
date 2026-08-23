@@ -10,16 +10,16 @@ export default async function TaxonomyBrowserPage() {
   const narratives = await fetchApi<Narrative[]>("/narratives/");
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <header className="border-b border-slate-900 bg-slate-950">
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="border-b border-slate-900 bg-background">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Shield className="h-6 w-6 text-sky-400" />
+            <Shield className="h-6 w-6 text-primary" />
             <Link href="/" className="font-bold tracking-tight text-lg">PREBUNK</Link>
             <span className="text-slate-600 mx-2">/</span>
-            <span className="text-slate-300">Taxonomy Browser</span>
+            <span className="text-muted-foreground">Taxonomy Browser</span>
           </div>
-          <Link href="/dashboard" className="text-sm text-sky-400 hover:underline">
+          <Link href="/dashboard" className="text-sm text-primary hover:underline">
             Dashboard
           </Link>
         </div>
@@ -28,7 +28,7 @@ export default async function TaxonomyBrowserPage() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Narrative Taxonomy</h1>
-          <p className="text-slate-400 max-w-3xl">
+          <p className="text-muted-foreground max-w-3xl">
             An open-source encyclopedia of known anti-Muslim rhetoric, structural conspiracy theories, 
             and manipulative tropes. Use this browser to identify and understand coordinated campaigns.
           </p>

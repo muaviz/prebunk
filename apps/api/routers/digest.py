@@ -11,11 +11,11 @@ def send_digest_background():
         return
         
     # Get all approved subscribers wanting weekly digests
-    res = supabase.table("subscribers").select("email").eq("status", "approved").execute()
+    res = supabase.table("subscribers").select("contact_email").eq("status", "approved").execute()
     
     # In a real app, we'd check preferences here
     for sub in res.data:
-        send_email(sub["email"], subject, html)
+        send_email(sub["contact_email"], subject, html)
 
 @router.post("/send")
 def trigger_digest(background_tasks: BackgroundTasks):

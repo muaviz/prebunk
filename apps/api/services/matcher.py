@@ -59,3 +59,37 @@ def match_text(text: str, threshold: float = 0.45) -> list[NarrativeMatch]:
     # Sort by score descending
     matches.sort(key=lambda x: x.similarity_score, reverse=True)
     return matches
+
+from services.embeddings import embed_texts
+
+def match_texts(texts: list[str], threshold: float = 0.45) -> list[list[NarrativeMatch]]:
+    cache = get_narratives_cache()
+    if not cache or not texts:
+        return [[] for _ in texts]
+        
+    query_embeddings = embed_texts(texts)
+    if not query_embeddings:
+        return [[] for _ in texts]
+        
+    narrative_ids = [n["id"] for n in cache]
+    narrative_names = [n["name"] for n in cache]
+    import json
+    embeddings_matrix = np.array([json.loads(n["embedding"]) if isinstance(n["embedding"], str) else n["embedding"] for n in cache])
+    
+    query_matrix = np.array(query_embeddings)
+    similarities_matrix = cosine_similarity(query_matrix, embeddings_matrix)
+    
+    all_matches = []
+    for similarities in similarities_matrix:
+        matches = []
+        for i, score in enumerate(similarities):
+            if score >= threshold:
+                matches.append(NarrativeMatch(
+                    narrative_id=narrative_ids[i],
+                    narrative_name=narrative_names[i],
+                    similarity_score=float(score)
+                ))
+        matches.sort(key=lambda x: x.similarity_score, reverse=True)
+        all_matches.append(matches)
+        
+    return all_matches

@@ -27,7 +27,13 @@ class RSSIngestor(BaseIngestor):
                 feed = feedparser.parse(url)
                 for entry in feed.entries[:10]: # Limit to top 10 per feed
                     # Combine title and summary
-                    content = entry.title
+                    if hasattr(entry, 'title'):
+                        content = entry.title
+                    else:
+                        content = entry.get('title', '')
+            
+                    if not content:
+                        continue
                     if hasattr(entry, 'summary'):
                         content += " " + entry.summary
                     texts.append(content)

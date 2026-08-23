@@ -21,8 +21,8 @@ export function BriefArchiveInteractive({ briefs }: { briefs: Brief[] }) {
             onClick={() => setFilterType(type)}
             className={`px-3 py-1 text-sm rounded-md transition-colors capitalize ${
               filterType === type 
-                ? "bg-sky-500/20 text-sky-400 border border-sky-500/30" 
-                : "bg-slate-900 border border-slate-800 text-slate-400 hover:bg-slate-800"
+                ? "bg-primary/20 text-primary border border-sky-500/30" 
+                : "bg-card border border-border text-muted-foreground hover:bg-muted"
             }`}
           >
             {type.replace("_", " ")}
@@ -35,7 +35,7 @@ export function BriefArchiveInteractive({ briefs }: { briefs: Brief[] }) {
           <BriefCard key={brief.id} brief={brief} />
         ))}
         {filteredBriefs.length === 0 && (
-          <div className="col-span-3 text-center p-12 bg-slate-900 border border-slate-800 rounded-md text-slate-500">
+          <div className="col-span-3 text-center p-12 bg-card border border-border rounded-md text-muted-foreground">
             No briefs match the selected filters.
           </div>
         )}

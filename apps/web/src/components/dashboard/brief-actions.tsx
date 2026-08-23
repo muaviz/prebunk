@@ -35,7 +35,7 @@ export function BriefActions({ briefId }: { briefId: string }) {
         variant="outline" 
         onClick={handleGenerate}
         disabled={generating}
-        className="bg-slate-900 border-slate-800 text-slate-300 hover:text-white"
+        className="bg-card border-border text-muted-foreground hover:text-primary-foreground"
       >
         <RefreshCw className={`h-4 w-4 mr-2 ${generating ? "animate-spin" : ""}`} /> 
         {generating ? "Generating..." : "Generate New Version"}
@@ -43,12 +43,12 @@ export function BriefActions({ briefId }: { briefId: string }) {
       <Button 
         variant="outline" 
         onClick={handleCopy}
-        className="bg-slate-900 border-slate-800 text-slate-300 hover:text-white"
+        className="bg-card border-border text-muted-foreground hover:text-primary-foreground"
       >
         <Copy className="h-4 w-4 mr-2" /> 
         {copying ? "Copied!" : "Copy Link"}
       </Button>
-      <Button onClick={handlePublish} className="bg-sky-500 hover:bg-sky-600 text-white">
+      <Button onClick={handlePublish} className="bg-primary hover:bg-primary/90 text-primary-foreground">
         <Share2 className="h-4 w-4 mr-2" /> Publish
       </Button>
     </div>

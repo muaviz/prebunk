@@ -15,7 +15,7 @@ export default async function GenerateBriefPage({
     <div className="space-y-6 max-w-4xl mx-auto">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">On-Demand Brief Generation</h1>
-        <p className="text-sm text-slate-400 mt-1">
+        <p className="text-sm text-muted-foreground mt-1">
           Analyze suspicious content and instantly generate educational counter-messaging.
         </p>
       </div>

@@ -31,7 +31,7 @@ def create_tip(req: TipCreateRequest):
     return res.data[0]
 
 @router.get("/", response_model=list[CommunityTip])
-def list_tips(user_id: Optional[str] = None):
+def list_tips(user_id: Optional[str] = None, limit: int = 50, offset: int = 0):
     query = supabase.table("community_tips").select("*")
     if user_id:
         sub_res = supabase.table("subscribers").select("id").eq("user_id", user_id).execute()
@@ -39,5 +39,5 @@ def list_tips(user_id: Optional[str] = None):
         if not subscriber_id:
             return []
         query = query.eq("subscriber_id", subscriber_id)
-    res = query.order("created_at", desc=True).execute()
+    res = query.order("created_at", desc=True).range(offset, offset + limit - 1).execute()
     return res.data

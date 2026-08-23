@@ -13,6 +13,7 @@ export function TrendsInteractive({ narratives, chartData, colors }: { narrative
   const [showForecast, setShowForecast] = useState(false);
   const [mergedData, setMergedData] = useState<any[]>(chartData);
   const [isLoadingForecast, setIsLoadingForecast] = useState(false);
+  const [forecastError, setForecastError] = useState(false);
 
   const toggleNarrative = (id: string) => {
     if (selectedNarratives.includes(id)) {
@@ -25,12 +26,14 @@ export function TrendsInteractive({ narratives, chartData, colors }: { narrative
   useEffect(() => {
     if (!showForecast) {
       setMergedData(chartData);
+      setForecastError(false);
       return;
     }
 
     let isMounted = true;
     const fetchForecasts = async () => {
       setIsLoadingForecast(true);
+      setForecastError(false);
       try {
         const promises = selectedNarratives.map(id => fetchApi<any>(`/forecast/${id}`));
         const results = await Promise.all(promises);
@@ -54,18 +57,21 @@ export function TrendsInteractive({ narratives, chartData, colors }: { narrative
           }
 
           res.forecast.forEach((pt: any) => {
-            const dt = new Date(pt.timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit' });
-            if (!forecastMap[dt]) forecastMap[dt] = { date: dt };
-            forecastMap[dt][`${nid}_forecast`] = pt.predicted_vrs;
-            forecastMap[dt][`${nid}_range`] = [pt.lower_bound, pt.upper_bound];
+            const fd = new Date(pt.timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+            if (!forecastMap[fd]) forecastMap[fd] = { date: fd };
+            
+            forecastMap[fd][`${nid}_forecast`] = pt.predicted_vrs;
+            forecastMap[fd][`${nid}_range`] = [pt.lower_bound, pt.upper_bound];
           });
         });
 
-        // Append to existing chart data (simplistic merge)
-        const combined = [...chartData];
-        const forecastDates = Object.keys(forecastMap).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+        // Append forecast points to historical data
+        const combined = chartData.map(c => ({...c}));
         
-        for (const fd of forecastDates) {
+        // Ensure sorted dates if we crossed month/year boundaries properly in a real app
+        // Here we just append them in order of the API response
+        for (const fd of Object.keys(forecastMap)) {
+          // If the date exists in historical, update it
           const existing = combined.find(c => c.date === fd);
           if (existing) {
             Object.assign(existing, forecastMap[fd]);
@@ -77,6 +83,7 @@ export function TrendsInteractive({ narratives, chartData, colors }: { narrative
         setMergedData(combined);
       } catch (err) {
         console.error("Failed to load forecast", err);
+        setForecastError(true);
       } finally {
         setIsLoadingForecast(false);
       }
@@ -104,30 +111,33 @@ export function TrendsInteractive({ narratives, chartData, colors }: { narrative
               onClick={() => setSelectedRange(range)}
               className={`px-3 py-1 text-sm rounded-md transition-colors ${
                 selectedRange === range 
-                  ? "bg-sky-500/20 text-sky-400 border border-sky-500/30" 
-                  : "bg-slate-900 border border-slate-800 text-slate-400 hover:bg-slate-800"
+                  ? "bg-primary/20 text-primary border border-sky-500/30" 
+                  : "bg-card border border-border text-muted-foreground hover:bg-muted"
               }`}
             >
               {range}
             </button>
           ))}
-          <div className="ml-4 flex items-center gap-2">
-            <input 
-              type="checkbox" 
-              id="showForecast" 
-              checked={showForecast} 
-              onChange={e => setShowForecast(e.target.checked)} 
-              className="rounded bg-slate-900 border-slate-700 text-sky-500"
-            />
-            <label htmlFor="showForecast" className="text-sm text-slate-300 flex items-center gap-2">
-              Predict 72h
-              {isLoadingForecast && <Loader2 className="w-3 h-3 animate-spin text-sky-500" />}
-            </label>
+          <div className="ml-4 flex flex-col">
+            <div className="flex items-center gap-2">
+              <input 
+                type="checkbox" 
+                id="showForecast" 
+                checked={showForecast} 
+                onChange={e => setShowForecast(e.target.checked)} 
+                className="rounded bg-card border-border text-primary"
+              />
+              <label htmlFor="showForecast" className="text-sm text-muted-foreground flex items-center gap-2">
+                Show Forecast
+                {isLoadingForecast && <Loader2 className="w-3 h-3 animate-spin text-primary" />}
+              </label>
+            </div>
+            {forecastError && <span className="text-xs text-red-500 mt-1">Forecast unavailable. Try again later.</span>}
           </div>
         </div>
         
-        <div className="flex flex-wrap gap-2 items-center">
-          <span className="text-sm text-slate-500 mr-2">Compare (up to 5):</span>
+        <div className="flex overflow-x-auto flex-nowrap md:flex-wrap gap-2 items-center pb-2 md:pb-0">
+          <span className="text-sm text-muted-foreground mr-2 whitespace-nowrap">Compare (up to 5):</span>
           {narratives.map(n => (
             <button
               key={n.id}
@@ -135,8 +145,8 @@ export function TrendsInteractive({ narratives, chartData, colors }: { narrative
               disabled={!selectedNarratives.includes(n.id) && selectedNarratives.length >= 5}
               className={`px-2 py-1 text-xs rounded border transition-colors max-w-[150px] truncate ${
                 selectedNarratives.includes(n.id)
-                  ? "bg-slate-800 border-slate-600 text-slate-200"
-                  : "bg-slate-950 border-slate-800 text-slate-500 hover:bg-slate-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                  ? "bg-muted border-border text-foreground"
+                  : "bg-background border-border text-muted-foreground hover:bg-card disabled:opacity-50 disabled:cursor-not-allowed"
               }`}
               title={n.name}
             >
@@ -149,8 +159,8 @@ export function TrendsInteractive({ narratives, chartData, colors }: { narrative
       {chartData.length > 0 ? (
         <TrendChart data={mergedData} lines={lines} showForecast={showForecast} />
       ) : (
-        <Card className="bg-slate-900 border-slate-800">
-          <CardContent className="p-12 text-center text-slate-500">
+        <Card className="bg-card border-border">
+          <CardContent className="p-12 text-center text-muted-foreground">
             No historical data yet. Run the ingestion pipeline to generate VRS scores.
           </CardContent>
         </Card>

@@ -17,11 +17,12 @@ export function NavLink({ href, icon, children }: NavLinkProps) {
   return (
     <Link
       href={href}
+      aria-current={isActive ? "page" : undefined}
       className={cn(
         "flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md transition-colors",
         isActive 
-          ? "bg-sky-400/10 text-sky-400 border-l-2 border-sky-400 rounded-l-none" 
-          : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-50"
+          ? "bg-primary/10 text-primary border-l-2 border-primary rounded-l-none" 
+          : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
       )}
     >
       {icon}

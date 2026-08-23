@@ -14,8 +14,7 @@ class IngestResponse(BaseModel):
 
 def run_pipeline_task(sources: list[str]):
     pipeline = IngestionPipeline()
-    # In a real implementation, pipeline.run() would accept sources
-    pipeline.run()
+    pipeline.run(sources=sources)
 
 @router.post("/run", response_model=IngestResponse)
 async def trigger_ingestion(req: IngestRequest, background_tasks: BackgroundTasks):

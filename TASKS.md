@@ -184,54 +184,54 @@
 
 ## Phase 8: Public Features
 
-- [ ] Write `apps/web/src/components/taxonomy/taxonomy-search.tsx` — search input with cluster/technique filters
-- [ ] Write `apps/web/src/components/taxonomy/taxonomy-card.tsx` — narrative card for taxonomy browser
-- [ ] Write `apps/web/src/components/taxonomy/taxonomy-list.tsx` — filterable grid of taxonomy cards
-- [ ] Write `apps/web/src/app/taxonomy/page.tsx` — Taxonomy browser (SSG with ISR revalidation)
-- [ ] Write `apps/web/src/app/taxonomy/[id]/page.tsx` — Narrative detail page (SSG): all taxonomy fields rendered
-- [ ] Add `POST /match` endpoint to `apps/api/routers/briefs.py` — accepts text, returns matched narratives
-- [ ] Write `apps/web/src/components/brief/brief-generator-form.tsx` — text input form with "Analyse" button
-- [ ] Write `apps/web/src/app/dashboard/generate/page.tsx` — On-demand generator: paste text → match → generate brief
-- [ ] Write `apps/web/src/components/landing/hero.tsx` — "A weather radar for Islamophobia" hero section
-- [ ] Write `apps/web/src/components/landing/features.tsx` — 4 feature cards (Radar, Forecast, Briefs, Taxonomy)
-- [ ] Write `apps/web/src/components/landing/how-it-works.tsx` — 3-step visual (Monitor → Forecast → Inoculate)
-- [ ] Rewrite `apps/web/src/app/page.tsx` — landing page with hero, features, how-it-works, footer
-- [ ] **Verify:** `/taxonomy` shows all narratives, search and filtering work
-- [ ] **Verify:** `/taxonomy/NAR-001` shows complete narrative detail
-- [ ] **Verify:** `/dashboard/generate` — paste text → matches shown → generate brief → brief displayed
-- [ ] **Verify:** Landing page looks serious and minimal, not a template
+- [x] Write `apps/web/src/components/taxonomy/taxonomy-search.tsx` — search input with cluster/technique filters
+- [x] Write `apps/web/src/components/taxonomy/taxonomy-card.tsx` — narrative card for taxonomy browser
+- [x] Write `apps/web/src/components/taxonomy/taxonomy-list.tsx` — filterable grid of taxonomy cards
+- [x] Write `apps/web/src/app/taxonomy/page.tsx` — Taxonomy browser (SSG with ISR revalidation)
+- [x] Write `apps/web/src/app/taxonomy/[id]/page.tsx` — Narrative detail page (SSG): all taxonomy fields rendered
+- [x] Add `POST /match` endpoint to `apps/api/routers/briefs.py` — accepts text, returns matched narratives
+- [x] Write `apps/web/src/components/brief/brief-generator-form.tsx` — text input form with "Analyse" button
+- [x] Write `apps/web/src/app/dashboard/generate/page.tsx` — On-demand generator: paste text → match → generate brief
+- [x] Write `apps/web/src/components/landing/hero.tsx` — "A weather radar for Islamophobia" hero section
+- [x] Write `apps/web/src/components/landing/features.tsx` — 4 feature cards (Radar, Forecast, Briefs, Taxonomy)
+- [x] Write `apps/web/src/components/landing/how-it-works.tsx` — 3-step visual (Monitor → Forecast → Inoculate)
+- [x] Rewrite `apps/web/src/app/page.tsx` — landing page with hero, features, how-it-works, footer
+- [x] **Verify:** `/taxonomy` shows all narratives, search and filtering work
+- [x] **Verify:** `/taxonomy/NAR-001` shows complete narrative detail
+- [x] **Verify:** `/dashboard/generate` — paste text → matches shown → generate brief → brief displayed
+- [x] **Verify:** Landing page looks serious and minimal, not a template
 
 ---
 
 ## Phase 9: Delivery & Subscriber System
 
-- [ ] Install Resend SDK: `pip install resend`
-- [ ] Write `apps/api/services/email_service.py` — Resend wrapper: `send_email(to, subject, html)`
-- [ ] Write `apps/api/templates/weekly_digest.html` — dark-themed HTML email template
-- [ ] Write `apps/api/services/digest_builder.py` — build digest from top 3 VRS narratives + briefs
-- [ ] Write `apps/api/routers/digest.py` — `POST /digest/send` endpoint
-- [ ] Write `apps/api/scripts/send_weekly_digest.py` — CLI to build and send weekly digest
-- [ ] Update `apps/api/routers/subscribers.py` — add `PATCH /subscribers/{id}/approve`, `PATCH /subscribers/{id}/preferences`
-- [ ] Write `apps/web/src/app/dashboard/tips/page.tsx` — tip submission form + history
-- [ ] Write `apps/web/src/app/dashboard/settings/page.tsx` — language pref, delivery freq, focus clusters
-- [ ] Test Resend email delivery (send a test email)
-- [ ] Run `send_weekly_digest.py --test` → digest email received
-- [ ] **Verify:** Digest email has correct structure (top 3 narratives, VRS badges, full brief, talking points)
-- [ ] **Verify:** Tips submission and display works
-- [ ] **Verify:** Settings page saves preferences to Supabase
+- [x] Install Resend SDK: `pip install resend`
+- [x] Write `apps/api/services/email_service.py` — Resend wrapper: `send_email(to, subject, html)`
+- [x] Write `apps/api/templates/weekly_digest.html` — dark-themed HTML email template
+- [x] Write `apps/api/services/digest_builder.py` — build digest from top 3 VRS narratives + briefs
+- [x] Write `apps/api/routers/digest.py` — `POST /digest/send` endpoint
+- [x] Write `apps/api/scripts/send_weekly_digest.py` — CLI to build and send weekly digest
+- [x] Update `apps/api/routers/subscribers.py` — add `PATCH /subscribers/{id}/approve`, `PATCH /subscribers/{id}/preferences`
+- [x] Write `apps/web/src/app/dashboard/tips/page.tsx` — tip submission form + history
+- [x] Write `apps/web/src/app/dashboard/settings/page.tsx` — language pref, delivery freq, focus clusters
+- [x] Test Resend email delivery (send a test email)
+- [x] Run `send_weekly_digest.py --test` → digest email received
+- [x] **Verify:** Digest email has correct structure (top 3 narratives, VRS badges, full brief, talking points)
+- [x] **Verify:** Tips submission and display works
+- [x] **Verify:** Settings page saves preferences to Supabase
 
 ---
 
 ## Phase 10: Forecast Engine
 
-- [ ] Install Prophet: `pip install prophet`
-- [ ] Write `apps/api/models/forecast.py` — Pydantic models (ForecastPoint, ForecastResponse)
-- [ ] Write `apps/api/services/forecast.py` — simple linear trend extrapolation + Prophet (when data ≥30 days)
-- [ ] Write `apps/api/routers/forecast.py` — `GET /forecast/{narrative_id}`
-- [ ] Write `apps/web/src/components/dashboard/forecast-overlay.tsx` — dashed forecast line with confidence band
-- [ ] Update `apps/web/src/app/dashboard/trends/page.tsx` — add "Show Forecast" toggle
-- [ ] **Verify:** `GET /forecast/NAR-001` returns predicted VRS with confidence bands
-- [ ] **Verify:** Trends view shows forecast overlay when toggled on
+- [x] Install Prophet: `pip install prophet`
+- [x] Write `apps/api/models/forecast.py` — Pydantic models (ForecastPoint, ForecastResponse)
+- [x] Write `apps/api/services/forecast.py` — simple linear trend extrapolation + Prophet (when data ≥30 days)
+- [x] Write `apps/api/routers/forecast.py` — `GET /forecast/{narrative_id}`
+- [x] Write `apps/web/src/components/dashboard/forecast-overlay.tsx` — dashed forecast line with confidence band
+- [x] Update `apps/web/src/app/dashboard/trends/page.tsx` — add "Show Forecast" toggle
+- [x] **Verify:** `GET /forecast/NAR-001` returns predicted VRS with confidence bands
+- [x] **Verify:** Trends view shows forecast overlay when toggled on
 
 ---
 

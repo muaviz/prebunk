@@ -11,7 +11,7 @@ export function AlertCard({ alert }: { alert: any }) {
   const iconColor = isRed ? "text-red-400" : "text-orange-400";
 
   return (
-    <Card className="bg-slate-900 border-slate-800 hover:border-slate-700 transition-colors">
+    <Card className="bg-card border-border hover:border-border transition-colors">
       <CardContent className="p-5">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-start gap-4">
@@ -23,13 +23,13 @@ export function AlertCard({ alert }: { alert: any }) {
                 <Badge variant="outline" className={colorClass}>
                   {alert.alert_level.toUpperCase()}
                 </Badge>
-                <span className="text-sm font-mono text-slate-400">VRS: {alert.vrs_score.toFixed(1)}</span>
+                <span className="text-sm font-mono text-muted-foreground">VRS: {alert.vrs_score.toFixed(1)}</span>
               </div>
-              <h3 className="text-lg font-semibold text-slate-200">{alert.narrative_name}</h3>
+              <h3 className="text-lg font-semibold text-foreground">{alert.narrative_name}</h3>
             </div>
           </div>
           
-          <div className="flex flex-col md:items-end gap-2 text-sm text-slate-500">
+          <div className="flex flex-col md:items-end gap-2 text-sm text-muted-foreground">
             <div className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
               {date}
@@ -42,8 +42,8 @@ export function AlertCard({ alert }: { alert: any }) {
         </div>
         
         {alert.brief_id && (
-          <div className="mt-4 pt-4 border-t border-slate-800 flex justify-end">
-            <Link href={`/dashboard/briefs/${alert.brief_id}`} className="text-sm text-sky-400 hover:underline">
+          <div className="mt-4 pt-4 border-t border-border flex justify-end">
+            <Link href={`/dashboard/briefs/${alert.brief_id}`} className="text-sm text-primary hover:underline">
               View Associated Brief &rarr;
             </Link>
           </div>

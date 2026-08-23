@@ -61,17 +61,17 @@ export function BriefGeneratorForm({ narratives, initialNarrativeId }: { narrati
 
   return (
     <div className="space-y-8">
-      <Card className="bg-slate-900 border-slate-800">
+      <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="text-xl">1. Analyze Content</CardTitle>
-          <p className="text-sm text-slate-400">Paste a suspicious article, post, or message to detect underlying narratives.</p>
+          <p className="text-sm text-muted-foreground">Paste a suspicious article, post, or message to detect underlying narratives.</p>
         </CardHeader>
         <CardContent className="space-y-4">
           <Textarea 
             placeholder="Paste text here..." 
             value={text}
             onChange={e => setText(e.target.value)}
-            className="min-h-[150px] bg-slate-950 border-slate-800 text-slate-200"
+            className="min-h-[150px] bg-background border-border text-foreground"
           />
           <div className="flex justify-between items-center">
             <select 
@@ -80,7 +80,7 @@ export function BriefGeneratorForm({ narratives, initialNarrativeId }: { narrati
                 setSelectedNarrativeId(e.target.value);
                 setMatches(null);
               }}
-              className="bg-slate-950 border border-slate-800 rounded-md px-3 py-2 text-sm text-slate-300 w-full max-w-xs"
+              className="bg-background border border-border rounded-md px-3 py-2 text-sm text-muted-foreground w-full max-w-xs"
             >
               <option value="">Or select a narrative manually...</option>
               {narratives.map(n => (
@@ -91,7 +91,7 @@ export function BriefGeneratorForm({ narratives, initialNarrativeId }: { narrati
             <Button 
               onClick={handleMatch} 
               disabled={matching || !text.trim()} 
-              className="bg-slate-800 hover:bg-slate-700 text-white"
+              className="bg-muted hover:bg-slate-700 text-primary-foreground"
             >
               {matching ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Search className="h-4 w-4 mr-2" />}
               Analyze Text
@@ -101,7 +101,7 @@ export function BriefGeneratorForm({ narratives, initialNarrativeId }: { narrati
       </Card>
 
       {matches !== null && (
-        <Card className="bg-slate-900 border-slate-800 border-l-4 border-l-sky-500">
+        <Card className="bg-card border-border border-l-4 border-l-sky-500">
           <CardHeader>
             <CardTitle className="text-xl">2. Detection Results</CardTitle>
           </CardHeader>
@@ -114,16 +114,16 @@ export function BriefGeneratorForm({ narratives, initialNarrativeId }: { narrati
                     onClick={() => setSelectedNarrativeId(match.narrative_id)}
                     className={`p-4 rounded-md border cursor-pointer transition-colors flex items-center justify-between ${
                       selectedNarrativeId === match.narrative_id 
-                        ? 'bg-sky-500/10 border-sky-500/30' 
-                        : 'bg-slate-950 border-slate-800 hover:bg-slate-800'
+                        ? 'bg-primary/10 border-sky-500/30' 
+                        : 'bg-background border-border hover:bg-muted'
                     }`}
                   >
                     <div>
-                      <div className="font-medium text-slate-200 flex items-center gap-2">
-                        {selectedNarrativeId === match.narrative_id && <CheckCircle className="h-4 w-4 text-sky-400" />}
+                      <div className="font-medium text-foreground flex items-center gap-2">
+                        {selectedNarrativeId === match.narrative_id && <CheckCircle className="h-4 w-4 text-primary" />}
                         {match.narrative_name}
                       </div>
-                      <div className="text-xs text-slate-500 mt-1">
+                      <div className="text-xs text-muted-foreground mt-1">
                         Confidence: {(match.similarity_score * 100).toFixed(1)}%
                       </div>
                     </div>
@@ -131,7 +131,7 @@ export function BriefGeneratorForm({ narratives, initialNarrativeId }: { narrati
                 ))}
               </div>
             ) : (
-              <div className="text-slate-400 p-4 bg-slate-950 rounded border border-slate-800">
+              <div className="text-muted-foreground p-4 bg-background rounded border border-border">
                 No known narratives detected with high confidence in the provided text.
               </div>
             )}
@@ -145,7 +145,7 @@ export function BriefGeneratorForm({ narratives, initialNarrativeId }: { narrati
             size="lg" 
             onClick={() => handleGenerate(selectedNarrativeId)}
             disabled={generating}
-            className="bg-sky-500 hover:bg-sky-600 text-white w-full max-w-md shadow-lg shadow-sky-500/20"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground w-full max-w-md shadow-lg shadow-sky-500/20"
           >
             {generating ? (
               <><Loader2 className="h-5 w-5 mr-2 animate-spin" /> Generating Inoculation Brief (this takes a moment)...</>
@@ -157,9 +157,9 @@ export function BriefGeneratorForm({ narratives, initialNarrativeId }: { narrati
       )}
 
       {generatedBrief && (
-        <div className="border-t border-slate-800 pt-8 mt-8">
+        <div className="border-t border-border pt-8 mt-8">
           <h2 className="text-2xl font-bold mb-2">Generated Brief</h2>
-          <p className="text-slate-400 mb-6">This brief has been saved to the archive.</p>
+          <p className="text-muted-foreground mb-6">This brief has been saved to the archive.</p>
           <BriefContentDisplay brief={generatedBrief} />
         </div>
       )}

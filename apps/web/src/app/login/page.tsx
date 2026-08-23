@@ -39,10 +39,10 @@ function LoginForm() {
   };
 
   return (
-    <Card className="w-full max-w-md bg-slate-900 border-slate-800">
+    <Card className="w-full max-w-md bg-card border-border">
       <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl font-bold text-slate-50">Sign in</CardTitle>
-        <CardDescription className="text-slate-400">
+        <CardTitle className="text-2xl font-bold text-foreground">Sign in</CardTitle>
+        <CardDescription className="text-muted-foreground">
           Enter your email and password to login to the Prebunk dashboard
         </CardDescription>
       </CardHeader>
@@ -54,38 +54,38 @@ function LoginForm() {
             </div>
           )}
           {errorParam && (
-            <div id="error-message" className="bg-destructive/15 text-destructive text-sm p-3 rounded-md border border-destructive/20">
+            <div id="error-param" className="bg-destructive/15 text-destructive text-sm p-3 rounded-md border border-destructive/20">
               {errorParam}
             </div>
           )}
           {error && (
-            <div id="error-message" className="bg-destructive/15 text-destructive text-sm p-3 rounded-md border border-destructive/20">
+            <div id="error-state" className="bg-destructive/15 text-destructive text-sm p-3 rounded-md border border-destructive/20">
               {error}
             </div>
           )}
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium text-slate-200">Email</label>
-            <Input aria-invalid={!!error} aria-describedby={error ? "error-message" : undefined} 
+            <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
+            <Input aria-invalid={!!(error || errorParam)} aria-describedby={error ? "error-state" : (errorParam ? "error-param" : undefined)} 
               id="email" type="email" placeholder="m@example.com" required 
               value={email} onChange={(e) => setEmail(e.target.value)}
-              className="bg-slate-950 border-slate-800 text-slate-50"
+              className="bg-background border-border text-foreground"
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="password" className="text-sm font-medium text-slate-200">Password</label>
-            <Input aria-invalid={!!error} aria-describedby={error ? "error-message" : undefined} 
+            <label htmlFor="password" className="text-sm font-medium text-foreground">Password</label>
+            <Input aria-invalid={!!(error || errorParam)} aria-describedby={error ? "error-state" : (errorParam ? "error-param" : undefined)} 
               id="password" type="password" required 
               value={password} onChange={(e) => setPassword(e.target.value)}
-              className="bg-slate-950 border-slate-800 text-slate-50"
+              className="bg-background border-border text-foreground"
             />
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
-          <Button type="submit" className="w-full bg-sky-500 hover:bg-sky-600 text-white" disabled={loading}>
+          <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={loading}>
             {loading ? "Signing in..." : "Sign In"}
           </Button>
-          <div className="text-sm text-center text-slate-400">
-            Don't have an account? <Link href="/register" className="text-sky-400 hover:underline">Register</Link>
+          <div className="text-sm text-center text-muted-foreground">
+            Don't have an account? <Link href="/register" className="text-primary hover:underline">Register</Link>
           </div>
         </CardFooter>
       </form>
@@ -95,7 +95,7 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center p-4 bg-slate-950">
+    <div className="flex min-h-screen items-center justify-center p-4 bg-background">
       <Suspense fallback={<div>Loading...</div>}>
         <LoginForm />
       </Suspense>

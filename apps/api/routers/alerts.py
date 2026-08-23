@@ -16,8 +16,8 @@ class AlertResponse(BaseModel):
     created_at: datetime
 
 @router.get("/", response_model=list[AlertResponse])
-def list_alerts():
-    res = supabase.table("alerts").select("*, narratives(name)").order("created_at", desc=True).execute()
+def list_alerts(limit: int = 50, offset: int = 0):
+    res = supabase.table("alerts").select("*, narratives(name)").order("created_at", desc=True).range(offset, offset + limit - 1).execute()
     
     alerts = []
     for row in res.data:

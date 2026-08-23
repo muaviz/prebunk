@@ -27,19 +27,19 @@ export function TaxonomyList({ narratives }: { narratives: Narrative[] }) {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row gap-4">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-3 h-4 w-4 text-slate-500" />
+          <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
           <Input 
             type="text" 
             placeholder="Search narratives..." 
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-9 bg-slate-900 border-slate-800 text-slate-100"
+            className="pl-9 bg-card border-border text-slate-100"
           />
         </div>
         <select 
           value={cluster} 
           onChange={(e) => setCluster(e.target.value)}
-          className="bg-slate-900 border border-slate-800 rounded-md px-3 py-2 text-sm text-slate-300"
+          className="bg-card border border-border rounded-md px-3 py-2 text-sm text-muted-foreground"
         >
           <option value="all">All Clusters</option>
           {clusters.map(c => <option key={c} value={c}>{c}</option>)}
@@ -47,7 +47,7 @@ export function TaxonomyList({ narratives }: { narratives: Narrative[] }) {
         <select 
           value={technique} 
           onChange={(e) => setTechnique(e.target.value)}
-          className="bg-slate-900 border border-slate-800 rounded-md px-3 py-2 text-sm text-slate-300 capitalize"
+          className="bg-card border border-border rounded-md px-3 py-2 text-sm text-muted-foreground capitalize"
         >
           <option value="all">All Techniques</option>
           {techniques.map(t => <option key={t} value={t}>{t.replace("_", " ")}</option>)}
@@ -61,7 +61,7 @@ export function TaxonomyList({ narratives }: { narratives: Narrative[] }) {
       </div>
       
       {filtered.length === 0 && (
-        <div className="text-center py-12 text-slate-500">
+        <div className="text-center py-12 text-muted-foreground">
           No narratives found matching your filters.
         </div>
       )}

@@ -17,16 +17,16 @@ export function RadarChart({ data }: { data: BubbleData[] }) {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-slate-900 border border-slate-800 p-3 rounded-md shadow-xl max-w-xs">
-          <div className="text-xs text-slate-500 mb-1">{data.cluster}</div>
-          <div className="text-sm font-semibold text-slate-200 mb-2">{data.name}</div>
+        <div className="bg-card border border-border p-3 rounded-md shadow-xl max-w-xs">
+          <div className="text-xs text-muted-foreground mb-1">{data.cluster}</div>
+          <div className="text-sm font-semibold text-foreground mb-2">{data.name}</div>
           <div className="flex justify-between items-center text-xs">
-            <span className="text-slate-400">VRS Score:</span>
-            <span className="font-mono text-slate-200">{data.score.toFixed(1)}</span>
+            <span className="text-muted-foreground">VRS Score:</span>
+            <span className="font-mono text-foreground">{data.score.toFixed(1)}</span>
           </div>
           <div className="flex justify-between items-center text-xs mt-1">
-            <span className="text-slate-400">Volume:</span>
-            <span className="font-mono text-slate-200">{data.volume}</span>
+            <span className="text-muted-foreground">Volume:</span>
+            <span className="font-mono text-foreground">{data.volume}</span>
           </div>
         </div>
       );
@@ -35,12 +35,12 @@ export function RadarChart({ data }: { data: BubbleData[] }) {
   };
 
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-lg text-slate-200">Narrative Radar</CardTitle>
+        <CardTitle className="text-lg text-foreground">Narrative Radar</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="h-[400px] w-full">
+        <div className="h-[400px] w-full" role="img" aria-label="Radar chart displaying narrative volume versus VRS score">
           <ResponsiveContainer width="100%" height="100%">
             <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.5} />

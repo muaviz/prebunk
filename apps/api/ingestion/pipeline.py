@@ -1,9 +1,9 @@
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from ingestion.x_twitter import TwitterIngestor
 from ingestion.telegram import TelegramIngestor
 from ingestion.rss_news import RSSIngestor
-from services.matcher import match_text
+from services.matcher import match_texts
 from services.velocity import compute_vrs_scores
 from db import supabase
 
@@ -17,26 +17,29 @@ class IngestionPipeline:
             "rss": RSSIngestor()
         }
 
-    def run(self):
-        logger.info("Starting ingestion pipeline...")
+    def run(self, sources=None):
+        logger.info(f"Starting ingestion pipeline for sources: {sources or 'all'}")
         new_events = []
         
         for platform, ingestor in self.ingestors.items():
+            if sources and platform not in sources:
+                continue
             logger.info(f"Fetching from {platform}...")
             try:
                 texts = ingestor.fetch_latest()
                 logger.info(f"Fetched {len(texts)} items from {platform}.")
                 
-                for text in texts:
-                    matches = match_text(text, threshold=0.5)
-                    for match in matches:
-                        new_events.append({
-                            "narrative_id": match.narrative_id,
-                            "platform": platform,
-                            "similarity_score": match.similarity_score,
-                            "country": "Unknown",
-                            "recorded_at": datetime.utcnow().isoformat()
-                        })
+                if texts:
+                    all_matches = match_texts(texts, threshold=0.5)
+                    for matches in all_matches:
+                        for match in matches:
+                            new_events.append({
+                                "narrative_id": match.narrative_id,
+                                "platform": platform,
+                                "similarity_score": match.similarity_score,
+                                "country": "Unknown",
+                                "recorded_at": datetime.now(timezone.utc).isoformat()
+                            })
                         
             except Exception as e:
                 logger.error(f"Error processing {platform}: {e}")

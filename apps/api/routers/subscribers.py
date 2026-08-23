@@ -12,10 +12,10 @@ class PreferencesUpdate(BaseModel):
 @router.post("/", response_model=Subscriber)
 def create_subscriber(req: SubscriberCreate):
     # Check if exists
-    existing = supabase.table("subscribers").select("*").eq("contact_email", req.contact_email).execute()
+    existing = supabase.table("subscribers").select("*").eq("user_id", req.user_id).execute()
     if existing.data:
         # Update instead
-        res = supabase.table("subscribers").update(req.model_dump(exclude_unset=True)).eq("contact_email", req.contact_email).execute()
+        res = supabase.table("subscribers").update(req.model_dump(exclude_unset=True)).eq("user_id", req.user_id).execute()
         return res.data[0]
         
     res = supabase.table("subscribers").insert(req.model_dump()).execute()

@@ -1,4 +1,4 @@
-import os
+from config import settings
 import tweepy
 import logging
 from ingestion.base import BaseIngestor
@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 class TwitterIngestor(BaseIngestor):
     def __init__(self):
-        bearer_token = os.getenv("TWITTER_BEARER_TOKEN")
+        bearer_token = settings.twitter_bearer_token
         if bearer_token:
             self.client = tweepy.Client(bearer_token=bearer_token)
             self.has_keys = True

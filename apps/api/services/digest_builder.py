@@ -7,8 +7,8 @@ env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__)
 
 def get_top_narratives():
     # Fetch top 3 narratives by recent VRS score
-    # First get latest scores
-    res = supabase.table("vrs_scores").select("narrative_id, score").order("computed_at", desc=True).limit(50).execute()
+    # Fetch latest scores for all narratives (Supabase limits to 1000 by default, enough for demo)
+    res = supabase.table("vrs_scores").select("narrative_id, score").order("computed_at", desc=True).execute()
     
     if not res.data:
         return []
@@ -56,14 +56,18 @@ def build_weekly_digest():
                 "narrative_id": top_n["id"],
                 "content": {
                     "personal_script": "This is a fallback script because the LLM quota is exhausted.",
-                    "talking_points": ["Point 1", "Point 2"]
+                    "talking_points": ["Point 1", "Point 2"],
+                    "technique_explanation": "A common disinformation technique.",
+                    "narrative_context": "This narrative has been building recently."
                 }
             }
     
     template = env.get_template("weekly_digest.html")
+    from config import settings
     html = template.render(
         top_narratives=top_narratives,
-        main_brief=brief
+        main_brief=brief,
+        base_url=settings.frontend_base_url
     )
     
     subject = f"Prebunk Weekly Digest: {top_n['name']} is escalating"

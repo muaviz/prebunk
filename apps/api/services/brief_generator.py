@@ -12,37 +12,11 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-client = None
-if settings.gemini_api_key:
-    client = genai.Client(api_key=settings.gemini_api_key)
-
+from services.llm import llm_service
 def load_prompt(filename: str) -> str:
     path = Path(__file__).parent.parent / "prompts" / filename
     with open(path, "r") as f:
         return f.read()
-
-def call_gemini(prompt: str, json_mode: bool = False) -> str:
-    if not client:
-        return ""
-        
-    model = settings.gemini_model or "gemini-2.5-flash"
-    config = genai.types.GenerateContentConfig(
-        temperature=0.7,
-    )
-    if json_mode:
-        config.response_mime_type = "application/json"
-        
-    response = client.models.generate_content(
-        model=model,
-        contents=prompt,
-        config=config,
-    )
-    text = response.text
-    if json_mode:
-        match = re.search(r'```json\s*(.*?)\s*```', text, re.DOTALL)
-        if match:
-            text = match.group(1).strip()
-    return text
 
 def generate_brief(narrative_id: str, trigger_type: str = "on_demand", target_audience: str = "community_organization", language: str = "en") -> Brief:
     res = supabase.table("narratives").select("*, techniques(*)").eq("id", narrative_id).execute()
@@ -69,7 +43,7 @@ def generate_brief(narrative_id: str, trigger_type: str = "on_demand", target_au
             technique_desc=technique.get("description", ""),
             narrative_name=narrative["name"]
         )
-        step1_output = call_gemini(p1) or "Mock technique explanation."
+        step1_output = llm_service.generate_content(p1) or "Mock technique explanation."
         
         # Step 2
         p2 = load_prompt("step2_context.txt").format(
@@ -77,14 +51,14 @@ def generate_brief(narrative_id: str, trigger_type: str = "on_demand", target_au
             refutations=refutations,
             narrative_name=narrative["name"]
         )
-        step2_output = call_gemini(p2) or "Mock narrative context."
+        step2_output = llm_service.generate_content(p2) or "Mock narrative context."
         
         # Step 3
         p3 = load_prompt("step3_action.txt").format(
             step1_output=step1_output,
             step2_output=step2_output
         )
-        step3_output = call_gemini(p3, json_mode=True)
+        step3_output = llm_service.generate_content(p3, json_mode=True)
         
         if not step3_output:
             step3_json = {

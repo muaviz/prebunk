@@ -4,7 +4,7 @@ import { Narrative, VrsScore } from "@/types";
 
 export default async function TrendsPage() {
   const narratives = await fetchApi<Narrative[]>("/narratives/");
-  const vrsScores = await fetchApi<VrsScore[]>("/vrs/");
+  const vrsScores = await fetchApi<VrsScore[]>("/vrs/?latest=false");
 
   const scoredNarrativeIds = new Set(vrsScores.map(s => s.narrative_id));
   const activeNarratives = narratives.filter(n => scoredNarrativeIds.has(n.id));
@@ -36,7 +36,7 @@ export default async function TrendsPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Trends</h1>
-        <p className="text-sm text-slate-400 mt-1">Historical velocity comparison for top narratives.</p>
+        <p className="text-sm text-muted-foreground mt-1">Historical velocity comparison for top narratives.</p>
       </div>
 
       <TrendsInteractive 

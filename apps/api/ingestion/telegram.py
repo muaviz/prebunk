@@ -1,4 +1,4 @@
-import os
+from config import settings
 import logging
 from ingestion.base import BaseIngestor
 
@@ -6,8 +6,8 @@ logger = logging.getLogger(__name__)
 
 class TelegramIngestor(BaseIngestor):
     def __init__(self):
-        self.api_id = os.getenv("TELEGRAM_API_ID")
-        self.api_hash = os.getenv("TELEGRAM_API_HASH")
+        self.api_id = settings.telegram_api_id
+        self.api_hash = settings.telegram_api_hash
         if not self.api_id or not self.api_hash:
             logger.warning("TELEGRAM_API_ID or HASH not found. Telegram ingestor will use mock data.")
             self.has_keys = False

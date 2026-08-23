@@ -1,5 +1,5 @@
 import math
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from db import supabase
 
 def compute_vrs_scores():
@@ -8,7 +8,7 @@ def compute_vrs_scores():
     Formula weights: Volume (40%) + Acceleration (30%) + Cross-Platform (30%)
     """
     # For simplicity in this demo, we'll fetch events from the last 7 days
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     seven_days_ago = (now - timedelta(days=7)).isoformat()
     
     # Get all active narratives
@@ -34,11 +34,8 @@ def compute_vrs_scores():
         recent_events = sum(1 for e in n_events if e["recorded_at"] >= one_day_ago)
         older_events = raw_volume - recent_events
         
-        # Avoid division by zero
-        if older_events == 0:
-            acceleration = float(recent_events)
-        else:
-            acceleration = recent_events / (older_events / 6.0)
+        # Smooth denominator to avoid mathematical discontinuity
+        acceleration = recent_events / ((older_events + 1) / 6.0)
             
         # Normalize scores (0-100 scale heuristics)
         norm_volume = min(100, raw_volume * 5) # 20 events = 100 volume score

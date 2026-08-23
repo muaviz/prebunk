@@ -12,12 +12,12 @@ interface TrendChartProps {
 
 export function TrendChart({ data, lines, showForecast }: TrendChartProps) {
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-lg text-slate-200">Velocity & Reach Score Trends</CardTitle>
+        <CardTitle className="text-lg text-foreground">Velocity & Reach Score Trends</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="h-[400px] w-full">
+        <div className="h-[400px] w-full" role="img" aria-label="Line chart displaying VRS score trends over time">
           <ResponsiveContainer width="100%" height="100%">
             <ComposedChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.5} vertical={false} />
@@ -29,8 +29,8 @@ export function TrendChart({ data, lines, showForecast }: TrendChartProps) {
               <ReferenceLine y={80} stroke="#f87171" strokeDasharray="3 3" opacity={0.5} label={{ position: 'insideTopLeft', value: 'Critical', fill: '#f87171', fontSize: 10 }} />
               
               <Tooltip 
-                contentStyle={{ backgroundColor: "#0f172a", borderColor: "#1e293b", color: "#f8fafc" }}
-                itemStyle={{ color: "#f8fafc" }}
+                contentStyle={{ backgroundColor: "#ffffff", borderColor: "#E5E5E0", color: "#1A1A1A" }}
+                itemStyle={{ color: "#1A1A1A" }}
                 formatter={(value: any, name: any) => {
                   const nameStr = String(name || '');
                   if (nameStr.endsWith('_range')) return null;

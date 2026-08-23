@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { fetchApi } from "@/lib/api";
 import { Narrative } from "@/types";
 import { createClient } from "@/lib/supabase/server";
@@ -8,7 +9,7 @@ export default async function SettingsPage() {
   const { data: { user } } = await supabase.auth.getUser();
   
   if (!user) {
-    return <div>Not authenticated</div>;
+    redirect("/login");
   }
 
     let subscriber = null;
@@ -29,7 +30,7 @@ export default async function SettingsPage() {
     <div className="space-y-8 max-w-3xl mx-auto">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Account Settings</h1>
-        <p className="text-sm text-slate-400 mt-1">
+        <p className="text-sm text-muted-foreground mt-1">
           Manage your email delivery preferences and focus areas.
         </p>
       </div>

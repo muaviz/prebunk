@@ -39,7 +39,7 @@ export default function RegisterPage() {
     // 2. Insert into subscribers table
     if (authData.user) {
       try {
-        await fetch(process.env.NEXT_PUBLIC_API_URL + "/subscribers/", {
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/subscribers/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -51,21 +51,27 @@ export default function RegisterPage() {
             status: "pending"
           })
         });
+        if (!res.ok) {
+          throw new Error("Failed to create subscriber record.");
+        }
       } catch (err) {
         console.error("Failed to insert subscriber via API", err);
+        setError("Failed to create your profile. Please try again or contact support.");
+        setLoading(false);
+        return; // Do not redirect
       }
     }
 
-    // Redirect to login (assuming email confirmation is disabled or they just need to log in)
+    // Redirect to login
     router.push("/login?message=Registration successful. Please log in.");
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4 bg-slate-950">
-      <Card className="w-full max-w-md bg-slate-900 border-slate-800">
+    <div className="flex min-h-screen items-center justify-center p-4 bg-background">
+      <Card className="w-full max-w-md bg-card border-border">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-slate-50">Create an Account</CardTitle>
-          <CardDescription className="text-slate-400">
+          <CardTitle className="text-2xl font-bold text-foreground">Create an Account</CardTitle>
+          <CardDescription className="text-muted-foreground">
             Register your organization for access to the Prebunk dashboard
           </CardDescription>
         </CardHeader>
@@ -77,54 +83,54 @@ export default function RegisterPage() {
               </div>
             )}
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-medium text-slate-200">Email</label>
+              <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
               <Input aria-invalid={!!error} aria-describedby={error ? "error-message" : undefined} 
                 id="email" type="email" placeholder="m@example.com" required 
                 value={email} onChange={(e) => setEmail(e.target.value)}
-                className="bg-slate-950 border-slate-800 text-slate-50"
+                className="bg-background border-border text-foreground"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="password" className="text-sm font-medium text-slate-200">Password</label>
+              <label htmlFor="password" className="text-sm font-medium text-foreground">Password</label>
               <Input aria-invalid={!!error} aria-describedby={error ? "error-message" : undefined} 
                 id="password" type="password" required 
                 value={password} onChange={(e) => setPassword(e.target.value)}
-                className="bg-slate-950 border-slate-800 text-slate-50"
+                className="bg-background border-border text-foreground"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="orgName" className="text-sm font-medium text-slate-200">Organization Name</label>
+              <label htmlFor="orgName" className="text-sm font-medium text-foreground">Organization Name</label>
               <Input aria-invalid={!!error} aria-describedby={error ? "error-message" : undefined} 
                 id="orgName" type="text" placeholder="Community Center" required 
                 value={orgName} onChange={(e) => setOrgName(e.target.value)}
-                className="bg-slate-950 border-slate-800 text-slate-50"
+                className="bg-background border-border text-foreground"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label htmlFor="orgType" className="text-sm font-medium text-slate-200">Org Type</label>
+                <label htmlFor="orgType" className="text-sm font-medium text-foreground">Org Type</label>
                 <Input aria-invalid={!!error} aria-describedby={error ? "error-message" : undefined} 
                   id="orgType" type="text" placeholder="e.g. Mosque" required 
                   value={orgType} onChange={(e) => setOrgType(e.target.value)}
-                  className="bg-slate-950 border-slate-800 text-slate-50"
+                  className="bg-background border-border text-foreground"
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="country" className="text-sm font-medium text-slate-200">Country</label>
+                <label htmlFor="country" className="text-sm font-medium text-foreground">Country</label>
                 <Input aria-invalid={!!error} aria-describedby={error ? "error-message" : undefined} 
                   id="country" type="text" placeholder="UK" required 
                   value={country} onChange={(e) => setCountry(e.target.value)}
-                  className="bg-slate-950 border-slate-800 text-slate-50"
+                  className="bg-background border-border text-foreground"
                 />
               </div>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full bg-sky-500 hover:bg-sky-600 text-white" disabled={loading}>
+            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={loading}>
               {loading ? "Registering..." : "Register"}
             </Button>
-            <div className="text-sm text-center text-slate-400">
-              Already have an account? <Link href="/login" className="text-sky-400 hover:underline">Log in</Link>
+            <div className="text-sm text-center text-muted-foreground">
+              Already have an account? <Link href="/login" className="text-primary hover:underline">Log in</Link>
             </div>
           </CardFooter>
         </form>

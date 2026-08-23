@@ -3,10 +3,10 @@ import { NavLink } from "./nav-link";
 
 export function Sidebar() {
   return (
-    <aside className="w-64 border-r border-slate-800 bg-slate-900/50 flex flex-col hidden md:flex">
+    <aside className="w-64 border-r border-border bg-card flex flex-col hidden md:flex">
       <div className="p-6 flex items-center gap-2">
-        <Shield className="h-6 w-6 text-sky-400" />
-        <span className="text-lg font-bold tracking-tight text-slate-50">PREBUNK</span>
+        <Shield className="h-6 w-6 text-primary" />
+        <span className="text-lg font-bold tracking-tight text-foreground">PREBUNK</span>
       </div>
       
       <nav className="flex-1 px-4 space-y-2 mt-4">

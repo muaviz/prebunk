@@ -58,14 +58,14 @@ export function SettingsForm({ subscriber, clusters }: { subscriber: any, cluste
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <Card className="bg-slate-900 border-slate-800">
+      <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="text-xl">Delivery Preferences</CardTitle>
-          <CardDescription className="text-slate-400">Configure how and when you receive inoculation briefs.</CardDescription>
+          <CardDescription className="text-muted-foreground">Configure how and when you receive inoculation briefs.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-200">Email Delivery Frequency</label>
+            <label className="text-sm font-medium text-foreground">Email Delivery Frequency</label>
             <div className="flex flex-col space-y-2">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input 
@@ -74,9 +74,9 @@ export function SettingsForm({ subscriber, clusters }: { subscriber: any, cluste
                   value="realtime" 
                   checked={prefs.email_delivery === "realtime"}
                   onChange={() => setPrefs({...prefs, email_delivery: "realtime"})}
-                  className="text-sky-500 bg-slate-950 border-slate-700"
+                  className="text-primary bg-background border-border"
                 />
-                <span className="text-slate-300">Real-time (when a monitored narrative spikes)</span>
+                <span className="text-muted-foreground">Real-time (when a monitored narrative spikes)</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input 
@@ -85,9 +85,9 @@ export function SettingsForm({ subscriber, clusters }: { subscriber: any, cluste
                   value="weekly" 
                   checked={prefs.email_delivery === "weekly"}
                   onChange={() => setPrefs({...prefs, email_delivery: "weekly"})}
-                  className="text-sky-500 bg-slate-950 border-slate-700"
+                  className="text-primary bg-background border-border"
                 />
-                <span className="text-slate-300">Weekly Digest (top threats of the week)</span>
+                <span className="text-muted-foreground">Weekly Digest (top threats of the week)</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input 
@@ -96,19 +96,19 @@ export function SettingsForm({ subscriber, clusters }: { subscriber: any, cluste
                   value="none" 
                   checked={prefs.email_delivery === "none"}
                   onChange={() => setPrefs({...prefs, email_delivery: "none"})}
-                  className="text-sky-500 bg-slate-950 border-slate-700"
+                  className="text-primary bg-background border-border"
                 />
-                <span className="text-slate-300">None (dashboard access only)</span>
+                <span className="text-muted-foreground">None (dashboard access only)</span>
               </label>
             </div>
           </div>
           
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-200">Language Preference</label>
+            <label className="text-sm font-medium text-foreground">Language Preference</label>
             <select
               value={prefs.language}
               onChange={e => setPrefs({...prefs, language: e.target.value})}
-              className="w-full max-w-xs bg-slate-950 border border-slate-800 rounded-md px-3 py-2 text-sm text-slate-200"
+              className="w-full max-w-xs bg-background border border-border rounded-md px-3 py-2 text-sm text-foreground"
             >
               <option value="en">English</option>
               <option value="ar">Arabic</option>
@@ -119,10 +119,10 @@ export function SettingsForm({ subscriber, clusters }: { subscriber: any, cluste
         </CardContent>
       </Card>
 
-      <Card className="bg-slate-900 border-slate-800">
+      <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="text-xl">Focus Clusters</CardTitle>
-          <CardDescription className="text-slate-400">Select which narrative clusters are most relevant to your community. We will prioritize these in your digests.</CardDescription>
+          <CardDescription className="text-muted-foreground">Select which narrative clusters are most relevant to your community. We will prioritize these in your digests.</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
@@ -133,8 +133,8 @@ export function SettingsForm({ subscriber, clusters }: { subscriber: any, cluste
                 onClick={() => toggleCluster(cluster)}
                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors border ${
                   prefs.focus_clusters.includes(cluster)
-                    ? 'bg-sky-500/20 text-sky-400 border-sky-500/30'
-                    : 'bg-slate-950 text-slate-400 border-slate-800 hover:bg-slate-800'
+                    ? 'bg-primary/20 text-primary border-sky-500/30'
+                    : 'bg-background text-muted-foreground border-border hover:bg-muted'
                 }`}
               >
                 {cluster}
@@ -148,7 +148,7 @@ export function SettingsForm({ subscriber, clusters }: { subscriber: any, cluste
         <Button 
           type="submit" 
           disabled={loading} 
-          className="bg-sky-500 hover:bg-sky-600 text-white"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground"
         >
           {loading ? <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Saving...</> : "Save Preferences"}
         </Button>

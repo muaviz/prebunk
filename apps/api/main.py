@@ -1,11 +1,16 @@
 from routers import alerts, digest, forecast
+from routers import clusters
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 
 from routers import narratives, vrs, briefs, subscribers, tips, ingest
 
-app = FastAPI(title="Prebunk API")
+app = FastAPI(
+    title="Prebunk API",
+    docs_url="/docs" if getattr(settings, "debug", True) else None,
+    redoc_url="/redoc" if getattr(settings, "debug", True) else None
+)
 
 origins = []
 if settings.cors_origins:
@@ -28,6 +33,7 @@ app.include_router(alerts.router)
 app.include_router(digest.router)
 app.include_router(forecast.router)
 app.include_router(ingest.router)
+app.include_router(clusters.router)
 
 @app.get("/health")
 async def health_check():

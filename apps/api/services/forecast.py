@@ -1,3 +1,4 @@
+import time
 import datetime
 import numpy as np
 import pandas as pd
@@ -6,9 +7,22 @@ import logging
 from db import supabase
 from models.forecast import ForecastPoint, ForecastResponse
 
+
 logger = logging.getLogger(__name__)
 
+_forecast_cache = {}
+CACHE_TTL = 3600
+
 def get_forecast(narrative_id: str, hours: int = 72) -> ForecastResponse:
+    cache_key = f"{narrative_id}_{hours}"
+    now = time.time()
+    
+    if cache_key in _forecast_cache:
+        cached_result, timestamp = _forecast_cache[cache_key]
+        if now - timestamp < CACHE_TTL:
+            logger.info(f"Returning cached forecast for {narrative_id}")
+            return cached_result
+
     # Get narrative info
     narrative_res = supabase.table("narratives").select("name").eq("id", narrative_id).execute()
     if not narrative_res.data:
@@ -21,7 +35,7 @@ def get_forecast(narrative_id: str, hours: int = 72) -> ForecastResponse:
     
     if not data:
         # No history, return empty forecast
-        now = datetime.datetime.utcnow()
+        now = datetime.datetime.now(datetime.timezone.utc)
         return ForecastResponse(
             narrative_id=narrative_id,
             narrative_name=narrative_name,
@@ -84,6 +98,7 @@ def get_forecast(narrative_id: str, hours: int = 72) -> ForecastResponse:
             # Not enough to do linear fit, just flatline
             slope = 0
             intercept = current_vrs
+            start_time = df["ds"].max()
         else:
             # Convert time to hours since start for regression
             start_time = recent_df["ds"].min()
@@ -127,7 +142,7 @@ def get_forecast(narrative_id: str, hours: int = 72) -> ForecastResponse:
         predicted_peak_time = peak_point.timestamp
     else:
         predicted_peak = current_vrs
-        predicted_peak_time = datetime.datetime.utcnow()
+        predicted_peak_time = datetime.datetime.now(datetime.timezone.utc)
         
     # Breakout risk
     if predicted_peak > 60:
@@ -137,7 +152,7 @@ def get_forecast(narrative_id: str, hours: int = 72) -> ForecastResponse:
     else:
         breakout_risk = "low"
         
-    return ForecastResponse(
+    result = ForecastResponse(
         narrative_id=narrative_id,
         narrative_name=narrative_name,
         current_vrs=current_vrs,
@@ -147,3 +162,5 @@ def get_forecast(narrative_id: str, hours: int = 72) -> ForecastResponse:
         predicted_peak_time=predicted_peak_time,
         breakout_risk=breakout_risk
     )
+    _forecast_cache[cache_key] = (result, now)
+    return result
