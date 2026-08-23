@@ -6,7 +6,7 @@ import { LiquidParticles } from "@/components/landing/liquid-particles";
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden pt-28 pb-24 md:pt-36 md:pb-28">
+    <section className="relative isolate min-h-[calc(100svh-1rem)] overflow-hidden pt-28 pb-24 md:pt-36 md:pb-28">
       <LiquidParticles />
       <div className="absolute inset-0 z-0 bg-grid-pattern opacity-[0.025]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 bg-gradient-to-b from-transparent via-background/70 to-muted/50" />
