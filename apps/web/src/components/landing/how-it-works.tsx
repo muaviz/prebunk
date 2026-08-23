@@ -1,4 +1,4 @@
-import { Search, TrendingUp, ShieldCheck, ArrowRight } from "lucide-react";
+import { Search, TrendingUp, ShieldCheck } from "lucide-react";
 
 export function HowItWorks() {
   return (
@@ -10,7 +10,7 @@ export function HowItWorks() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative">
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-muted -translate-y-1/2 -z-10"></div>
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2 -z-10"></div>
           
           {[
             { 
@@ -26,11 +26,11 @@ export function HowItWorks() {
             { 
               icon: ShieldCheck, 
               title: "3. Inoculate", 
-              desc: "Prebunk automatically generates and distributes educational briefs to community leaders before the narrative peaks." 
+              desc: "Prebunk automatically generates educational briefs, giving you fact-based responses to deploy immediately." 
             }
           ].map((step, i) => (
             <div key={i} className="flex flex-col items-center text-center bg-background p-6 rounded-md border border-border w-full md:w-1/3">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 z-10 relative">
                 <step.icon className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>

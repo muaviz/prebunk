@@ -1,10 +1,13 @@
 import { fetchApi } from "@/lib/api";
-import { Narrative } from "@/types";
+import { Narrative, Brief } from "@/types";
 import Link from "next/link";
-import { Shield, ArrowLeft, ExternalLink, Zap } from "lucide-react";
+import { ArrowLeft, ExternalLink, BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { notFound } from "next/navigation";
+import { SiteHeader } from "@/components/home/site-header";
+import { SiteFooter } from "@/components/home/site-footer";
 
 export const revalidate = 3600;
 
@@ -22,30 +25,41 @@ export async function generateStaticParams() {
 
 export default async function NarrativeDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
-  const narrative = await fetchApi<Narrative>(`/narratives/${resolvedParams.id}`);
+  
+  let narrative: Narrative | null = null;
+  try {
+    narrative = await fetchApi<Narrative>(`/narratives/${resolvedParams.id}`);
+  } catch (error) {
+    notFound();
+  }
+  
+  if (!narrative) {
+    notFound();
+  }
+
+  
+  // Find if there's a brief for this narrative
+  const allBriefs = await fetchApi<Brief[]>("/briefs/").catch(() => []);
+  const recentBrief = allBriefs.find(b => b.narrative_id === narrative.id && b.validation_outcome === "passed");
 
   return (
-    <div className="min-h-screen bg-background text-foreground pb-20">
-      <header className="border-b border-slate-900 bg-background">
-        <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/taxonomy" className="flex items-center text-sm text-muted-foreground hover:text-primary-foreground transition-colors">
-            <ArrowLeft className="h-4 w-4 mr-2" /> Back to Taxonomy
-          </Link>
-          <div className="flex items-center gap-2">
-            <Shield className="h-5 w-5 text-primary" />
-            <span className="font-bold tracking-tight">PREBUNK</span>
-          </div>
-        </div>
-      </header>
+    <div className="flex flex-col min-h-screen bg-background text-foreground pb-20">
+      <SiteHeader />
       
-      <main className="max-w-4xl mx-auto px-6 py-12">
+      <main className="flex-1 max-w-4xl mx-auto px-6 py-12 w-full">
+        <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8">
+          <Link href="/taxonomy" className="hover:text-foreground flex items-center gap-1 transition-colors">
+            <ArrowLeft className="h-4 w-4" /> Back to Taxonomy
+          </Link>
+        </div>
+
         <div className="flex flex-col md:flex-row gap-8 justify-between items-start mb-8">
           <div>
             <div className="flex gap-2 mb-4 flex-wrap">
               <Badge variant="outline" className="bg-card border-border text-muted-foreground">
                 {narrative.cluster_id}
               </Badge>
-              <Badge variant="outline" className="bg-primary/10 border-sky-500/20 text-primary capitalize">
+              <Badge variant="outline" className="bg-primary/10 border-primary/20 text-primary capitalize">
                 {narrative.technique_id.replace("_", " ")}
               </Badge>
             </div>
@@ -55,18 +69,19 @@ export default async function NarrativeDetailPage({ params }: { params: Promise<
             </p>
           </div>
           
-          <div className="shrink-0 flex flex-col gap-3 w-full md:w-auto">
-            <Link 
-              href={`/dashboard/generate?narrative=${narrative.id}`}
-              className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-sky-500/20 w-full")}
-            >
-              <Zap className="h-4 w-4 mr-2" /> Generate Brief
-            </Link>
-            <p className="text-xs text-muted-foreground text-center">Requires dashboard access</p>
-          </div>
+          {recentBrief && (
+            <div className="shrink-0 flex flex-col gap-3 w-full md:w-auto">
+              <Link 
+                href={`/briefs/${recentBrief.id}`}
+                className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground w-full")}
+              >
+                <BookOpen className="h-4 w-4 mr-2" /> Read the Prebunk
+              </Link>
+            </div>
+          )}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 border-t border-slate-900 pt-12">
+        <div className="grid md:grid-cols-2 gap-8 border-t border-border pt-12">
           <div className="space-y-8">
             <section>
               <h2 className="text-xl font-semibold mb-4 text-foreground">Historical Origin</h2>
@@ -88,10 +103,10 @@ export default async function NarrativeDetailPage({ params }: { params: Promise<
               <h2 className="text-xl font-semibold mb-4 text-foreground">Factual Refutations</h2>
               <div className="space-y-3">
                 {narrative.factual_refutations ? narrative.factual_refutations.map((ref, idx) => (
-                  <div key={idx} className="bg-emerald-950/20 rounded-lg p-4 border border-emerald-900/30">
-                    <p className="font-medium text-emerald-100 mb-1">Claim: {ref.claim}</p>
-                    <p className="text-emerald-200/80 text-sm mb-2">{ref.refutation}</p>
-                    <p className="text-emerald-500/80 text-xs italic">Source: {ref.source}</p>
+                  <div key={idx} className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                    <p className="font-medium text-emerald-900 mb-1">Claim: {ref.claim}</p>
+                    <p className="text-emerald-700 text-sm mb-2">{ref.refutation}</p>
+                    <p className="text-emerald-600 text-xs italic">Source: {ref.source}</p>
                   </div>
                 )) : (
                   <p className="text-muted-foreground text-sm">No refutations documented.</p>
@@ -101,7 +116,7 @@ export default async function NarrativeDetailPage({ params }: { params: Promise<
 
             <section>
               <h2 className="text-xl font-semibold mb-4 text-foreground">Inoculation Hook</h2>
-              <div className="bg-sky-950/20 rounded-xl p-6 border border-sky-900/50 text-sky-200 leading-relaxed text-sm italic border-l-4 border-l-sky-500">
+              <div className="bg-sky-50 rounded-xl p-6 border border-sky-200 text-sky-900 leading-relaxed text-sm italic border-l-4 border-l-primary">
                 "{narrative.inoculation_hook || "No inoculation hook documented."}"
               </div>
             </section>
@@ -132,7 +147,7 @@ export default async function NarrativeDetailPage({ params }: { params: Promise<
               <h2 className="text-xl font-semibold mb-4 text-foreground">Variants & Keywords</h2>
               <div className="flex flex-wrap gap-2">
                 {narrative.variants ? narrative.variants.map((v, idx) => (
-                  <Badge key={idx} variant="secondary" className="bg-muted hover:bg-slate-700 text-muted-foreground font-normal">
+                  <Badge key={idx} variant="secondary" className="bg-muted hover:bg-muted text-muted-foreground font-normal border border-border">
                     {v}
                   </Badge>
                 )) : (
@@ -143,6 +158,8 @@ export default async function NarrativeDetailPage({ params }: { params: Promise<
           </div>
         </div>
       </main>
+      
+      <SiteFooter />
     </div>
   );
 }

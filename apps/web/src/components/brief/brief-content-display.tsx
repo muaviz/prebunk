@@ -19,7 +19,7 @@ export function BriefContentDisplay({ brief }: { brief: Brief }) {
             <CardTitle className="text-lg">The Technique</CardTitle>
           </CardHeader>
           <CardContent className="pt-4">
-            <div className="prose prose-invert prose-sm max-w-none text-muted-foreground whitespace-pre-wrap">
+            <div className="prose prose-sm max-w-none text-muted-foreground whitespace-pre-wrap">
               {brief.content.technique_explanation}
             </div>
           </CardContent>
@@ -30,7 +30,7 @@ export function BriefContentDisplay({ brief }: { brief: Brief }) {
             <CardTitle className="text-lg">What This Narrative Claims</CardTitle>
           </CardHeader>
           <CardContent className="pt-4">
-            <div className="prose prose-invert prose-sm max-w-none text-muted-foreground whitespace-pre-wrap">
+            <div className="prose prose-sm max-w-none text-muted-foreground whitespace-pre-wrap">
               {brief.content.narrative_context}
             </div>
           </CardContent>
@@ -50,12 +50,12 @@ export function BriefContentDisplay({ brief }: { brief: Brief }) {
         </CardContent>
       </Card>
 
-      <Card className="bg-sky-950/20 border-sky-900/50">
-        <CardHeader className="border-b border-sky-900/30 bg-sky-950/40 pb-4">
+      <Card className="bg-primary/5 border-primary/20">
+        <CardHeader className="border-b border-primary/10 bg-primary/10 pb-4">
           <CardTitle className="text-lg text-primary">What to Say</CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
-          <blockquote className="border-l-4 border-sky-500 pl-4 italic text-muted-foreground text-lg">
+          <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground text-lg">
             "{brief.content.personal_script}"
           </blockquote>
         </CardContent>

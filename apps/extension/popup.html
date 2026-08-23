@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+  <title>Prebunk</title>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="icons/icon16.png" alt="Prebunk" />
+      <span>PREBUNK</span>
+    </div>
+    <a href="#" id="settings-link" title="Settings">&#9881;</a>
+  </div>
+
+  <div id="settings-view" class="hidden container">
+    <h3>Settings</h3>
+    <label for="api-url">API Base URL</label>
+    <input type="text" id="api-url" placeholder="http://127.0.0.1:8000" />
+    <button id="save-settings" class="btn primary">Save</button>
+    <button id="close-settings" class="btn secondary">Back</button>
+  </div>
+
+  <div id="main-view" class="container">
+    <div id="state-idle" class="state-view">
+      <div class="icon-container info-icon">i</div>
+      <h3>Spot the Lie</h3>
+      <p>Select any suspicious text on a webpage, right-click, and choose <strong>"Prebunk this text"</strong> to analyze it against our taxonomy.</p>
+    </div>
+
+    <div id="state-loading" class="state-view hidden">
+      <div class="spinner"></div>
+      <h3>Analyzing text...</h3>
+      <p class="small text-muted">Checking against the anti-Muslim narrative taxonomy</p>
+    </div>
+
+    <div id="state-error" class="state-view hidden">
+      <div class="icon-container error-icon">!</div>
+      <h3>Analysis Failed</h3>
+      <p id="error-message">Could not connect to the API.</p>
+    </div>
+
+    <div id="state-nomatch" class="state-view hidden">
+      <div class="icon-container success-icon">&#10003;</div>
+      <h3>No Tropes Detected</h3>
+      <p>We didn't find any known anti-Muslim narratives in this text.</p>
+      <p class="small text-muted note">Note: This doesn't mean the content is harmless — only that it doesn't match our current tracking taxonomy.</p>
+    </div>
+
+    <div id="state-match" class="state-view hidden text-left">
+      <div class="warning-banner">
+        <span class="warning-icon">&#9888;</span>
+        <strong>Known Trope Detected</strong>
+      </div>
+      
+      <div class="match-header">
+        <h3 id="match-name">Narrative Name</h3>
+        <span id="match-score" class="badge">--%</span>
+      </div>
+      
+      <div id="personal-script-container" class="card">
+        <h4>What to Say</h4>
+        <p id="match-script" class="script-text">Script goes here.</p>
+        <button id="copy-btn" class="btn primary full-width">Copy Response</button>
+      </div>
+      
+      <div class="card">
+        <h4>Factual Talking Points</h4>
+        <ul id="match-points" class="points-list">
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#" id="learn-more-link" target="_blank">Learn more about this narrative &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

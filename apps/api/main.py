@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 
-from routers import narratives, vrs, briefs, subscribers, tips, ingest
+from routers import narratives, vrs, briefs, subscribers, ingest, newsletter, extension
 
 app = FastAPI(
     title="Prebunk API",
@@ -19,6 +19,7 @@ if settings.cors_origins:
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    allow_origin_regex=r"chrome-extension://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,7 +29,8 @@ app.include_router(narratives.router)
 app.include_router(vrs.router)
 app.include_router(briefs.router)
 app.include_router(subscribers.router)
-app.include_router(tips.router)
+app.include_router(newsletter.router)
+app.include_router(extension.router)
 app.include_router(alerts.router)
 app.include_router(digest.router)
 app.include_router(forecast.router)
