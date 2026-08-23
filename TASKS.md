@@ -137,48 +137,48 @@
 
 ## Phase 6: Frontend Foundation
 
-- [ ] Update `apps/web/src/app/globals.css` — dark theme CSS variables overriding shadcn defaults
-- [ ] Update `apps/web/src/app/layout.tsx` — Inter font, dark bg, metadata
-- [ ] Write `apps/web/src/lib/api.ts` — typed fetch wrapper for FastAPI backend
-- [ ] Write `apps/web/src/lib/utils.ts` — utility functions (cn, formatDate, etc.)
-- [ ] Write `apps/web/src/types/index.ts` — TypeScript interfaces matching all Pydantic models
-- [ ] Write `apps/web/src/lib/supabase/middleware.ts` — session refresh logic
-- [ ] Write `apps/web/src/middleware.ts` — protect `/dashboard/*` routes, redirect to `/login`
-- [ ] Write `apps/web/src/app/auth/callback/route.ts` — Supabase auth callback
-- [ ] Write `apps/web/src/app/login/page.tsx` — login form (email + password)
-- [ ] Write `apps/web/src/app/register/page.tsx` — registration form (email, password, org name, org type, country)
-- [ ] Write `apps/web/src/components/layout/sidebar.tsx` — dashboard sidebar (Radar, Trends, Briefs, Alerts, Tips, Generate, Settings links)
-- [ ] Write `apps/web/src/components/layout/header.tsx` — top bar (page title, user menu, logout)
-- [ ] Write `apps/web/src/components/layout/nav-link.tsx` — sidebar link component with active state
-- [ ] Write `apps/web/src/app/dashboard/layout.tsx` — sidebar + main content area layout
-- [ ] Write `apps/web/src/app/dashboard/page.tsx` — placeholder radar view
-- [ ] Disable email confirmation in Supabase Auth settings (for hackathon speed)
-- [ ] **Verify:** Login/register flow works end-to-end
-- [ ] **Verify:** `/dashboard` is protected (redirects to `/login` when logged out)
-- [ ] **Verify:** Dashboard layout shows sidebar with all navigation links
-- [ ] **Verify:** Visual: dark slate-950 background, no purple gradients, no default template look
+- [x] Update `apps/web/src/app/globals.css` — dark theme CSS variables overriding shadcn defaults
+- [x] Update `apps/web/src/app/layout.tsx` — Inter font, dark bg, metadata
+- [x] Write `apps/web/src/lib/api.ts` — typed fetch wrapper for FastAPI backend
+- [x] Write `apps/web/src/lib/utils.ts` — utility functions (cn, formatDate, etc.)
+- [x] Write `apps/web/src/types/index.ts` — TypeScript interfaces matching all Pydantic models
+- [x] Write `apps/web/src/lib/supabase/middleware.ts` — session refresh logic
+- [x] Write `apps/web/src/middleware.ts` — protect `/dashboard/*` routes, redirect to `/login`
+- [x] Write `apps/web/src/app/auth/callback/route.ts` — Supabase auth callback
+- [x] Write `apps/web/src/app/login/page.tsx` — login form (email + password)
+- [x] Write `apps/web/src/app/register/page.tsx` — registration form (email, password, org name, org type, country)
+- [x] Write `apps/web/src/components/layout/sidebar.tsx` — dashboard sidebar (Radar, Trends, Briefs, Alerts, Tips, Generate, Settings links)
+- [x] Write `apps/web/src/components/layout/header.tsx` — top bar (page title, user menu, logout)
+- [x] Write `apps/web/src/components/layout/nav-link.tsx` — sidebar link component with active state
+- [x] Write `apps/web/src/app/dashboard/layout.tsx` — sidebar + main content area layout
+- [x] Write `apps/web/src/app/dashboard/page.tsx` — placeholder radar view
+- [x] Disable email confirmation in Supabase Auth settings (for hackathon speed)
+- [x] **Verify:** Login/register flow works end-to-end
+- [x] **Verify:** `/dashboard` is protected (redirects to `/login` when logged out)
+- [x] **Verify:** Dashboard layout shows sidebar with all navigation links
+- [x] **Verify:** Visual: dark slate-950 background, no purple gradients, no default template look
 
 ---
 
 ## Phase 7: Dashboard Views
 
-- [ ] Write `apps/web/src/components/dashboard/vrs-badge.tsx` — color-coded VRS score badge (green/amber/orange/red)
-- [ ] Write `apps/web/src/components/dashboard/stat-widget.tsx` — key metric display component
-- [ ] Write `apps/web/src/components/dashboard/narrative-card.tsx` — narrative summary card with VRS badge
-- [ ] Write `apps/web/src/components/dashboard/radar-chart.tsx` — Recharts ScatterChart (bubble chart: cluster × VRS, color by level, size by volume)
-- [ ] Update `apps/web/src/app/dashboard/page.tsx` — Radar view: fetch VRS data, render bubble chart + narrative cards + stat widgets
-- [ ] Write `apps/web/src/components/dashboard/trend-chart.tsx` — Recharts LineChart with threshold lines at 30/60/80
-- [ ] Write `apps/web/src/app/dashboard/trends/page.tsx` — Trends view: narrative selector, date range, time-series chart
-- [ ] Write `apps/web/src/components/dashboard/brief-card.tsx` — brief summary card (title, trigger type, VRS, date)
-- [ ] Write `apps/web/src/app/dashboard/briefs/page.tsx` — Brief archive: list with filters (trigger type, cluster, date)
-- [ ] Write `apps/web/src/app/dashboard/briefs/[id]/page.tsx` — Brief detail: full content rendered in sections
-- [ ] Write `apps/web/src/components/dashboard/alert-card.tsx` — alert summary card
-- [ ] Write `apps/api/routers/alerts.py` — `GET /alerts` endpoint
-- [ ] Write `apps/web/src/app/dashboard/alerts/page.tsx` — Alert log: chronological list of orange/red alerts
-- [ ] **Verify:** Radar view shows bubble chart with real VRS data, correct colors
-- [ ] **Verify:** Trends view shows time-series chart for selected narratives
-- [ ] **Verify:** Brief archive lists briefs, clicking one shows full detail
-- [ ] **Verify:** Charts use dark styling (dark backgrounds, subtle grid lines)
+- [x] Write `apps/web/src/components/dashboard/vrs-badge.tsx` — color-coded VRS score badge (green/amber/orange/red)
+- [x] Write `apps/web/src/components/dashboard/stat-widget.tsx` — key metric display component
+- [x] Write `apps/web/src/components/dashboard/narrative-card.tsx` — narrative summary card with VRS badge
+- [x] Write `apps/web/src/components/dashboard/radar-chart.tsx` — Recharts ScatterChart (bubble chart: cluster × VRS, color by level, size by volume)
+- [x] Update `apps/web/src/app/dashboard/page.tsx` — Radar view: fetch VRS data, render bubble chart + narrative cards + stat widgets
+- [x] Write `apps/web/src/components/dashboard/trend-chart.tsx` — Recharts LineChart with threshold lines at 30/60/80
+- [x] Write `apps/web/src/app/dashboard/trends/page.tsx` — Trends view: narrative selector, date range, time-series chart
+- [x] Write `apps/web/src/components/dashboard/brief-card.tsx` — brief summary card (title, trigger type, VRS, date)
+- [x] Write `apps/web/src/app/dashboard/briefs/page.tsx` — Brief archive: list with filters (trigger type, cluster, date)
+- [x] Write `apps/web/src/app/dashboard/briefs/[id]/page.tsx` — Brief detail: full content rendered in sections
+- [x] Write `apps/web/src/components/dashboard/alert-card.tsx` — alert summary card
+- [x] Write `apps/api/routers/alerts.py` — `GET /alerts` endpoint
+- [x] Write `apps/web/src/app/dashboard/alerts/page.tsx` — Alert log: chronological list of orange/red alerts
+- [x] **Verify:** Radar view shows bubble chart with real VRS data, correct colors
+- [x] **Verify:** Trends view shows time-series chart for selected narratives
+- [x] **Verify:** Brief archive lists briefs, clicking one shows full detail
+- [x] **Verify:** Charts use dark styling (dark backgrounds, subtle grid lines)
 
 ---
 

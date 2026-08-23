@@ -8,6 +8,9 @@ class Settings(BaseSettings):
     
     gemini_api_key: str = ""
     gemini_model: str = "gemini-2.5-flash"
+    reddit_client_id: str | None = None
+    reddit_client_secret: str | None = None
+    reddit_user_agent: str | None = None
     
     resend_api_key: str = ""
     resend_from_email: str = "onboarding@resend.dev"

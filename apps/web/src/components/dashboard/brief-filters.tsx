@@ -1,0 +1,45 @@
+"use client";
+
+import { useState } from "react";
+import { BriefCard } from "./brief-card";
+import { Brief } from "@/types";
+
+export function BriefArchiveInteractive({ briefs }: { briefs: Brief[] }) {
+  const [filterType, setFilterType] = useState<string>("all");
+  
+  const filteredBriefs = briefs.filter(brief => {
+    if (filterType === "all") return true;
+    return brief.trigger_type === filterType;
+  });
+
+  return (
+    <div className="space-y-6">
+      <div className="flex gap-2 mb-6">
+        {["all", "on_demand", "scheduled", "alert"].map(type => (
+          <button
+            key={type}
+            onClick={() => setFilterType(type)}
+            className={`px-3 py-1 text-sm rounded-md transition-colors capitalize ${
+              filterType === type 
+                ? "bg-sky-500/20 text-sky-400 border border-sky-500/30" 
+                : "bg-slate-900 border border-slate-800 text-slate-400 hover:bg-slate-800"
+            }`}
+          >
+            {type.replace("_", " ")}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {filteredBriefs.map(brief => (
+          <BriefCard key={brief.id} brief={brief} />
+        ))}
+        {filteredBriefs.length === 0 && (
+          <div className="col-span-3 text-center p-12 bg-slate-900 border border-slate-800 rounded-md text-slate-500">
+            No briefs match the selected filters.
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

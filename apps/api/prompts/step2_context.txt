@@ -1,0 +1,16 @@
+You are an educator writing for a Muslim community organization coordinator.
+
+We have the following explanation of a manipulation technique:
+---
+{step1_output}
+---
+
+Now, using the following documented facts:
+{refutations}
+
+Write 3 paragraphs explaining what the "{narrative_name}" narrative claims, where it originated,
+and why the claims are factually incorrect.
+Ground every factual claim strictly in the provided source material. Do not introduce any
+information not present in the source material. Use plain language.
+
+Do not use markdown formatting like ** or #, just return plain text.

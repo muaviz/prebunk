@@ -1,54 +1,61 @@
 import time
-import json
-import numpy as np
 from db import supabase
+from pydantic import BaseModel
 from services.embeddings import embed_text
-from models.narrative import NarrativeMatch
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
-# Cache embeddings in memory to avoid fetching from DB on every match
+class NarrativeMatch(BaseModel):
+    narrative_id: str
+    narrative_name: str
+    similarity_score: float
+
 _narratives_cache = []
 _last_cache_update = 0
+_cache_initialized = False
 CACHE_TTL = 3600  # 1 hour
 
-def _refresh_cache_if_needed():
-    global _narratives_cache, _last_cache_update
+def get_narratives_cache():
+    global _narratives_cache, _last_cache_update, _cache_initialized
     now = time.time()
-    if now - _last_cache_update > CACHE_TTL or not _narratives_cache:
+    
+    if now - _last_cache_update > CACHE_TTL or not _cache_initialized:
         res = supabase.table("narratives").select("id, name, embedding").execute()
-        if res.data:
-            # Only keep narratives that have an embedding
+        if res.data is not None:
             _narratives_cache = [n for n in res.data if n.get("embedding")]
             _last_cache_update = now
-
-def cosine_similarity(a: list[float], b: list[float]) -> float:
-    a_vec = np.array(a)
-    b_vec = np.array(b)
-    if np.linalg.norm(a_vec) == 0 or np.linalg.norm(b_vec) == 0:
-        return 0.0
-    return float(np.dot(a_vec, b_vec) / (np.linalg.norm(a_vec) * np.linalg.norm(b_vec)))
+            _cache_initialized = True
+            
+    return _narratives_cache
 
 def match_text(text: str, threshold: float = 0.45) -> list[NarrativeMatch]:
-    _refresh_cache_if_needed()
-    if not _narratives_cache:
+    cache = get_narratives_cache()
+    if not cache:
         return []
-
-    input_embedding = embed_text(text)
+        
+    query_embedding = embed_text(text)
+    if not query_embedding:
+        return []
+        
+    # Prepare matrix
+    narrative_ids = [n["id"] for n in cache]
+    narrative_names = [n["name"] for n in cache]
+    import json
+    embeddings_matrix = np.array([json.loads(n["embedding"]) if isinstance(n["embedding"], str) else n["embedding"] for n in cache])
+    
+    # Compute cosine similarity
+    query_vec = np.array([query_embedding])
+    similarities = cosine_similarity(query_vec, embeddings_matrix)[0]
     
     matches = []
-    for narrative in _narratives_cache:
-        emb = narrative["embedding"]
-        if isinstance(emb, str):
-            # Parse string representation of vector if returned as such
-            emb = json.loads(emb)
-            
-        score = cosine_similarity(input_embedding, emb)
+    for i, score in enumerate(similarities):
         if score >= threshold:
             matches.append(NarrativeMatch(
-                narrative_id=narrative["id"],
-                narrative_name=narrative["name"],
-                similarity_score=score
+                narrative_id=narrative_ids[i],
+                narrative_name=narrative_names[i],
+                similarity_score=float(score)
             ))
-
-    # Sort matches by similarity score descending
+            
+    # Sort by score descending
     matches.sort(key=lambda x: x.similarity_score, reverse=True)
     return matches

@@ -1,0 +1,16 @@
+You are a content validator. Review the following inoculation brief against 5 strict criteria:
+1. Accuracy: Does it strictly use the provided facts?
+2. Tone: Is it calm and non-inflammatory?
+3. Actionability: Are the talking points useful?
+4. Accessibility: Is it written for a general audience?
+5. Technique Focus: Does it focus on the manipulation technique rather than attacking people?
+
+Output ONLY valid JSON. 
+Ensure the "passed" field is a boolean (true or false, without quotes).
+{{
+  "passed": true,
+  "reason": "explanation"
+}}
+
+Brief content to validate:
+{brief_json}

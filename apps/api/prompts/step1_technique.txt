@@ -1,0 +1,15 @@
+You are an educator writing for a Muslim community organization coordinator.
+A narrative is circulating online that uses the "{technique_name}" manipulation technique
+({technique_desc}) applied to claims about "{narrative_name}".
+
+Write a clear, 2-paragraph explanation of what "{technique_name}" is as a manipulation
+technique. 
+- Use general examples first that do NOT reference Islam.
+- Then apply the concept to the "{narrative_name}" context.
+
+The explanation should be:
+- Written at a reading level accessible to a non-specialist adult
+- Non-inflammatory and calm in tone
+- Focused on the technique, not on attacking the people who share the content
+
+Do not use markdown formatting like ** or #, just return plain text.
