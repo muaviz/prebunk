@@ -1,0 +1,42 @@
+[
+  {
+    "id": "TEC-01",
+    "name": "Collective attribution",
+    "description": "Attributing individual actions to an entire group"
+  },
+  {
+    "id": "TEC-02",
+    "name": "False equivalence",
+    "description": "Treating unequal things as equivalent"
+  },
+  {
+    "id": "TEC-03",
+    "name": "Manufactured consensus",
+    "description": "Creating the false impression of widespread agreement"
+  },
+  {
+    "id": "TEC-04",
+    "name": "Essentialization",
+    "description": "Treating a diverse group as culturally monolithic"
+  },
+  {
+    "id": "TEC-05",
+    "name": "Conspiratorial intent",
+    "description": "Attributing hidden malicious intent to ordinary behavior"
+  },
+  {
+    "id": "TEC-06",
+    "name": "Statistical manipulation",
+    "description": "Misrepresenting or fabricating data"
+  },
+  {
+    "id": "TEC-07",
+    "name": "Motive inversion",
+    "description": "Claiming that those fighting discrimination are the real aggressors"
+  },
+  {
+    "id": "TEC-08",
+    "name": "Slippery slope",
+    "description": "Claiming that a current situation inevitably leads to an extreme outcome"
+  }
+]

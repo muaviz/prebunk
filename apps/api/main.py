@@ -2,9 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 
+from routers import narratives, vrs, briefs, subscribers, tips
+
 app = FastAPI(title="Prebunk API")
 
-# Configure CORS
 origins = []
 if settings.cors_origins:
     origins = [origin.strip() for origin in settings.cors_origins.split(",") if origin.strip()]
@@ -16,6 +17,12 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(narratives.router)
+app.include_router(vrs.router)
+app.include_router(briefs.router)
+app.include_router(subscribers.router)
+app.include_router(tips.router)
 
 @app.get("/health")
 async def health_check():

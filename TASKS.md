@@ -44,44 +44,44 @@
 
 ## Phase 1: Database Schema & Taxonomy Seed
 
-- [ ] Write migration `00001_enable_extensions.sql` — enable pgvector and uuid-ossp
-- [ ] Write migration `00002_create_clusters.sql`
-- [ ] Write migration `00003_create_techniques.sql`
-- [ ] Write migration `00004_create_narratives.sql` (with VECTOR(768) embedding column)
-- [ ] Write migration `00005_create_narrative_events.sql` (with indexes on narrative_id, recorded_at)
-- [ ] Write migration `00006_create_vrs_scores.sql` (with indexes)
-- [ ] Write migration `00007_create_briefs.sql` (with indexes)
-- [ ] Write migration `00008_create_subscribers.sql`
-- [ ] Write migration `00009_create_community_tips.sql`
-- [ ] Write migration `00010_create_alerts.sql`
-- [ ] Write migration `00011_create_rls_policies.sql` — public read for taxonomy, auth read for briefs/vrs/alerts, own-record for subscribers/tips
-- [ ] Apply all migrations to Supabase (`supabase db push` or via MCP)
-- [ ] Generate `data/taxonomy/clusters.json` — 7 clusters from report §9.2
-- [ ] Generate `data/taxonomy/techniques.json` — 8 techniques from report §9.3
-- [ ] Generate `data/taxonomy/narratives.json` — ~20 narrative entries across all clusters
-- [ ] Write `apps/api/scripts/seed_taxonomy.py` — reads JSON files, inserts into Supabase
-- [ ] Run seed script to populate database
-- [ ] **Verify:** Supabase Table Editor shows all 10 tables
-- [ ] **Verify:** `clusters` has 7 rows, `techniques` has 8 rows, `narratives` has ~20 rows
+- [x] Write migration `00001_enable_extensions.sql` — enable pgvector and uuid-ossp
+- [x] Write migration `00002_create_clusters.sql`
+- [x] Write migration `00003_create_techniques.sql`
+- [x] Write migration `00004_create_narratives.sql` (with VECTOR(768) embedding column)
+- [x] Write migration `00005_create_narrative_events.sql` (with indexes on narrative_id, recorded_at)
+- [x] Write migration `00006_create_vrs_scores.sql` (with indexes)
+- [x] Write migration `00007_create_briefs.sql` (with indexes)
+- [x] Write migration `00008_create_subscribers.sql`
+- [x] Write migration `00009_create_community_tips.sql`
+- [x] Write migration `00010_create_alerts.sql`
+- [x] Write migration `00011_create_rls_policies.sql` — public read for taxonomy, auth read for briefs/vrs/alerts, own-record for subscribers/tips
+- [x] Apply all migrations to Supabase (`supabase db push` or via MCP)
+- [x] Generate `data/taxonomy/clusters.json` — 7 clusters from report §9.2
+- [x] Generate `data/taxonomy/techniques.json` — 8 techniques from report §9.3
+- [x] Generate `data/taxonomy/narratives.json` — ~20 narrative entries across all clusters
+- [x] Write `apps/api/scripts/seed_taxonomy.py` — reads JSON files, inserts into Supabase
+- [x] Run seed script to populate database
+- [x] **Verify:** Supabase Table Editor shows all 10 tables
+- [x] **Verify:** `clusters` has 7 rows, `techniques` has 8 rows, `narratives` has ~20 rows
 
 ---
 
 ## Phase 2: Backend API Foundation
 
-- [ ] Write `apps/api/models/narrative.py` — Pydantic models (Narrative, FactualRefutation, NarrativeResponse)
-- [ ] Write `apps/api/models/vrs.py` — Pydantic models (VRSScore, VRSHistory)
-- [ ] Write `apps/api/models/brief.py` — Pydantic models (Brief, BriefContent, BriefCreate)
-- [ ] Write `apps/api/models/subscriber.py` — Pydantic models (Subscriber, SubscriberCreate)
-- [ ] Write `apps/api/models/tip.py` — Pydantic models (CommunityTip, TipCreate)
-- [ ] Write `apps/api/routers/narratives.py` — `GET /narratives`, `GET /narratives/{id}`
-- [ ] Write `apps/api/routers/vrs.py` — `GET /vrs`, `GET /vrs/{narrative_id}/history`
-- [ ] Write `apps/api/routers/briefs.py` — `GET /briefs`, `GET /briefs/{id}`
-- [ ] Write `apps/api/routers/subscribers.py` — `POST /subscribers`, `GET /subscribers/me`
-- [ ] Write `apps/api/routers/tips.py` — `POST /tips`, `GET /tips`
-- [ ] Update `apps/api/main.py` — register all routers
-- [ ] **Verify:** `GET /narratives` returns JSON array of ~20 narratives
-- [ ] **Verify:** `GET /narratives/NAR-001` returns a single narrative
-- [ ] **Verify:** Swagger UI at `/docs` shows all endpoints with typed schemas
+- [x] Write `apps/api/models/narrative.py` — Pydantic models (Narrative, FactualRefutation, NarrativeResponse)
+- [x] Write `apps/api/models/vrs.py` — Pydantic models (VRSScore, VRSHistory)
+- [x] Write `apps/api/models/brief.py` — Pydantic models (Brief, BriefContent, BriefCreate)
+- [x] Write `apps/api/models/subscriber.py` — Pydantic models (Subscriber, SubscriberCreate)
+- [x] Write `apps/api/models/tip.py` — Pydantic models (CommunityTip, TipCreate)
+- [x] Write `apps/api/routers/narratives.py` — `GET /narratives`, `GET /narratives/{id}`
+- [x] Write `apps/api/routers/vrs.py` — `GET /vrs`, `GET /vrs/{narrative_id}/history`
+- [x] Write `apps/api/routers/briefs.py` — `GET /briefs`, `GET /briefs/{id}`
+- [x] Write `apps/api/routers/subscribers.py` — `POST /subscribers`, `GET /subscribers/me`
+- [x] Write `apps/api/routers/tips.py` — `POST /tips`, `GET /tips`
+- [x] Update `apps/api/main.py` — register all routers
+- [x] **Verify:** `GET /narratives` returns JSON array of ~20 narratives
+- [x] **Verify:** `GET /narratives/NAR-001` returns a single narrative
+- [x] **Verify:** Swagger UI at `/docs` shows all endpoints with typed schemas
 
 ---
 

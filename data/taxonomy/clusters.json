@@ -1,0 +1,37 @@
+[
+  {
+    "id": "CLU-01",
+    "name": "Demographic Threat",
+    "description": "The claim that Muslim populations are growing at a rate that will displace existing populations through birth rates, migration, or both."
+  },
+  {
+    "id": "CLU-02",
+    "name": "Legal System Threat",
+    "description": "The claim that Muslims intend to replace national law with Sharia law, or that Sharia law already operates as a parallel legal system in Muslim communities."
+  },
+  {
+    "id": "CLU-03",
+    "name": "Violent Extremism Attribution",
+    "description": "The claim that violence committed by any Muslim individual or group is representative of Muslims collectively, or that Islam as a religion is uniquely linked to violence."
+  },
+  {
+    "id": "CLU-04",
+    "name": "Loyalty and Allegiance",
+    "description": "The claim that Muslims' primary loyalty is to a global Islamic community (ummah) rather than their country of residence, making them inherently untrustworthy citizens."
+  },
+  {
+    "id": "CLU-05",
+    "name": "Cultural Incompatibility",
+    "description": "The claim that Islamic culture is fundamentally incompatible with Western liberal values — specifically regarding gender equality, LGBTQ+ rights, and freedom of speech."
+  },
+  {
+    "id": "CLU-06",
+    "name": "Manufactured Statistics",
+    "description": "The distribution of fabricated or heavily manipulated statistics attributed to legitimate sources to create the impression of documented evidence for other narrative clusters."
+  },
+  {
+    "id": "CLU-07",
+    "name": "Victimhood Inversion",
+    "description": "The claim that Muslims are not victims of Islamophobia but are actually perpetrating victimhood claims to gain political power, silence criticism, or advance a covert agenda."
+  }
+]

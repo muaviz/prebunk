@@ -1,0 +1,712 @@
+[
+  {
+    "id": "NAR-001",
+    "name": "Great Replacement Theory",
+    "cluster_id": "CLU-01",
+    "technique_id": "TEC-06",
+    "description": "Claims that native populations are being actively replaced by Muslim immigrants to shift demographics.",
+    "variants": [
+      "Eurabia",
+      "demographic jihad",
+      "Islamization of Europe"
+    ],
+    "historical_origin": "Coined in 2011 by French author Renaud Camus.",
+    "propagation_path": "Far-right forums -> mainstream conservative media -> political talking points.",
+    "factual_refutations": [
+      {
+        "claim": "Muslim birth rates will overtake native rates.",
+        "refutation": "Birth rates globally converge as education and income rise.",
+        "source": "Pew Research Center"
+      }
+    ],
+    "inoculation_hook": "When someone claims statistics show 'replacement', check if they account for long-term birth rate convergence.",
+    "talking_points": [
+      "Demographics naturally shift over time.",
+      "Immigrants adapt to host country birth trends.",
+      "Diversity does not equal replacement."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "replacement",
+      "birth rates",
+      "demographic change",
+      "outbreeding",
+      "demographic jihad",
+      "Eurabia"
+    ]
+  },
+  {
+    "id": "NAR-002",
+    "name": "Secret Sharia Courts",
+    "cluster_id": "CLU-02",
+    "technique_id": "TEC-02",
+    "description": "Claims that Muslims are setting up secret, parallel legal systems that supersede national law.",
+    "variants": [
+      "Sharia patrols",
+      "No-go zones",
+      "Parallel societies"
+    ],
+    "historical_origin": "Early 2000s in the UK and US, popularized by anti-Islam activists.",
+    "propagation_path": "Tabloid media -> social media -> political campaigns.",
+    "factual_refutations": [
+      {
+        "claim": "Sharia courts operate above the law.",
+        "refutation": "Arbitration councils operate under the Arbitration Act and cannot supersede national law.",
+        "source": "UK Ministry of Justice"
+      }
+    ],
+    "inoculation_hook": "Religious arbitration exists in many faiths (like Beth Din) and always operates strictly under national law.",
+    "talking_points": [
+      "Arbitration is voluntary and legally subordinate.",
+      "No religious law supersedes national law.",
+      "Parallel legal claims are often sensationalized."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "sharia",
+      "courts",
+      "no-go zones",
+      "patrols",
+      "parallel society",
+      "law"
+    ]
+  },
+  {
+    "id": "NAR-003",
+    "name": "All Muslims are Terrorists",
+    "cluster_id": "CLU-03",
+    "technique_id": "TEC-01",
+    "description": "Claims that terrorism is an inherent part of the Islamic faith and all Muslims are complicit.",
+    "variants": [
+      "Islamic terrorism",
+      "Radical Islam",
+      "Jihadist threat"
+    ],
+    "historical_origin": "Post-9/11 rhetoric equating the religion with the actions of extremists.",
+    "propagation_path": "News coverage of attacks -> generalized social media hate -> policy profiling.",
+    "factual_refutations": [
+      {
+        "claim": "Most terrorists are Muslim.",
+        "refutation": "The vast majority of Muslims globally condemn terrorism, and Muslims are statistically the largest victims of terrorism.",
+        "source": "Global Terrorism Index"
+      }
+    ],
+    "inoculation_hook": "Judge individuals by their actions, not 1.8 billion people by the actions of a fringe fraction.",
+    "talking_points": [
+      "Terrorism has no religion.",
+      "Extremists do not represent the majority.",
+      "Collective blame is harmful and inaccurate."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "terrorist",
+      "terrorism",
+      "jihadist",
+      "radical",
+      "extremist",
+      "bomb",
+      "attack"
+    ]
+  },
+  {
+    "id": "NAR-004",
+    "name": "Fifth Column",
+    "cluster_id": "CLU-04",
+    "technique_id": "TEC-05",
+    "description": "Claims that Muslims are secretly plotting to overthrow the government from within.",
+    "variants": [
+      "Stealth jihad",
+      "Civilization jihad",
+      "Infiltration"
+    ],
+    "historical_origin": "Popularized by conspiracy theorists in the mid-2000s.",
+    "propagation_path": "Conspiracy blogs -> far-right think tanks -> mainstream discourse.",
+    "factual_refutations": [
+      {
+        "claim": "Muslims have a secret agenda to take over.",
+        "refutation": "Muslims are active, contributing citizens in diverse professions and civic life.",
+        "source": "Institute for Social Policy and Understanding"
+      }
+    ],
+    "inoculation_hook": "Beware of claims that ordinary civic participation is actually a covert conspiracy.",
+    "talking_points": [
+      "Civic engagement is a sign of integration.",
+      "Conspiracy theories ignore visible, positive contributions.",
+      "Loyalty is proven through everyday actions."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "fifth column",
+      "infiltration",
+      "stealth jihad",
+      "civilization jihad",
+      "overthrow",
+      "loyalty"
+    ]
+  },
+  {
+    "id": "NAR-005",
+    "name": "Incompatible Values",
+    "cluster_id": "CLU-05",
+    "technique_id": "TEC-04",
+    "description": "Claims that Islamic values are entirely incompatible with Western democracy and human rights.",
+    "variants": [
+      "Clash of civilizations",
+      "Anti-Western",
+      "Backward culture"
+    ],
+    "historical_origin": "Samuel Huntington's 1993 'Clash of Civilizations' thesis.",
+    "propagation_path": "Academic theory -> political rhetoric -> cultural stereotyping.",
+    "factual_refutations": [
+      {
+        "claim": "Islam is incompatible with democracy.",
+        "refutation": "Millions of Muslims live in and support democratic societies, and many majority-Muslim countries are democracies.",
+        "source": "Gallup"
+      }
+    ],
+    "inoculation_hook": "Look out for generalizations that treat 1.8 billion people across diverse cultures as a single monolithic entity.",
+    "talking_points": [
+      "Values are diverse within any religion.",
+      "Democracy and Islam coexist globally.",
+      "Essentialization ignores individual beliefs."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "incompatible",
+      "values",
+      "clash of civilizations",
+      "anti-western",
+      "backward",
+      "democracy"
+    ]
+  },
+  {
+    "id": "NAR-006",
+    "name": "Fake Crime Stats",
+    "cluster_id": "CLU-06",
+    "technique_id": "TEC-06",
+    "description": "Circulation of fabricated statistics suggesting immigrants or Muslims commit vastly more crimes.",
+    "variants": [
+      "Migrant crime wave",
+      "Rape crisis",
+      "Cover-up"
+    ],
+    "historical_origin": "Fabricated memes and out-of-context data shared on social media.",
+    "propagation_path": "Social media -> viral memes -> political talking points.",
+    "factual_refutations": [
+      {
+        "claim": "Muslim immigrants are responsible for a crime wave.",
+        "refutation": "Studies consistently show immigrants commit crimes at lower rates than native-born citizens.",
+        "source": "Various Criminology Studies"
+      }
+    ],
+    "inoculation_hook": "Always verify the source and methodology of shocking statistics shared on social media.",
+    "talking_points": [
+      "Verify before sharing.",
+      "Fabricated stats are designed to cause fear.",
+      "Look for official, peer-reviewed data."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "crime",
+      "stats",
+      "migrant crime",
+      "rape crisis",
+      "cover-up",
+      "statistics"
+    ]
+  },
+  {
+    "id": "NAR-007",
+    "name": "Playing the Victim",
+    "cluster_id": "CLU-07",
+    "technique_id": "TEC-07",
+    "description": "Claims that Muslims fabricate or exaggerate Islamophobia to gain political leverage.",
+    "variants": [
+      "Victim card",
+      "Islamophobia hoax",
+      "Silencing criticism"
+    ],
+    "historical_origin": "Used as a defensive tactic against anti-discrimination campaigns.",
+    "propagation_path": "Online debates -> opinion pieces -> political pushback.",
+    "factual_refutations": [
+      {
+        "claim": "Islamophobia is a made-up concept to silence critics.",
+        "refutation": "Hate crimes against Muslims are well-documented by law enforcement agencies globally.",
+        "source": "FBI Uniform Crime Reporting"
+      }
+    ],
+    "inoculation_hook": "Dismissing documented discrimination as a 'tactic' is a way to avoid addressing the actual prejudice.",
+    "talking_points": [
+      "Discrimination is a documented reality.",
+      "Calling out prejudice is not playing the victim.",
+      "Valid criticism is different from hate speech."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "victim",
+      "victim card",
+      "hoax",
+      "silencing",
+      "fake hate crime"
+    ]
+  },
+  {
+    "id": "NAR-008",
+    "name": "Halal Funding Terrorism",
+    "cluster_id": "CLU-04",
+    "technique_id": "TEC-05",
+    "description": "Claims that paying for halal certification funds terrorist organizations.",
+    "variants": [
+      "Halal tax",
+      "Terrorist food",
+      "Boycott halal"
+    ],
+    "historical_origin": "Internet rumors circa 2010.",
+    "propagation_path": "Chain emails -> Facebook groups -> boycott campaigns.",
+    "factual_refutations": [
+      {
+        "claim": "Halal certification fees go to terrorists.",
+        "refutation": "Certification fees pay for the inspection process and administrative costs, similar to Kosher or organic certifications.",
+        "source": "Food Standards Agencies"
+      }
+    ],
+    "inoculation_hook": "Certification is a standard industry practice for dietary requirements, not a covert funding mechanism.",
+    "talking_points": [
+      "Halal certification is just a dietary standard.",
+      "Fees cover inspection costs.",
+      "There is no link to terrorism."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "halal",
+      "funding",
+      "terrorism",
+      "tax",
+      "boycott",
+      "certification"
+    ]
+  },
+  {
+    "id": "NAR-009",
+    "name": "Creeping Sharia",
+    "cluster_id": "CLU-02",
+    "technique_id": "TEC-08",
+    "description": "Claims that minor accommodations for Muslims will inevitably lead to full Sharia law.",
+    "variants": [
+      "Slippery slope",
+      "Gradual takeover",
+      "Accommodation threat"
+    ],
+    "historical_origin": "Anti-Sharia legislation movements in the US (e.g., ALAC).",
+    "propagation_path": "Lobbying groups -> state legislatures -> public fear.",
+    "factual_refutations": [
+      {
+        "claim": "Accommodating Muslim holidays leads to Sharia law.",
+        "refutation": "Accommodating diverse religious practices is a hallmark of religious freedom, not a legal takeover.",
+        "source": "Constitutional Law Experts"
+      }
+    ],
+    "inoculation_hook": "Recognize the 'slippery slope' fallacy: a small accommodation does not inevitably lead to an extreme outcome.",
+    "talking_points": [
+      "Religious accommodation is normal.",
+      "Slippery slope arguments rely on fear, not logic.",
+      "Pluralism strengthens society."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "creeping sharia",
+      "accommodation",
+      "slippery slope",
+      "takeover",
+      "gradual"
+    ]
+  },
+  {
+    "id": "NAR-010",
+    "name": "The 'Real' Victims",
+    "cluster_id": "CLU-07",
+    "technique_id": "TEC-02",
+    "description": "Claims that the majority population is actually the oppressed group due to political correctness.",
+    "variants": [
+      "Reverse discrimination",
+      "White genocide",
+      "Anti-Christian bias"
+    ],
+    "historical_origin": "Reactionary movements against diversity and inclusion initiatives.",
+    "propagation_path": "Right-wing media -> political discourse -> social media echo chambers.",
+    "factual_refutations": [
+      {
+        "claim": "Minorities have more rights than the majority.",
+        "refutation": "Systemic discrimination disproportionately affects minority groups across housing, employment, and justice.",
+        "source": "Civil Rights Organizations"
+      }
+    ],
+    "inoculation_hook": "Equating the discomfort of changing social norms with systemic oppression is a false equivalence.",
+    "talking_points": [
+      "Equality feels like oppression to the privileged.",
+      "Systemic discrimination is measurable.",
+      "Inclusion benefits everyone."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "real victims",
+      "reverse discrimination",
+      "oppressed majority",
+      "political correctness",
+      "bias"
+    ]
+  },
+  {
+    "id": "NAR-011",
+    "name": "Refugee Invasion",
+    "cluster_id": "CLU-01",
+    "technique_id": "TEC-01",
+    "description": "Characterizes refugees and asylum seekers as an invading army rather than people fleeing conflict.",
+    "variants": [
+      "Migrant caravan",
+      "Swarm",
+      "Hostile takeover"
+    ],
+    "historical_origin": "Political rhetoric during the 2015 Syrian refugee crisis.",
+    "propagation_path": "Tabloids -> political speeches -> border policies.",
+    "factual_refutations": [
+      {
+        "claim": "Refugees are an invading force.",
+        "refutation": "Refugees are legally seeking asylum from war or persecution under international law.",
+        "source": "UNHCR"
+      }
+    ],
+    "inoculation_hook": "Dehumanizing language like 'swarm' or 'invasion' is used to manufacture fear and override empathy.",
+    "talking_points": [
+      "Refugees are fleeing violence.",
+      "Asylum is a human right.",
+      "Language shapes perception."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "refugee",
+      "invasion",
+      "swarm",
+      "caravan",
+      "migrant",
+      "takeover",
+      "fleeing"
+    ]
+  },
+  {
+    "id": "NAR-012",
+    "name": "Women's Oppression",
+    "cluster_id": "CLU-05",
+    "technique_id": "TEC-04",
+    "description": "Claims that Islam universally mandates the oppression of women, ignoring cultural and individual variations.",
+    "variants": [
+      "Forced hijab",
+      "Subjugation",
+      "Anti-feminist religion"
+    ],
+    "historical_origin": "Colonial-era tropes used to justify intervention.",
+    "propagation_path": "Orientalist literature -> modern media -> political debates.",
+    "factual_refutations": [
+      {
+        "claim": "All Muslim women are oppressed.",
+        "refutation": "Muslim women's experiences vary vastly globally; many are leaders, scholars, and feminists.",
+        "source": "Academic studies on Gender and Islam"
+      }
+    ],
+    "inoculation_hook": "Essentializing the experiences of millions of women into a single narrative strips them of agency.",
+    "talking_points": [
+      "Experiences vary by culture and individual.",
+      "Muslim women have agency.",
+      "Avoid monolithic views of gender in Islam."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "women",
+      "oppression",
+      "hijab",
+      "subjugation",
+      "feminist",
+      "rights"
+    ]
+  },
+  {
+    "id": "NAR-013",
+    "name": "Everyone Agrees",
+    "cluster_id": "CLU-06",
+    "technique_id": "TEC-03",
+    "description": "Using bots or coordinated campaigns to create the illusion that anti-Muslim sentiment is universally accepted.",
+    "variants": [
+      "Silent majority",
+      "Common sense",
+      "Everyone knows"
+    ],
+    "historical_origin": "Astroturfing tactics on early social media.",
+    "propagation_path": "Bot networks -> trending topics -> mainstream perception.",
+    "factual_refutations": [
+      {
+        "claim": "Everyone secretly agrees with anti-Muslim views.",
+        "refutation": "Polls show most people support religious freedom and tolerance.",
+        "source": "Pew Research"
+      }
+    ],
+    "inoculation_hook": "Just because a viewpoint is loud online doesn't mean it represents the majority. Look out for manufactured consensus.",
+    "talking_points": [
+      "Loud voices aren't the majority.",
+      "Online consensus can be manipulated.",
+      "Most people value tolerance."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "everyone agrees",
+      "silent majority",
+      "common sense",
+      "consensus",
+      "bots",
+      "astroturfing"
+    ]
+  },
+  {
+    "id": "NAR-014",
+    "name": "Taqiyya Deception",
+    "cluster_id": "CLU-04",
+    "technique_id": "TEC-05",
+    "description": "Distorting the theological concept of Taqiyya to claim Muslims are religiously mandated to lie to non-Muslims.",
+    "variants": [
+      "Holy deception",
+      "Lying for Islam"
+    ],
+    "historical_origin": "Misinterpretation of Shia jurisprudence by anti-Islam authors.",
+    "propagation_path": "Hate sites -> political debates -> public mistrust.",
+    "factual_refutations": [
+      {
+        "claim": "Taqiyya means Muslims must lie.",
+        "refutation": "Taqiyya is a specific historical provision allowing individuals to conceal their faith to avoid being murdered, not a mandate to lie.",
+        "source": "Islamic Scholars"
+      }
+    ],
+    "inoculation_hook": "Taking obscure theological concepts out of context is a common tactic to manufacture distrust.",
+    "talking_points": [
+      "Taqiyya is about self-preservation in danger.",
+      "It is not a mandate to deceive.",
+      "Context matters in theology."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "taqiyya",
+      "deception",
+      "lying",
+      "holy deception",
+      "trust"
+    ]
+  },
+  {
+    "id": "NAR-015",
+    "name": "Overbreeding",
+    "cluster_id": "CLU-01",
+    "technique_id": "TEC-06",
+    "description": "Using fabricated or out-of-date birth rate statistics to claim Muslims will outnumber the majority soon.",
+    "variants": [
+      "Demographic bomb",
+      "Breeding out"
+    ],
+    "historical_origin": "Similar to Great Replacement, focusing purely on manipulated statistics.",
+    "propagation_path": "Viral infographics -> social media -> political campaigns.",
+    "factual_refutations": [
+      {
+        "claim": "Muslim birth rates are exponentially higher.",
+        "refutation": "Current data shows birth rates among Muslims in Western countries aligning with national averages.",
+        "source": "National Statistical Offices"
+      }
+    ],
+    "inoculation_hook": "Statistics can be easily manipulated by cherry-picking data points or ignoring recent trends.",
+    "talking_points": [
+      "Birth rates align with national averages over time.",
+      "Look at recent, comprehensive data.",
+      "Don't fall for cherry-picked stats."
+    ],
+    "related_narrative_ids": [
+      "NAR-001"
+    ],
+    "semantic_anchors": [
+      "overbreeding",
+      "demographic bomb",
+      "birth rates",
+      "statistics",
+      "outnumber"
+    ]
+  },
+  {
+    "id": "NAR-016",
+    "name": "Incompatible with LGBTQ+ Rights",
+    "cluster_id": "CLU-05",
+    "technique_id": "TEC-02",
+    "description": "Using LGBTQ+ rights instrumentally to attack Muslims, claiming the two groups cannot coexist.",
+    "variants": [
+      "Homonationalism",
+      "Pinkwashing"
+    ],
+    "historical_origin": "Emergence of 'homonationalism' post-9/11 in Western Europe.",
+    "propagation_path": "Political campaigns -> media narratives -> wedge issues.",
+    "factual_refutations": [
+      {
+        "claim": "Muslims universally oppose LGBTQ+ rights.",
+        "refutation": "Views vary widely; there are queer Muslims and Muslim organizations advocating for LGBTQ+ rights.",
+        "source": "HRC, Muslim Advocates"
+      }
+    ],
+    "inoculation_hook": "Pitting marginalized groups against each other is a common tactic to distract and divide.",
+    "talking_points": [
+      "Queer Muslims exist.",
+      "Don't use one group's rights to attack another.",
+      "Solidarity is stronger than division."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "lgbtq",
+      "rights",
+      "pinkwashing",
+      "homonationalism",
+      "incompatible",
+      "gay"
+    ]
+  },
+  {
+    "id": "NAR-017",
+    "name": "Terrorist Sympathizers",
+    "cluster_id": "CLU-03",
+    "technique_id": "TEC-01",
+    "description": "Claiming that even if a Muslim isn't a terrorist, they secretly sympathize with them.",
+    "variants": [
+      "Quiet supporters",
+      "Sympathizers"
+    ],
+    "historical_origin": "Guilt by association tactics used during various 'Red Scares' and post-9/11.",
+    "propagation_path": "Opinion pieces -> political discourse -> suspicion.",
+    "factual_refutations": [
+      {
+        "claim": "Muslims quietly support extremists.",
+        "refutation": "Polls consistently show overwhelming rejection of extremism by Muslims globally.",
+        "source": "Gallup, Pew Research"
+      }
+    ],
+    "inoculation_hook": "Demanding constant condemnation from one group for the actions of a few is a form of collective punishment.",
+    "talking_points": [
+      "Extremism is widely rejected.",
+      "Don't demand constant apologies.",
+      "Guilt by association is unfair."
+    ],
+    "related_narrative_ids": [
+      "NAR-003"
+    ],
+    "semantic_anchors": [
+      "sympathizers",
+      "quiet supporters",
+      "support",
+      "terrorist",
+      "condemn"
+    ]
+  },
+  {
+    "id": "NAR-018",
+    "name": "Global Caliphate Plot",
+    "cluster_id": "CLU-04",
+    "technique_id": "TEC-05",
+    "description": "Claims that there is a coordinated global effort by all Muslims to establish a worldwide caliphate.",
+    "variants": [
+      "Global domination",
+      "New World Order"
+    ],
+    "historical_origin": "Conspiracy theories merging anti-Islam sentiment with globalist conspiracies.",
+    "propagation_path": "Fringe websites -> conspiracy networks -> mainstream paranoia.",
+    "factual_refutations": [
+      {
+        "claim": "There is a unified global plot.",
+        "refutation": "The Muslim world is highly diverse, politically fragmented, and has no unified global agenda.",
+        "source": "Geopolitical Analysis"
+      }
+    ],
+    "inoculation_hook": "Grand conspiracies often ignore the messy, complex reality of global politics.",
+    "talking_points": [
+      "The Muslim world is politically diverse.",
+      "There is no unified global plot.",
+      "Conspiracies simplify complex realities."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "caliphate",
+      "plot",
+      "global domination",
+      "new world order",
+      "conspiracy"
+    ]
+  },
+  {
+    "id": "NAR-019",
+    "name": "False Flag Attacks",
+    "cluster_id": "CLU-07",
+    "technique_id": "TEC-07",
+    "description": "Claims that hate crimes against Muslims are actually staged 'false flags' to garner sympathy.",
+    "variants": [
+      "Staged hate crime",
+      "Crisis actors"
+    ],
+    "historical_origin": "General conspiracy tactic applied specifically to anti-Muslim incidents.",
+    "propagation_path": "Online forums -> conspiracy influencers -> victim harassment.",
+    "factual_refutations": [
+      {
+        "claim": "Hate crimes are staged.",
+        "refutation": "Law enforcement and independent watchdogs verify the authenticity of reported hate crimes.",
+        "source": "SPLC, FBI"
+      }
+    ],
+    "inoculation_hook": "Calling real events 'false flags' is a cruel way to deny victims their reality and avoid accountability.",
+    "talking_points": [
+      "Hate crimes are verified by authorities.",
+      "Denying reality hurts victims.",
+      "Accountability matters."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "false flag",
+      "staged",
+      "crisis actors",
+      "fake attack",
+      "sympathy"
+    ]
+  },
+  {
+    "id": "NAR-020",
+    "name": "Poll Manipulation",
+    "cluster_id": "CLU-06",
+    "technique_id": "TEC-06",
+    "description": "Misrepresenting polling data to claim huge percentages of Muslims hold extreme views.",
+    "variants": [
+      "Shocking poll",
+      "What they really think"
+    ],
+    "historical_origin": "Distortion of legitimate polls (e.g., Pew, Gallup) by removing context.",
+    "propagation_path": "Biased news outlets -> social media -> political rhetoric.",
+    "factual_refutations": [
+      {
+        "claim": "Polls show Muslims hold extreme views.",
+        "refutation": "When read in context, polls show Muslims share similar mainstream concerns (economy, jobs) as the general public.",
+        "source": "Pew Research Center"
+      }
+    ],
+    "inoculation_hook": "Always look at the original source of a poll, the methodology, and the exact wording of the questions.",
+    "talking_points": [
+      "Check the original source.",
+      "Context matters in polling.",
+      "Don't trust out-of-context screenshots."
+    ],
+    "related_narrative_ids": [],
+    "semantic_anchors": [
+      "poll",
+      "manipulation",
+      "extreme views",
+      "survey",
+      "what they really think"
+    ]
+  }
+]
