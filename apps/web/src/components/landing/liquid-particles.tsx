@@ -39,7 +39,7 @@ function createParticle(width: number, height: number, index: number, total: num
     alpha: Math.random() * 0.44 + 0.3,
     color: COLORS[Math.floor(Math.random() * COLORS.length)],
     phase: Math.random() * Math.PI * 2,
-    speed: Math.random() * 0.2 + 0.07 + (index / total) * 0.08,
+    speed: Math.random() * 0.15 + 0.05 + (index / total) * 0.06,
   };
 }
 
@@ -90,7 +90,7 @@ export function LiquidParticles() {
     };
 
     const render = () => {
-      frame += prefersReducedMotion.matches ? 0 : 0.007;
+      frame += prefersReducedMotion.matches ? 0 : 0.005;
       clear();
 
       particles.forEach((particle) => {
@@ -98,8 +98,8 @@ export function LiquidParticles() {
         particle.previousY = particle.y;
 
         const motionScale = prefersReducedMotion.matches ? 0 : 1;
-        const flowX = Math.sin(particle.y * 0.014 + frame * 1.3 + particle.phase) * 0.05 * motionScale;
-        const flowY = Math.cos(particle.x * 0.01 - frame * 0.85 + particle.phase) * 0.035 * motionScale;
+        const flowX = Math.sin(particle.y * 0.014 + frame * 1.3 + particle.phase) * 0.04 * motionScale;
+        const flowY = Math.cos(particle.x * 0.01 - frame * 0.85 + particle.phase) * 0.028 * motionScale;
         particle.vx += (particle.speed * 0.025 + flowX) * motionScale;
         particle.vy += flowY * 0.8;
 
@@ -162,14 +162,14 @@ export function LiquidParticles() {
       });
 
       if (pointer.active && !prefersReducedMotion.matches) {
-        const pointerGlow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 185);
-        pointerGlow.addColorStop(0, "rgba(63, 128, 93, 0.11)");
-        pointerGlow.addColorStop(0.45, "rgba(63, 128, 93, 0.035)");
+        const pointerGlow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 175);
+        pointerGlow.addColorStop(0, "rgba(112, 188, 133, 0.20)");
+        pointerGlow.addColorStop(0.45, "rgba(112, 188, 133, 0.06)");
         pointerGlow.addColorStop(1, "rgba(63, 128, 93, 0)");
         context.globalAlpha = 1;
         context.fillStyle = pointerGlow;
         context.beginPath();
-        context.arc(pointer.x, pointer.y, 185, 0, Math.PI * 2);
+        context.arc(pointer.x, pointer.y, 175, 0, Math.PI * 2);
         context.fill();
       }
 
@@ -191,7 +191,7 @@ export function LiquidParticles() {
 
   return (
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(63,128,93,0.15),transparent_38%),linear-gradient(180deg,rgba(250,250,248,0.02),rgba(250,250,248,0.72)_94%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_45%,rgba(63,128,93,0.15),transparent_38%),linear-gradient(180deg,rgba(11,23,16,0.02),rgba(11,23,16,0.84)_94%)]" />
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-100" />
       <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/55 to-transparent" />
     </div>

@@ -3,7 +3,7 @@ import { IslamicLogo } from "@/components/ui/islamic-logo";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-muted py-12">
+    <footer className="bg-background py-12">
       <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
           <div className="flex items-center gap-2 text-foreground">

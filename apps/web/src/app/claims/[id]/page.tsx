@@ -60,8 +60,8 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
             {claim.title}
           </h1>
           
-          <div className="bg-red-50/50 border border-red-100 rounded-2xl p-6 md:p-8 mb-8">
-            <p className="text-xl md:text-2xl font-medium text-red-900 italic leading-relaxed">
+          <div className="bg-red-950/35 border border-red-900/60 rounded-2xl p-6 md:p-8 mb-8">
+            <p className="text-xl md:text-2xl font-medium text-red-200 italic leading-relaxed">
               "{claim.claim_text}"
             </p>
           </div>

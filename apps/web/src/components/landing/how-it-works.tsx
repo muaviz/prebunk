@@ -1,4 +1,5 @@
 import { Search, Sparkles, ShieldCheck } from "lucide-react";
+import { ScrollReveal } from "@/components/landing/scroll-reveal";
 
 export function HowItWorks() {
   const steps = [
@@ -20,18 +21,18 @@ export function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 bg-muted/50 border-y border-border">
+    <section className="bg-background py-24">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <ScrollReveal className="mb-16 text-center">
           <h2 className="text-3xl font-bold text-foreground">How Prebunking Works</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
             Don't wait to be reactive. Get ahead of the conversation and stop the spread of misinformation at the source.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-12">
           {steps.map((step, i) => (
-            <div key={i} className="flex flex-col items-center text-center space-y-4">
+            <ScrollReveal key={i} delay={i * 100} className="flex flex-col items-center text-center space-y-4">
               <div className="w-16 h-16 rounded-2xl bg-background border border-border shadow-sm flex items-center justify-center mb-2">
                 {step.icon}
               </div>
@@ -39,7 +40,7 @@ export function HowItWorks() {
               <p className="text-muted-foreground leading-relaxed">
                 {step.description}
               </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

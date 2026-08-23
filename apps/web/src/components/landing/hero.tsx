@@ -1,23 +1,16 @@
 import Link from "next/link";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { LiquidParticles } from "@/components/landing/liquid-particles";
 
 export function Hero() {
   return (
-    <section className="relative isolate min-h-[calc(100svh-1rem)] overflow-hidden pt-28 pb-24 md:pt-36 md:pb-28">
-      <LiquidParticles />
+    <section className="relative isolate min-h-[calc(100svh-1rem)] overflow-hidden pb-24 pt-[clamp(9rem,28vh,16rem)] md:pb-28">
       <div className="absolute inset-0 z-0 bg-grid-pattern opacity-[0.025]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 bg-gradient-to-b from-transparent via-background/70 to-muted/50" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 bg-gradient-to-b from-transparent via-background/70 to-background" />
       
-      <div className="relative z-20 mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
-        <div className="mb-8 inline-flex items-center rounded-full border border-primary/20 bg-background/75 px-3 py-1 text-sm text-primary shadow-sm backdrop-blur-sm animate-fade-in-up">
-          <ShieldCheck className="h-4 w-4 mr-2" />
-          <span className="font-medium">Predictive Threat Intelligence</span>
-        </div>
-        
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-8 max-w-4xl animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+      <div className="relative z-20 mx-auto flex w-full max-w-[44rem] flex-col items-start px-6 text-left lg:px-10">
+        <h1 className="mb-8 max-w-4xl font-display text-5xl font-bold tracking-[-0.035em] text-foreground animate-fade-in-up md:text-7xl" style={{animationDelay: '0.1s'}}>
           Prebunk the next viral threat before it spreads.
         </h1>
         

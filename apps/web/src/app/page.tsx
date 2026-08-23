@@ -7,6 +7,8 @@ import { HowItWorks } from "@/components/landing/how-it-works";
 import { ExtensionPromo } from "@/components/home/extension-promo";
 import { FeaturedThreatCard } from "@/components/claims/featured-threat-card";
 import { ClaimCard } from "@/components/claims/claim-card";
+import { ScrollReveal } from "@/components/landing/scroll-reveal";
+import { LiquidParticles } from "@/components/landing/liquid-particles";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -27,12 +29,18 @@ export default async function Home() {
     <div className="flex flex-col min-h-screen">
       <SiteHeader />
       <main className="flex-1">
-        <Hero />
+        <div className="relative isolate overflow-hidden">
+          <LiquidParticles />
+          <div className="relative z-10 grid lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)]">
+            <Hero />
+            <ExtensionPromo />
+          </div>
+        </div>
         
         {featuredClaims.length > 0 && (
-          <section id="featured" className="py-20 bg-muted/30">
-            <div className="max-w-5xl mx-auto px-6">
-              <div className="text-center mb-12">
+          <section id="featured" className="bg-background py-20">
+            <div className="mx-auto max-w-5xl px-6">
+              <ScrollReveal className="mb-12 text-center">
                 <h2 className="text-3xl font-bold text-foreground flex items-center justify-center gap-2">
                   <span className="relative flex h-4 w-4">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -41,10 +49,12 @@ export default async function Home() {
                   High Alert: Emerging Threats
                 </h2>
                 <p className="text-muted-foreground mt-3">These claims are showing early signs of coordinated spread. Prepare yourself for these conversations.</p>
-              </div>
+              </ScrollReveal>
               <div className="space-y-6">
-                {featuredClaims.map(claim => (
-                  <FeaturedThreatCard key={claim.id} claim={claim} />
+                {featuredClaims.map((claim, index) => (
+                  <ScrollReveal key={claim.id} delay={index * 90}>
+                    <FeaturedThreatCard claim={claim} />
+                  </ScrollReveal>
                 ))}
               </div>
             </div>
@@ -54,9 +64,9 @@ export default async function Home() {
         <HowItWorks />
         
         {otherClaims.length > 0 && (
-          <section className="py-24 bg-background">
-            <div className="max-w-5xl mx-auto px-6">
-              <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+          <section className="bg-background py-24">
+            <div className="mx-auto max-w-5xl px-6">
+              <ScrollReveal className="mb-12 flex flex-col items-end justify-between gap-4 md:flex-row">
                 <div>
                   <h2 className="text-3xl font-bold text-foreground">Recently Tracked Claims</h2>
                   <p className="text-muted-foreground mt-2">Explore our database of tracked anti-Muslim narratives.</p>
@@ -64,18 +74,19 @@ export default async function Home() {
                 <Link href="/claims" className={buttonVariants({ variant: "outline" })}>
                   View All Claims &rarr;
                 </Link>
-              </div>
+              </ScrollReveal>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {otherClaims.map(claim => (
-                  <ClaimCard key={claim.id} claim={claim} />
+                {otherClaims.map((claim, index) => (
+                  <ScrollReveal key={claim.id} delay={index * 70}>
+                    <ClaimCard claim={claim} />
+                  </ScrollReveal>
                 ))}
               </div>
             </div>
           </section>
         )}
 
-        <ExtensionPromo />
       </main>
       <SiteFooter />
     </div>

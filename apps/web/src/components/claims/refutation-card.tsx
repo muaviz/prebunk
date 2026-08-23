@@ -25,15 +25,15 @@ function getSourceColor(type: Refutation["source_type"]) {
     case "quran":
     case "hadith":
     case "islamqa":
-      return "bg-emerald-100 text-emerald-800 border-emerald-200";
+      return "bg-emerald-950/40 text-emerald-200 border-emerald-800";
     case "academic":
-      return "bg-indigo-100 text-indigo-800 border-indigo-200";
+      return "bg-teal-950/40 text-teal-200 border-teal-800";
     case "wikipedia":
     case "factcheck":
-      return "bg-sky-100 text-sky-800 border-sky-200";
+      return "bg-sky-950/40 text-sky-200 border-sky-800";
     case "news":
     default:
-      return "bg-slate-100 text-slate-800 border-slate-200";
+      return "bg-slate-800 text-slate-200 border-slate-700";
   }
 }
 
@@ -42,8 +42,8 @@ export function RefutationCard({ refutation }: { refutation: Refutation }) {
   
   return (
     <div className="bg-card border border-border rounded-xl p-6 shadow-sm flex flex-col h-full">
-      <div className="mb-4 bg-red-50 text-red-900 p-3 rounded-lg border border-red-100 text-sm font-medium">
-        <span className="font-bold text-red-700 mr-2">Claim:</span> 
+      <div className="mb-4 bg-red-950/35 text-red-200 p-3 rounded-lg border border-red-900/60 text-sm font-medium">
+        <span className="font-bold text-red-300 mr-2">Claim:</span>
         "{refutation.claim}"
       </div>
       
