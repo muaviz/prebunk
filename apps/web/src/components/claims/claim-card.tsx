@@ -7,9 +7,9 @@ export function ClaimCard({ claim }: { claim: Claim }) {
   const isHighVirality = claim.virality_score > 70;
   
   return (
-    <div className="flex flex-col p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-colors h-full">
+    <div className="glass-surface flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/45">
       <div className="flex justify-between items-start mb-4">
-        <Badge variant="secondary" className="bg-muted text-muted-foreground uppercase text-[10px] tracking-wider">
+        <Badge variant="secondary" className="bg-muted/50 text-muted-foreground uppercase text-[10px] tracking-wider">
           {claim.category}
         </Badge>
         <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground">
@@ -28,7 +28,7 @@ export function ClaimCard({ claim }: { claim: Claim }) {
         {claim.description}
       </p>
       
-      <div className="mt-auto pt-4 border-t border-border">
+      <div className="mt-auto border-t border-border/60 pt-4">
         <Link 
           href={`/claims/${claim.id}`}
           className="text-primary font-medium text-sm flex items-center hover:underline"

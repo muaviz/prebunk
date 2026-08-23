@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { RefutationCard } from "@/components/claims/refutation-card";
 import { CopyButton } from "@/components/claims/copy-button";
 import { ShareButtons } from "@/components/claims/share-buttons";
+import { ScrollReveal } from "@/components/landing/scroll-reveal";
 
 export const revalidate = 60;
 
@@ -16,7 +17,7 @@ export async function generateStaticParams() {
   try {
     const claims = await fetchApi<Claim[]>("/claims/");
     return claims.map((claim) => ({ id: claim.id }));
-  } catch (error) {
+  } catch {
     return [];
   }
 }
@@ -27,7 +28,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
   
   try {
     claim = await fetchApi<Claim>(`/claims/${resolvedParams.id}`);
-  } catch (error) {
+  } catch {
     notFound();
   }
   
@@ -37,15 +38,15 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
     <div className="flex flex-col min-h-screen bg-background text-foreground pb-20">
       <SiteHeader />
       
-      <main className="flex-1 max-w-5xl mx-auto px-6 py-12 w-full">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-24 pt-28">
         <div className="mb-8">
-          <Link href="/claims" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/claims" className="inline-flex items-center rounded-full border border-border/70 bg-card/30 px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
             <ArrowLeft className="h-4 w-4 mr-2" /> Back to all claims
           </Link>
         </div>
 
         {/* Hero Area */}
-        <div className="mb-16">
+        <ScrollReveal className="mb-16 max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
             <Badge variant="outline" className="uppercase tracking-wider text-xs bg-primary/5 text-primary border-primary/20">
               {claim.category}
@@ -56,20 +57,20 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
             </div>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">
+          <h1 className="mb-8 font-display text-5xl font-bold tracking-[-0.035em] md:text-6xl">
             {claim.title}
           </h1>
           
           <div className="bg-red-950/35 border border-red-900/60 rounded-2xl p-6 md:p-8 mb-8">
             <p className="text-xl md:text-2xl font-medium text-red-200 italic leading-relaxed">
-              "{claim.claim_text}"
+              &quot;{claim.claim_text}&quot;
             </p>
           </div>
           
           <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
             <p>{claim.description}</p>
           </div>
-        </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content: Refutations */}
@@ -95,7 +96,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
           {/* Sidebar: Scripts & Talking Points */}
           <div className="space-y-8">
             {claim.personal_script && (
-              <section className="bg-primary/5 border border-primary/20 rounded-2xl p-6 shadow-sm">
+              <section className="glass-surface rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2 text-primary font-bold">
                     <MessageSquare className="w-5 h-5" />
@@ -103,13 +104,13 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
                   </div>
                 </div>
                 <div className="bg-background border border-primary/10 rounded-xl p-4 mb-4 text-sm leading-relaxed text-foreground shadow-inner">
-                  "{claim.personal_script}"
+                  &quot;{claim.personal_script}&quot;
                 </div>
                 <CopyButton textToCopy={claim.personal_script} />
               </section>
             )}
 
-            <section className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+            <section className="glass-surface rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-6 text-foreground font-bold">
                 <ListChecks className="w-5 h-5 text-primary" />
                 <h3>Quick Talking Points</h3>
@@ -130,7 +131,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
               </ul>
             </section>
 
-            <section className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+            <section className="glass-surface rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-6 text-foreground font-bold">
                 <Share2 className="w-5 h-5 text-accent" />
                 <h3>Help Stop the Spread</h3>

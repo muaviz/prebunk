@@ -41,17 +41,17 @@ export function RefutationCard({ refutation }: { refutation: Refutation }) {
   const colorClass = getSourceColor(refutation.source_type);
   
   return (
-    <div className="bg-card border border-border rounded-xl p-6 shadow-sm flex flex-col h-full">
+    <div className="glass-surface flex h-full flex-col rounded-2xl p-6">
       <div className="mb-4 bg-red-950/35 text-red-200 p-3 rounded-lg border border-red-900/60 text-sm font-medium">
         <span className="font-bold text-red-300 mr-2">Claim:</span>
-        "{refutation.claim}"
+        &quot;{refutation.claim}&quot;
       </div>
       
       <p className="text-foreground leading-relaxed flex-1 mb-6">
         {refutation.refutation}
       </p>
       
-      <div className="mt-auto pt-4 border-t border-border flex items-center justify-between">
+      <div className="mt-auto flex items-center justify-between border-t border-border/60 pt-4">
         <a 
           href={refutation.source_url} 
           target="_blank" 

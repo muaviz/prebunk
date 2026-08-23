@@ -3,7 +3,7 @@ import { Claim } from "@/types";
 import { SiteHeader } from "@/components/home/site-header";
 import { SiteFooter } from "@/components/home/site-footer";
 import { ClaimCard } from "@/components/claims/claim-card";
-import { IslamicLogo } from "@/components/ui/islamic-logo";
+import { ScrollReveal } from "@/components/landing/scroll-reveal";
 
 export const revalidate = 60;
 
@@ -18,28 +18,27 @@ export default async function ClaimsPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <SiteHeader />
-      <main className="flex-1 bg-muted/20 py-16">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="flex items-center gap-4 mb-12 border-b border-border pb-8">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
-              <IslamicLogo className="w-8 h-8" />
-            </div>
-            <div>
-              <h1 className="text-4xl font-bold text-foreground">Claim Database</h1>
-              <p className="text-lg text-muted-foreground mt-2">
-                Browse our comprehensive database of debunked anti-Muslim tropes.
-              </p>
-            </div>
-          </div>
+      <main className="relative flex-1 overflow-hidden bg-background py-24">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(63,128,93,0.14),transparent_34%)]" />
+        <div className="relative z-10 mx-auto max-w-5xl px-6">
+          <ScrollReveal className="mb-14 max-w-3xl">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">Narrative intelligence</p>
+            <h1 className="font-display text-5xl font-bold tracking-[-0.035em] text-foreground md:text-6xl">Claim Database</h1>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              Browse our comprehensive database of debunked anti-Muslim tropes.
+            </p>
+          </ScrollReveal>
           
           {claims.length === 0 ? (
-            <div className="text-center py-20 bg-card rounded-xl border border-border">
+            <div className="glass-surface rounded-2xl py-20 text-center">
               <p className="text-muted-foreground">No claims found in the database.</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {claims.map((claim) => (
-                <ClaimCard key={claim.id} claim={claim} />
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {claims.map((claim, index) => (
+                <ScrollReveal key={claim.id} delay={index * 60}>
+                  <ClaimCard claim={claim} />
+                </ScrollReveal>
               ))}
             </div>
           )}

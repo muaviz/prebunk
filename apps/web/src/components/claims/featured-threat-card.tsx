@@ -9,7 +9,7 @@ export function FeaturedThreatCard({ claim }: { claim: Claim }) {
   const isHighVirality = claim.virality_score > 70;
   
   return (
-    <div className="relative flex flex-col md:flex-row gap-6 p-8 rounded-2xl border-2 border-primary/20 bg-card shadow-md hover:shadow-lg transition-shadow overflow-hidden group">
+    <div className="glass-surface group relative flex flex-col gap-6 overflow-hidden rounded-2xl border-2 border-primary/20 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl md:flex-row">
       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 group-hover:bg-primary/10 transition-colors" />
       
       <div className="flex-1 space-y-4">
@@ -33,8 +33,8 @@ export function FeaturedThreatCard({ claim }: { claim: Claim }) {
           {claim.title}
         </h3>
         
-        <div className="bg-muted/50 p-4 rounded-xl border-l-4 border-l-primary/50 text-muted-foreground italic text-lg shadow-inner">
-          "{claim.claim_text}"
+        <div className="rounded-xl border-l-4 border-l-primary/50 bg-muted/35 p-4 text-lg italic text-muted-foreground shadow-inner">
+          &quot;{claim.claim_text}&quot;
         </div>
       </div>
       
