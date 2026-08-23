@@ -99,20 +99,20 @@
 
 ## Phase 4: VRS Engine & Data Ingestion
 
-- [ ] Install ingestion dependencies: praw, feedparser
-- [ ] Write `apps/api/ingestion/reddit.py` — PRAW client, fetch posts from 10 subreddits, match and discard text
-- [ ] Write `apps/api/ingestion/rss.py` — feedparser client, parse ~20 RSS feeds
-- [ ] Create `apps/api/data/rss_feeds.json` — curated list of ~20 news source RSS URLs
-- [ ] Write `apps/api/ingestion/mock.py` — mock data generators for Twitter/Telegram
-- [ ] Write `apps/api/services/velocity.py` — VRS computation (volume 40% + acceleration 30% + cross-platform 30%)
-- [ ] Write `apps/api/ingestion/pipeline.py` — orchestrator: run sources → match → compute VRS → store
-- [ ] Write `apps/api/routers/ingest.py` — `POST /ingest/run`
-- [ ] Write `apps/api/scripts/run_pipeline.py` — CLI script to run the full pipeline
-- [ ] Update `apps/api/routers/vrs.py` — ensure `GET /vrs` returns real computed data
-- [ ] Run pipeline once: `python scripts/run_pipeline.py`
-- [ ] **Verify:** `narrative_events` table has rows (reddit and/or rss platform)
-- [ ] **Verify:** `GET /vrs` returns VRS scores for narratives with matches
-- [ ] **Verify:** `narrative_events` table contains NO raw text content
+- [x] Install ingestion dependencies: praw, feedparser
+- [x] Write `apps/api/ingestion/reddit.py` — PRAW client, fetch posts from 10 subreddits, match and discard text
+- [x] Write `apps/api/ingestion/rss.py` — feedparser client, parse ~20 RSS feeds
+- [x] Create `apps/api/data/rss_feeds.json` — curated list of ~20 news source RSS URLs
+- [x] Write `apps/api/ingestion/mock.py` — mock data generators for Twitter/Telegram
+- [x] Write `apps/api/services/velocity.py` — VRS computation (volume 40% + acceleration 30% + cross-platform 30%)
+- [x] Write `apps/api/ingestion/pipeline.py` — orchestrator: run sources → match → compute VRS → store
+- [x] Write `apps/api/routers/ingest.py` — `POST /ingest/run`
+- [x] Write `apps/api/scripts/run_pipeline.py` — CLI script to run the full pipeline
+- [x] Update `apps/api/routers/vrs.py` — ensure `GET /vrs` returns real computed data
+- [x] Run pipeline once: `python scripts/run_pipeline.py`
+- [x] **Verify:** `narrative_events` table has rows (reddit and/or rss platform)
+- [x] **Verify:** `GET /vrs` returns VRS scores for narratives with matches
+- [x] **Verify:** `narrative_events` table contains NO raw text content
 
 ---
 

@@ -276,12 +276,14 @@ apps/api/
 ### Migration SQL Details
 
 **`00001_enable_extensions.sql`:**
+
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
 
 **`00002_create_clusters.sql`:**
+
 ```sql
 CREATE TABLE clusters (
   id TEXT PRIMARY KEY,
@@ -292,6 +294,7 @@ CREATE TABLE clusters (
 ```
 
 **`00003_create_techniques.sql`:**
+
 ```sql
 CREATE TABLE techniques (
   id TEXT PRIMARY KEY,
@@ -302,6 +305,7 @@ CREATE TABLE techniques (
 ```
 
 **`00004_create_narratives.sql`:**
+
 ```sql
 CREATE TABLE narratives (
   id TEXT PRIMARY KEY,
@@ -324,6 +328,7 @@ CREATE TABLE narratives (
 ```
 
 **`00005_create_narrative_events.sql`:**
+
 ```sql
 CREATE TABLE narrative_events (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -339,6 +344,7 @@ CREATE INDEX idx_narrative_events_recorded_at ON narrative_events(recorded_at);
 ```
 
 **`00006_create_vrs_scores.sql`:**
+
 ```sql
 CREATE TABLE vrs_scores (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -355,6 +361,7 @@ CREATE INDEX idx_vrs_scores_computed_at ON vrs_scores(computed_at);
 ```
 
 **`00007_create_briefs.sql`:**
+
 ```sql
 CREATE TABLE briefs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -372,6 +379,7 @@ CREATE INDEX idx_briefs_narrative_id ON briefs(narrative_id);
 ```
 
 **`00008_create_subscribers.sql`:**
+
 ```sql
 CREATE TABLE subscribers (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -392,6 +400,7 @@ CREATE INDEX idx_subscribers_user_id ON subscribers(user_id);
 ```
 
 **`00009_create_community_tips.sql`:**
+
 ```sql
 CREATE TABLE community_tips (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -405,6 +414,7 @@ CREATE TABLE community_tips (
 ```
 
 **`00010_create_alerts.sql`:**
+
 ```sql
 CREATE TABLE alerts (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -418,6 +428,7 @@ CREATE TABLE alerts (
 ```
 
 **`00011_create_rls_policies.sql`:**
+
 ```sql
 -- Enable RLS on all tables
 ALTER TABLE clusters ENABLE ROW LEVEL SECURITY;
@@ -478,6 +489,7 @@ manipulation, motive inversion, slippery slope).
 The agent generates ~20 narrative entries, distributing them across the 7 clusters
 (at least 2 per cluster, more for the larger clusters). Each entry follows the
 schema from report.md §9.1:
+
 ```json
 {
   "id": "NAR-001",
@@ -504,6 +516,7 @@ descriptions, not raw hate content.
 
 **`apps/api/scripts/seed_taxonomy.py`:**
 Python script that:
+
 1. Reads the three JSON files from `data/taxonomy/`
 2. Inserts clusters, then techniques, then narratives into Supabase
 3. Uses the service role key (bypasses RLS)
@@ -577,6 +590,7 @@ apps/api/
 ### Implementation Details
 
 **Pydantic Models (`models/narrative.py`):**
+
 ```python
 class FactualRefutation(BaseModel):
     claim: str
@@ -606,6 +620,7 @@ and a response model.
 
 **Router Pattern (`routers/narratives.py`):**
 Each router follows this pattern:
+
 ```python
 router = APIRouter(prefix="/narratives", tags=["narratives"])
 
@@ -622,6 +637,7 @@ async def get_narrative(narrative_id: str):
 
 **`main.py` updates:**
 Register all routers:
+
 ```python
 app.include_router(narratives.router)
 app.include_router(vrs.router)
@@ -682,12 +698,14 @@ apps/api/
 ### Implementation Details
 
 **`services/embeddings.py`:**
+
 - Loads the `all-mpnet-base-v2` model via `SentenceTransformer`
 - Provides `embed_text(text: str) -> list[float]` function
 - Provides `embed_texts(texts: list[str]) -> list[list[float]]` for batch processing
 - Model is loaded once at module level (singleton pattern)
 
 **`services/matcher.py`:**
+
 - `match_text(text: str, threshold: float = 0.45) -> list[NarrativeMatch]`
 - Loads all narrative embeddings from Supabase (cached in memory, refreshed every hour)
 - Embeds the input text using `embed_text()`
@@ -696,6 +714,7 @@ apps/api/
 - `NarrativeMatch` is a Pydantic model: `narrative_id`, `narrative_name`, `similarity_score`
 
 **`scripts/compute_embeddings.py`:**
+
 - Reads all narratives from Supabase
 - For each narrative, combines its `semantic_anchors` into a single text block
 - Computes the embedding of that combined text (this is the "centroid")
@@ -726,6 +745,7 @@ deactivate
 1. Run `compute_embeddings.py` → script prints "Computed embeddings for 20 narratives"
 2. In Supabase Table Editor, check `narratives` table → `embedding` column is no longer null for any row
 3. Test the matcher manually:
+
    ```bash
    cd apps/api && source .venv/bin/activate
    python -c "
@@ -735,8 +755,10 @@ deactivate
        print(f'{r.narrative_name}: {r.similarity_score:.3f}')
    "
    ```
+
    → Should return "Great Replacement Theory" (or similar) as the top match with score > 0.5
 4. Test with unrelated text:
+
    ```bash
    python -c "
    from services.matcher import match_text
@@ -744,6 +766,7 @@ deactivate
    print(f'Matches: {len(results)}')
    "
    ```
+
    → Should return 0 matches (all below threshold)
 
 ### Decisions Made
@@ -785,6 +808,7 @@ apps/api/
 ### Implementation Details
 
 **`ingestion/reddit.py`:**
+
 - Uses PRAW (Python Reddit API Wrapper) to monitor subreddits
 - Target subreddits (hackathon scope, ~10):
   `worldnews`, `europe`, `news`, `ukpolitics`, `conservative`,
@@ -797,6 +821,7 @@ apps/api/
 - **Critical: the post text is NEVER stored. Only the match result is stored.**
 
 **`ingestion/rss.py`:**
+
 - Uses `feedparser` to parse RSS feeds from `data/rss_feeds.json`
 - Fetches latest entries from each feed
 - For each entry: match title + summary against taxonomy, store match results
@@ -806,6 +831,7 @@ apps/api/
   high-propagation sources
 
 **`ingestion/mock.py`:**
+
 - Generates realistic mock ingestion data for Twitter and Telegram
 - Each mock entry has: a synthetic text (derived from taxonomy semantic anchors +
   random variation), platform, timestamp, and geographic region
@@ -813,6 +839,7 @@ apps/api/
 - Mock data is clearly labeled (platform="twitter_mock", "telegram_mock")
 
 **`ingestion/pipeline.py`:**
+
 - `run_pipeline(sources: list[str] = ["reddit", "rss", "mock"])`:
   1. Calls each ingestion source
   2. Collects all match results
@@ -821,6 +848,7 @@ apps/api/
   5. Returns a summary: total items processed, matches found, VRS scores computed
 
 **`services/velocity.py`:**
+
 - `compute_vrs(narrative_id: str, window_hours: int = 24) -> VRSScore`:
   1. Query `narrative_events` for this narrative in the last `window_hours`
   2. Compute four dimensions:
@@ -835,6 +863,7 @@ apps/api/
   4. Store result in `vrs_scores` table
 
 **`routers/ingest.py`:**
+
 ```python
 @router.post("/ingest/run")
 async def trigger_pipeline(sources: list[str] = ["reddit", "rss"]):
@@ -926,6 +955,7 @@ apps/api/
 ### Implementation Details
 
 **`services/brief_generator.py`:**
+
 - `generate_brief(narrative_id: str, trigger_type: str, target_audience: str = "community_organization", language: str = "en") -> Brief`
 - Steps:
   1. Load the narrative from Supabase (including cluster, technique, refutations)
@@ -941,6 +971,7 @@ apps/api/
   10. Return the Brief object
 
 **`BriefContent` schema (in `models/brief.py`):**
+
 ```python
 class BriefContent(BaseModel):
     technique_explanation: str      # Step 1 output
@@ -968,6 +999,7 @@ personal script (4–6 sentences), and discussion questions (2).
 (accuracy, tone, actionability, accessibility, technique focus).
 
 **Gemini API client setup:**
+
 ```python
 from google import genai
 
@@ -1095,6 +1127,7 @@ apps/web/src/
 ### Implementation Details
 
 **Auth Flow:**
+
 1. User visits `/register` → fills in email, password, org name, org type, country
 2. On submit: `supabase.auth.signUp()` creates the user, then inserts a `subscribers`
    row with `status: 'pending'`
@@ -1106,6 +1139,7 @@ apps/web/src/
    manually confirm users, or disable email confirmation in Supabase Auth settings.
 
 **Dashboard Layout (`dashboard/layout.tsx`):**
+
 - Left sidebar (240px wide, collapsible to 64px on mobile)
 - Sidebar links: Radar, Trends, Briefs, Alerts, Tips, Generate, Settings
 - Each link uses an icon (from Lucide React, included with shadcn) + label
@@ -1113,6 +1147,7 @@ apps/web/src/
 - Top bar shows current page title + user avatar/logout
 
 **Design Implementation:**
+
 - `globals.css`: Override CSS variables for the dark theme
 - Background: `bg-slate-950` on `<body>`
 - Card surfaces: `bg-slate-900 border border-slate-800`
@@ -1123,6 +1158,7 @@ apps/web/src/
 
 **`lib/api.ts`:**
 A typed fetch wrapper for the FastAPI backend:
+
 ```typescript
 const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
@@ -1138,6 +1174,7 @@ export async function apiFetch<T>(path: string, options?: RequestInit): Promise<
 
 **`types/index.ts`:**
 TypeScript interfaces matching the Pydantic models from Phase 2:
+
 ```typescript
 export interface Narrative {
   id: string;
@@ -1236,6 +1273,7 @@ apps/web/src/
 ### Implementation Details
 
 **Radar View (`dashboard/page.tsx`):**
+
 - Fetches current VRS scores for all narratives from `GET /vrs`
 - Displays a Recharts ScatterChart (bubble chart):
   - X-axis: narrative cluster (categorical)
@@ -1248,15 +1286,18 @@ apps/web/src/
   "Z at alert level"
 
 **VRS Badge (`vrs-badge.tsx`):**
+
 ```
 Score 0–30:   bg-emerald-500/10 text-emerald-400 border-emerald-500/30  label: "Monitor"
 Score 30–60:  bg-amber-500/10 text-amber-400 border-amber-500/30        label: "Watch"
 Score 60–80:  bg-orange-500/10 text-orange-400 border-orange-500/30      label: "Alert"
 Score 80–100: bg-red-500/10 text-red-400 border-red-500/30               label: "Critical"
 ```
+
 Font: `font-mono text-xs`. Shows the numeric score next to the label.
 
 **Trend View (`trends/page.tsx`):**
+
 - Selector to choose up to 5 narratives from a dropdown
 - Fetches VRS history for each selected narrative from `GET /vrs/{narrative_id}/history`
 - Displays a Recharts LineChart:
@@ -1267,6 +1308,7 @@ Font: `font-mono text-xs`. Shows the numeric score next to the label.
 - Date range selector: 7d / 30d / All time
 
 **Brief Archive (`briefs/page.tsx`):**
+
 - Fetches all briefs from `GET /briefs`
 - Displays a list of `brief-card` components, each showing:
   - Brief title (narrative name)
@@ -1279,6 +1321,7 @@ Font: `font-mono text-xs`. Shows the numeric score next to the label.
 - Click a card → navigates to `/dashboard/briefs/{id}`
 
 **Brief Detail (`briefs/[id]/page.tsx`):**
+
 - Fetches brief from `GET /briefs/{id}`
 - Renders the full brief content in a clean, readable layout:
   - Title + metadata bar (narrative, VRS, date, validation status)
@@ -1291,6 +1334,7 @@ Font: `font-mono text-xs`. Shows the numeric score next to the label.
 - "Generate New Version" button: triggers re-generation
 
 **Alert Log (`alerts/page.tsx`):**
+
 - Fetches alerts from `GET /alerts` (new endpoint needed — add to `routers/alerts.py`)
 - Chronological list of alerts with:
   - Alert level badge (orange / red)
@@ -1303,6 +1347,7 @@ Font: `font-mono text-xs`. Shows the numeric score next to the label.
 ### New Backend Endpoint Needed
 
 Add `routers/alerts.py`:
+
 ```python
 @router.get("/alerts", response_model=list[AlertResponse])
 async def list_alerts():
@@ -1381,6 +1426,7 @@ apps/web/src/
 ### Implementation Details
 
 **Taxonomy Browser (`taxonomy/page.tsx`) — Static Generation:**
+
 - Uses `generateStaticParams()` and fetches all narratives at build time
   from Supabase (via server component)
 - Renders a searchable, filterable grid of taxonomy cards
@@ -1389,6 +1435,7 @@ apps/web/src/
 - Page is statically generated at build time (ISR with revalidation every hour)
 
 **Narrative Detail (`taxonomy/[id]/page.tsx`) — Static Generation:**
+
 - Fetches single narrative by ID at build time
 - Renders full taxonomy entry:
   - Name, cluster, technique type (as badges)
@@ -1403,6 +1450,7 @@ apps/web/src/
 - "Generate Brief" button (links to `/dashboard/generate?narrative={id}`, requires login)
 
 **On-Demand Generator (`dashboard/generate/page.tsx`):**
+
 - Protected route (requires auth)
 - Two input modes:
   1. **Text input:** Paste any text → submit → backend matches against taxonomy →
@@ -1420,6 +1468,7 @@ apps/web/src/
 
 **New Backend Endpoint:**
 Add to `routers/briefs.py`:
+
 ```python
 @router.post("/match", response_model=list[NarrativeMatch])
 async def match_text(request: MatchRequest):
@@ -1428,6 +1477,7 @@ async def match_text(request: MatchRequest):
 ```
 
 **Landing Page (`page.tsx`):**
+
 - Hero: "A weather radar for Islamophobia" (the report's core pitch)
   - Subhead: "Forecast which anti-Muslim narratives will go viral — and inoculate
     communities before they do."
@@ -1438,6 +1488,7 @@ async def match_text(request: MatchRequest):
 - Footer: "Built for the 2026 Harvest Anti-Muslim Hate Hackathon" + links
 
 Design notes for the landing page:
+
 - NOT a generic SaaS landing page with gradient hero and screenshot mockup
 - Dark background, minimal. The text and the idea should carry the page.
 - Hero uses large, clean typography. No decorative SVGs or blobs.
@@ -1511,11 +1562,13 @@ apps/web/src/
 ### Implementation Details
 
 **`services/email_service.py`:**
+
 - `send_email(to: str, subject: str, html: str) -> bool` using Resend SDK
 - `send_digest(subscriber: Subscriber, digest_content: DigestContent) -> bool`
 - Simple wrapper around the Resend API
 
 **`services/digest_builder.py`:**
+
 - `build_weekly_digest() -> DigestContent`:
   1. Get top 3 narratives by VRS score (descending)
   2. For each, get (or generate) a current brief
@@ -1524,6 +1577,7 @@ apps/web/src/
   5. Return structured content (subject line, HTML body)
 
 **Weekly Digest HTML Template (`templates/weekly_digest.html`):**
+
 - Clean, dark-themed HTML email (not a bright white marketing email)
 - Matches the dashboard aesthetic
 - Sections: "This Week's Narrative Radar" → top 3 narratives with VRS badges →
@@ -1531,18 +1585,21 @@ apps/web/src/
 - Footer: link to dashboard, unsubscribe link
 
 **Subscriber Management (`routers/subscribers.py` updates):**
+
 - `POST /subscribers` — creates subscriber (already exists, update if needed)
 - `PATCH /subscribers/{id}/approve` — admin approves subscriber (sets status to "approved")
 - `PATCH /subscribers/{id}/preferences` — update notification preferences
 - `GET /subscribers/me` — get current subscriber's record
 
 **Community Tips (`tips/page.tsx` + `routers/tips.py`):**
+
 - Frontend: form to submit a tip (text description of the narrative observed,
   where it was seen, optional related narrative selection)
 - Backend: `POST /tips` stores the tip, `GET /tips` returns tips for the current user
 - Tips page also shows submission history with status badges (pending/reviewed/confirmed/rejected)
 
 **Settings Page (`settings/page.tsx`):**
+
 - Language preference selector
 - Delivery frequency toggle (weekly / realtime)
 - Focus clusters multi-select (which narrative clusters to prioritize)
@@ -1646,6 +1703,7 @@ Two forecasting approaches, used based on data availability:
    - Falls back to simple trend extrapolation if Prophet fails or data is insufficient
 
 **`routers/forecast.py`:**
+
 ```python
 @router.get("/forecast/{narrative_id}", response_model=ForecastResponse)
 async def get_forecast(narrative_id: str, hours: int = 72):
@@ -1654,6 +1712,7 @@ async def get_forecast(narrative_id: str, hours: int = 72):
 ```
 
 **`ForecastResponse` model:**
+
 ```python
 class ForecastPoint(BaseModel):
     timestamp: datetime
@@ -1673,11 +1732,13 @@ class ForecastResponse(BaseModel):
 ```
 
 **`breakout_risk` classification:**
+
 - "low": predicted peak VRS < 30
 - "moderate": predicted peak VRS 30–60
 - "high": predicted peak VRS > 60
 
 **Forecast Overlay on Trend Chart:**
+
 - The trend chart (Phase 7) is updated to optionally show the forecast
 - Forecast line is rendered as a dashed line with a shaded confidence band
 - Toggle: "Show Forecast" checkbox on the trends view
@@ -1779,6 +1840,7 @@ All 5 steps must succeed. If any fail, fix before proceeding.
 **Step 2: Generate Demo Content**
 
 `scripts/generate_demo_data.py`:
+
 - Generates 7 days of realistic `narrative_events` data (backdated) to populate
   the dashboard with meaningful charts
 - Generates VRS scores for each day (showing trends — some narratives rising,
@@ -1794,6 +1856,7 @@ python scripts/generate_demo_data.py
 **Step 3: Deploy Backend to Railway**
 
 Create `apps/api/Dockerfile`:
+
 ```dockerfile
 FROM python:3.12-slim
 
@@ -1837,6 +1900,7 @@ vercel
 **Step 5: Write README.md**
 
 Structure:
+
 ```markdown
 # Prebunk — Narrative Forecast and Inoculation System
 
@@ -1876,6 +1940,7 @@ MIT (code) + CC BY 4.0 (taxonomy data)
 
 Copy the disclosure table from STACK.md §13, formatted as required by hackathon
 rules. Include:
+
 - All libraries with versions and licenses
 - All managed services with tier (free/paid)
 - All AI services used during development and in the product

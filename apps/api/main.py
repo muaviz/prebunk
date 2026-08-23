@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 
-from routers import narratives, vrs, briefs, subscribers, tips
+from routers import narratives, vrs, briefs, subscribers, tips, ingest
 
 app = FastAPI(title="Prebunk API")
 
@@ -23,6 +23,7 @@ app.include_router(vrs.router)
 app.include_router(briefs.router)
 app.include_router(subscribers.router)
 app.include_router(tips.router)
+app.include_router(ingest.router)
 
 @app.get("/health")
 async def health_check():

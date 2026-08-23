@@ -1,6 +1,7 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, BackgroundTasks
 from models.brief import Brief, BriefCreate
 from db import supabase
+from services.brief_generator import generate_brief
 
 router = APIRouter(prefix="/briefs", tags=["briefs"])
 
@@ -16,6 +17,12 @@ async def get_brief(id: str):
         raise HTTPException(status_code=404, detail="Brief not found")
     return res.data[0]
 
-@router.post("/generate")
-async def generate_brief(req: BriefCreate):
-    return {"status": "pending", "message": "Phase 5 will implement brief generation."}
+@router.post("/generate", response_model=Brief)
+async def trigger_brief(req: BriefCreate):
+    try:
+        brief = generate_brief(req.narrative_id, trigger_type=req.trigger_type)
+        return brief
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to generate brief: {e}")
