@@ -32,7 +32,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       } else {
         // Populate match data
         document.getElementById('match-name').textContent = result.claim.title;
-        document.getElementById('match-score').textContent = Math.round(result.claim.similarity_score * 100) + '% Match';
+        
+        // Handle UI difference for LLM generated content vs DB match
+        const matchScoreEl = document.getElementById('match-score');
+        if (result.is_llm_generated) {
+           matchScoreEl.textContent = 'AI Detected';
+           matchScoreEl.style.backgroundColor = '#6366f1'; // Indigo for AI
+        } else {
+           matchScoreEl.textContent = Math.round(result.claim.similarity_score * 100) + '% Match';
+           matchScoreEl.style.backgroundColor = ''; // Reset to default
+        }
         
         const scriptElement = document.getElementById('match-script');
         const scriptContainer = document.getElementById('personal-script-container');
@@ -60,7 +69,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const sourcesList = document.getElementById('match-sources');
         const sourcesContainer = document.getElementById('sources-container');
         sourcesList.innerHTML = '';
-        if (result.prebunk && result.prebunk.refutations && result.prebunk.refutations.length > 0) {
+        
+        // Hide sources completely for LLM generated results since we don't have exact URLs
+        if (result.is_llm_generated) {
+            sourcesContainer.classList.add('hidden');
+        } else if (result.prebunk && result.prebunk.refutations && result.prebunk.refutations.length > 0) {
           // Show top 2 refutation sources
           result.prebunk.refutations.slice(0, 2).forEach(ref => {
             const li = document.createElement('li');
@@ -68,7 +81,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             a.href = ref.source_url;
             a.target = "_blank";
             a.textContent = ref.source_name;
-            a.style.color = "#2563eb"; // Optional inline styling for links
+            a.style.color = "#2563eb"; 
             a.style.textDecoration = "none";
             
             li.appendChild(a);
@@ -83,7 +96,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         chrome.storage.sync.get(["webUrl"], (res) => {
           const webUrl = res.webUrl || "http://localhost:3000";
           const learnMoreLink = document.getElementById('learn-more-link');
-          learnMoreLink.href = `${webUrl}/claims/${result.claim.id}`;
+          
+          if (result.is_llm_generated) {
+             learnMoreLink.textContent = "Browse all known claims \u2192";
+             learnMoreLink.href = `${webUrl}/claims`;
+          } else {
+             learnMoreLink.textContent = "See full refutation \u2192";
+             learnMoreLink.href = `${webUrl}/claims/${result.claim.id}`;
+          }
         });
         
         showView('match');

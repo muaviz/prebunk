@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/home/site-header";
 import { SiteFooter } from "@/components/home/site-footer";
 import { Badge } from "@/components/ui/badge";
 import { RefutationCard } from "@/components/claims/refutation-card";
+import { CopyButton } from "@/components/claims/copy-button";
 
 export const revalidate = 60;
 
@@ -103,19 +104,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
                 <div className="bg-background border border-primary/10 rounded-xl p-4 mb-4 text-sm leading-relaxed text-foreground shadow-inner">
                   "{claim.personal_script}"
                 </div>
-                {/* We need a simple copy button here, we'll create one inline since we deleted components/briefs */}
-                <button 
-                  className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-                  onClick={(e) => {
-                    navigator.clipboard.writeText(claim.personal_script || "");
-                    const target = e.currentTarget;
-                    const oldText = target.innerText;
-                    target.innerText = "Copied!";
-                    setTimeout(() => { target.innerText = oldText; }, 2000);
-                  }}
-                >
-                  Copy Response
-                </button>
+                <CopyButton textToCopy={claim.personal_script} />
               </section>
             )}
 
