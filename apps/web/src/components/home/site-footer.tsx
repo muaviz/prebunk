@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Shield } from "lucide-react";
+import { IslamicLogo } from "@/components/ui/islamic-logo";
 
 export function SiteFooter() {
   return (
@@ -7,7 +7,7 @@ export function SiteFooter() {
       <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
           <div className="flex items-center gap-2 text-foreground">
-            <Shield className="h-5 w-5 text-primary" />
+            <IslamicLogo className="h-5 w-5 text-primary" />
             <span className="font-bold tracking-tight">PREBUNK</span>
           </div>
           <p className="text-sm text-muted-foreground max-w-sm">

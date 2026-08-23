@@ -3,7 +3,7 @@ import { Claim } from "@/types";
 import { SiteHeader } from "@/components/home/site-header";
 import { SiteFooter } from "@/components/home/site-footer";
 import { ClaimCard } from "@/components/claims/claim-card";
-import { Shield } from "lucide-react";
+import { IslamicLogo } from "@/components/ui/islamic-logo";
 
 export const revalidate = 60;
 
@@ -22,7 +22,7 @@ export default async function ClaimsPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12 border-b border-border pb-8">
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
-              <Shield className="w-8 h-8" />
+              <IslamicLogo className="w-8 h-8" />
             </div>
             <div>
               <h1 className="text-4xl font-bold text-foreground">Claim Database</h1>

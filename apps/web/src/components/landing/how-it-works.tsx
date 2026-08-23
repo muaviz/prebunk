@@ -1,21 +1,21 @@
-import { Search, Brain, ShieldCheck } from "lucide-react";
+import { Search, Sparkles, ShieldCheck } from "lucide-react";
 
 export function HowItWorks() {
   const steps = [
     {
       icon: <Search className="h-6 w-6 text-blue-500" />,
-      title: "1. We Monitor",
-      description: "We track social media and forums for emerging anti-Muslim claims before they reach the mainstream."
+      title: "1. We Predict",
+      description: "We monitor early-stage chatter to detect emerging anti-Muslim claims before they reach the mainstream."
     },
     {
-      icon: <Brain className="h-6 w-6 text-purple-500" />,
-      title: "2. We Analyze",
-      description: "AI identifies the claim pattern and finds the facts to counter it effectively."
+      icon: <Sparkles className="h-6 w-6 text-purple-500" />,
+      title: "2. We Pre-bunk",
+      description: "Our system deconstructs the narrative and builds fact-backed, religiously-grounded refutations in advance."
     },
     {
       icon: <ShieldCheck className="h-6 w-6 text-emerald-500" />,
-      title: "3. You're Prepared",
-      description: "Get refutations backed by the Quran, Hadith, and academic sources, ready to share."
+      title: "3. You Prepare",
+      description: "When the claim finally hits your social feed, you're already equipped with the exact scripts to confidently shut it down."
     }
   ];
 
@@ -23,9 +23,9 @@ export function HowItWorks() {
     <section className="py-24 bg-muted/50 border-y border-border">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-foreground">How Prebunk Works</h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            A simple, proactive approach to stopping hate speech before it spreads.
+          <h2 className="text-3xl font-bold text-foreground">How Prebunking Works</h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
+            Don't wait to be reactive. Get ahead of the conversation and stop the spread of misinformation at the source.
           </p>
         </div>
 

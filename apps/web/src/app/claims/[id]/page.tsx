@@ -2,12 +2,13 @@ import { fetchApi } from "@/lib/api";
 import { Claim } from "@/types";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, MessageSquare, ShieldCheck, ListChecks } from "lucide-react";
+import { ArrowLeft, MessageSquare, ShieldCheck, ListChecks, Share2 } from "lucide-react";
 import { SiteHeader } from "@/components/home/site-header";
 import { SiteFooter } from "@/components/home/site-footer";
 import { Badge } from "@/components/ui/badge";
 import { RefutationCard } from "@/components/claims/refutation-card";
 import { CopyButton } from "@/components/claims/copy-button";
+import { ShareButtons } from "@/components/claims/share-buttons";
 
 export const revalidate = 60;
 
@@ -127,6 +128,17 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
                   <li className="text-sm text-muted-foreground">No talking points available.</li>
                 )}
               </ul>
+            </section>
+
+            <section className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+              <div className="flex items-center gap-2 mb-6 text-foreground font-bold">
+                <Share2 className="w-5 h-5 text-blue-500" />
+                <h3>Help Stop the Spread</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">
+                Warn others that this claim is false by sharing this prebunk directly to your feed.
+              </p>
+              <ShareButtons claim={claim} />
             </section>
           </div>
         </div>

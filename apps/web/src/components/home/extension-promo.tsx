@@ -10,15 +10,15 @@ export function ExtensionPromo() {
           <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-full mb-4">
             <Puzzle className="h-6 w-6 text-primary" />
           </div>
-          <h2 className="text-3xl font-bold text-foreground">Prebunk Anywhere</h2>
+          <h2 className="text-3xl font-bold text-foreground">Intercept viral hate in real-time.</h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Highlight suspicious text on any webpage and instantly analyze it against our claim database. Get fact-based, religiously-grounded talking points right when you need them.
+            Don't get caught off guard by a new talking point. Highlight any suspicious text online, and our extension will instantly tell you if it's an emerging threat—and give you the exact facts to prebunk it.
           </p>
           <div className="pt-4">
-            <a href="https://github.com/yourusername/prebunk" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground")}>
-              Download Chrome Extension
+            <a href="https://github.com/muaviz/prebunk" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground")}>
+              Install Chrome Extension
             </a>
-            <p className="text-xs text-muted-foreground mt-3">Currently available as an unpacked developer extension.</p>
+            <p className="text-xs text-muted-foreground mt-3">Available on GitHub as an unpacked developer extension.</p>
           </div>
         </div>
         
@@ -31,18 +31,18 @@ export function ExtensionPromo() {
             </div>
             <div className="p-4 relative h-full">
               <p className="text-sm bg-blue-50 text-blue-900 inline-block p-1 rounded italic mb-4 blur-[1px]">
-                 "They're secretly replacing the population..."
+                 "Eurabia is inevitable unless we remove kebab from our continent..."
               </p>
               
               <div className="absolute right-8 top-12 w-64 bg-card border border-border rounded-md shadow-lg z-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <div className="p-3 border-b border-border flex items-center gap-2">
                    <div className="w-4 h-4 bg-primary rounded-full flex items-center justify-center text-[10px] text-white font-bold">P</div>
-                   <span className="font-semibold text-xs">Prebunk</span>
+                   <span className="font-semibold text-xs">Prebunk Analysis</span>
                 </div>
                 <div className="p-4 space-y-3">
-                  <div className="text-xs font-semibold text-red-600 bg-red-50 inline-block px-2 py-0.5 rounded">Harmful Claim Detected</div>
-                  <p className="text-sm font-bold">The Great Replacement</p>
-                  <p className="text-xs text-muted-foreground">This is a widely debunked conspiracy theory.</p>
+                  <div className="text-xs font-semibold text-white bg-indigo-500 inline-block px-2 py-0.5 rounded">AI Detected</div>
+                  <p className="text-sm font-bold">White Supremacist Tropes</p>
+                  <p className="text-xs text-muted-foreground">"Eurabia" is a conspiracy theory about demographic takeover. "Remove kebab" is a violent meme referencing the ethnic cleansing of Bosnian Muslims...</p>
                   <div className="h-2 bg-muted rounded w-full mt-2"></div>
                   <div className="h-2 bg-muted rounded w-3/4"></div>
                 </div>

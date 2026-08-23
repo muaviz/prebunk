@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Shield } from "lucide-react";
+import { IslamicLogo } from "@/components/ui/islamic-logo";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -8,7 +8,7 @@ export function SiteHeader() {
     <header className="border-b border-border bg-background sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-foreground">
-          <Shield className="h-6 w-6 text-primary" />
+          <IslamicLogo className="h-6 w-6 text-primary" />
           <span className="font-bold tracking-tight text-lg">PREBUNK</span>
         </Link>
         

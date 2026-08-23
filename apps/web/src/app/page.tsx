@@ -33,8 +33,14 @@ export default async function Home() {
           <section id="featured" className="py-20 bg-muted/30">
             <div className="max-w-5xl mx-auto px-6">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-foreground">Trending This Week</h2>
-                <p className="text-muted-foreground mt-3">These harmful claims are currently spiking in virality.</p>
+                <h2 className="text-3xl font-bold text-foreground flex items-center justify-center gap-2">
+                  <span className="relative flex h-4 w-4">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500"></span>
+                  </span>
+                  High Alert: Emerging Threats
+                </h2>
+                <p className="text-muted-foreground mt-3">These claims are showing early signs of coordinated spread. Prepare yourself for these conversations.</p>
               </div>
               <div className="space-y-6">
                 {featuredClaims.map(claim => (
