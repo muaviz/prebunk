@@ -3,7 +3,7 @@
   "name": "Prebunk — Spot the Lie",
   "version": "1.0.0",
   "description": "Highlight suspicious text and instantly get a fact-based response. Powered by Prebunk's anti-misinformation taxonomy.",
-  "permissions": ["contextMenus", "activeTab", "storage"],
+  "permissions": ["contextMenus", "activeTab", "storage", "sidePanel"],
   "host_permissions": ["http://127.0.0.1:8000/*", "https://prebunk-api.railway.app/*"],
   "background": {
     "service_worker": "background.js"
@@ -14,8 +14,11 @@
       "js": ["content.js"]
     }
   ],
+  "side_panel": {
+    "default_path": "popup.html"
+  },
   "action": {
-    "default_popup": "popup.html",
+    "default_title": "Open Prebunk Side Panel",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",

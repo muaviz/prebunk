@@ -1,3 +1,6 @@
+// Allow users to open the side panel by clicking on the action toolbar icon
+chrome.sidePanel.setPanelBehavior({ openPanelOnActionIconClick: true }).catch((error) => console.error(error));
+
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "prebunk-analyze",
@@ -10,6 +13,13 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "prebunk-analyze" && info.selectionText) {
     const selectedText = info.selectionText;
     
+    // Automatically open the side panel on the current window
+    try {
+      await chrome.sidePanel.open({ windowId: tab.windowId });
+    } catch (e) {
+      console.error("Failed to open side panel", e);
+    }
+    
     // Store loading state
     await chrome.storage.local.set({
       selectedText,
@@ -20,7 +30,6 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     
     // Fetch API URL from sync storage or use default
     const result = await chrome.storage.sync.get(["apiUrl"]);
-    // Assuming deployed API is on Railway; fallback to local for dev
     const API_BASE_URL = result.apiUrl || "http://127.0.0.1:8000";
     
     try {
@@ -31,7 +40,9 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         },
         body: JSON.stringify({
           text: selectedText,
-          threshold: 0.40
+          // Since we increased it in the backend, let's omit the threshold here 
+          // or set it explicitly to the new default to be safe.
+          threshold: 0.55 
         })
       });
       
