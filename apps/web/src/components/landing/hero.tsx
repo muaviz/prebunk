@@ -9,8 +9,9 @@ export function Hero() {
     <section className="relative isolate overflow-hidden pt-28 pb-24 md:pt-36 md:pb-28">
       <LiquidParticles />
       <div className="absolute inset-0 z-0 bg-grid-pattern opacity-[0.025]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 bg-gradient-to-b from-transparent via-background/70 to-muted/50" />
       
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
+      <div className="relative z-20 mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
         <div className="mb-8 inline-flex items-center rounded-full border border-primary/20 bg-background/75 px-3 py-1 text-sm text-primary shadow-sm backdrop-blur-sm animate-fade-in-up">
           <ShieldCheck className="h-4 w-4 mr-2" />
           <span className="font-medium">Predictive Threat Intelligence</span>

@@ -193,7 +193,7 @@ export function LiquidParticles() {
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(63,128,93,0.15),transparent_38%),linear-gradient(180deg,rgba(250,250,248,0.02),rgba(250,250,248,0.72)_94%)]" />
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-100" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/55 to-transparent" />
     </div>
   );
 }
