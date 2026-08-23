@@ -26,3 +26,8 @@ class Narrative(BaseModel):
 
 class NarrativeResponse(Narrative):
     pass
+
+class NarrativeMatch(BaseModel):
+    narrative_id: str
+    narrative_name: str
+    similarity_score: float

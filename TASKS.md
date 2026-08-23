@@ -87,13 +87,13 @@
 
 ## Phase 3: Analysis Layer — Pattern Matching
 
-- [ ] Install ML dependencies: sentence-transformers, torch, numpy, scikit-learn
-- [ ] Write `apps/api/services/embeddings.py` — SBERT model loader + `embed_text()` function
-- [ ] Write `apps/api/services/matcher.py` — `match_text()` with cosine similarity against taxonomy centroids
-- [ ] Write `apps/api/scripts/compute_embeddings.py` — compute centroid embeddings for all narratives, store in Supabase
-- [ ] Run `compute_embeddings.py` → all narratives have non-null embeddings
-- [ ] **Verify:** `match_text("Muslims are replacing the population")` returns Demographic Threat narrative with score > 0.5
-- [ ] **Verify:** `match_text("Weather forecast for tomorrow")` returns 0 matches
+- [x] Install ML dependencies: sentence-transformers, torch, numpy, scikit-learn
+- [x] Write `apps/api/services/embeddings.py` — SBERT model loader + `embed_text()` function
+- [x] Write `apps/api/services/matcher.py` — `match_text()` with cosine similarity against taxonomy centroids
+- [x] Write `apps/api/scripts/compute_embeddings.py` — compute centroid embeddings for all narratives, store in Supabase
+- [x] Run `compute_embeddings.py` → all narratives have non-null embeddings
+- [x] **Verify:** `match_text("Muslims are replacing the population")` returns Demographic Threat narrative with score > 0.5
+- [x] **Verify:** `match_text("Weather forecast for tomorrow")` returns 0 matches
 
 ---
 
