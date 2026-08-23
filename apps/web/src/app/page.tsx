@@ -1,33 +1,75 @@
 import { fetchApi } from "@/lib/api";
-import { Narrative, VrsScore, Brief } from "@/types";
+import { Claim } from "@/types";
 import { SiteHeader } from "@/components/home/site-header";
+import { SiteFooter } from "@/components/home/site-footer";
 import { Hero } from "@/components/landing/hero";
 import { HowItWorks } from "@/components/landing/how-it-works";
-import { LiveTracker } from "@/components/home/live-tracker";
-import { LatestBriefs } from "@/components/home/latest-briefs";
 import { ExtensionPromo } from "@/components/home/extension-promo";
-import { NewsletterForm } from "@/components/home/newsletter-form";
-import { SiteFooter } from "@/components/home/site-footer";
+import { FeaturedThreatCard } from "@/components/claims/featured-threat-card";
+import { ClaimCard } from "@/components/claims/claim-card";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
+
+export const revalidate = 60; // Revalidate every minute
 
 export default async function Home() {
-  // Fetch required data for the homepage
-  const [narratives, vrsScores, clusters, briefs] = await Promise.all([
-    fetchApi<Narrative[]>("/narratives/").catch(() => []),
-    fetchApi<VrsScore[]>("/vrs/?latest=false").catch(() => []),
-    fetchApi<{id: string, name: string}[]>("/clusters/").catch(() => []),
-    fetchApi<Brief[]>("/briefs/").catch(() => [])
-  ]);
+  let claims: Claim[] = [];
+  try {
+    claims = await fetchApi<Claim[]>("/claims/");
+  } catch (error) {
+    console.error("Failed to fetch claims:", error);
+  }
+
+  const featuredClaims = claims.filter(c => c.is_featured);
+  const otherClaims = claims.filter(c => !c.is_featured).slice(0, 6);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen">
       <SiteHeader />
       <main className="flex-1">
         <Hero />
+        
+        {featuredClaims.length > 0 && (
+          <section id="featured" className="py-20 bg-muted/30">
+            <div className="max-w-5xl mx-auto px-6">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-foreground">Trending This Week</h2>
+                <p className="text-muted-foreground mt-3">These harmful claims are currently spiking in virality.</p>
+              </div>
+              <div className="space-y-6">
+                {featuredClaims.map(claim => (
+                  <FeaturedThreatCard key={claim.id} claim={claim} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         <HowItWorks />
-        <LiveTracker narratives={narratives} vrsScores={vrsScores} clusters={clusters} />
-        <LatestBriefs briefs={briefs} />
+        
+        {otherClaims.length > 0 && (
+          <section className="py-24 bg-background">
+            <div className="max-w-5xl mx-auto px-6">
+              <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                  <h2 className="text-3xl font-bold text-foreground">Recently Tracked Claims</h2>
+                  <p className="text-muted-foreground mt-2">Explore our database of tracked anti-Muslim narratives.</p>
+                </div>
+                <Link href="/claims" className={buttonVariants({ variant: "outline" })}>
+                  View All Claims &rarr;
+                </Link>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {otherClaims.map(claim => (
+                  <ClaimCard key={claim.id} claim={claim} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         <ExtensionPromo />
-        <NewsletterForm />
       </main>
       <SiteFooter />
     </div>

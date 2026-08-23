@@ -1,20 +1,11 @@
-from routers import alerts, digest, forecast
-from routers import clusters
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from config import settings
+from routers import claims, extension
 
-from routers import narratives, vrs, briefs, subscribers, ingest, newsletter, extension
+app = FastAPI(title="Prebunk API", docs_url="/docs", redoc_url="/redoc")
 
-app = FastAPI(
-    title="Prebunk API",
-    docs_url="/docs" if getattr(settings, "debug", True) else None,
-    redoc_url="/redoc" if getattr(settings, "debug", True) else None
-)
-
-origins = []
-if settings.cors_origins:
-    origins = [origin.strip() for origin in settings.cors_origins.split(",") if origin.strip()]
+origins = [o.strip() for o in settings.cors_origins.split(",") if o.strip()]
 
 app.add_middleware(
     CORSMiddleware,
@@ -25,17 +16,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(narratives.router)
-app.include_router(vrs.router)
-app.include_router(briefs.router)
-app.include_router(subscribers.router)
-app.include_router(newsletter.router)
+app.include_router(claims.router)
 app.include_router(extension.router)
-app.include_router(alerts.router)
-app.include_router(digest.router)
-app.include_router(forecast.router)
-app.include_router(ingest.router)
-app.include_router(clusters.router)
 
 @app.get("/health")
 async def health_check():

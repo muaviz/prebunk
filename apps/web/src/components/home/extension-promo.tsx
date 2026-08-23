@@ -12,7 +12,7 @@ export function ExtensionPromo() {
           </div>
           <h2 className="text-3xl font-bold text-foreground">Prebunk Anywhere</h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Highlight suspicious text on any webpage and instantly analyze it against our tracking taxonomy. Get fact-based talking points right when you need them.
+            Highlight suspicious text on any webpage and instantly analyze it against our claim database. Get fact-based, religiously-grounded talking points right when you need them.
           </p>
           <div className="pt-4">
             <a href="https://github.com/yourusername/prebunk" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground")}>
@@ -39,10 +39,12 @@ export function ExtensionPromo() {
                    <div className="w-4 h-4 bg-primary rounded-full flex items-center justify-center text-[10px] text-white font-bold">P</div>
                    <span className="font-semibold text-xs">Prebunk</span>
                 </div>
-                <div className="p-3">
-                   <div className="text-xs font-semibold mb-1 text-primary">The Great Replacement (82% Match)</div>
-                   <p className="text-[10px] text-muted-foreground italic mb-2">"When someone says this, the reality is..."</p>
-                   <div className="w-full h-6 bg-muted rounded flex items-center justify-center text-[10px] font-medium border border-border">Copy Response</div>
+                <div className="p-4 space-y-3">
+                  <div className="text-xs font-semibold text-red-600 bg-red-50 inline-block px-2 py-0.5 rounded">Harmful Claim Detected</div>
+                  <p className="text-sm font-bold">The Great Replacement</p>
+                  <p className="text-xs text-muted-foreground">This is a widely debunked conspiracy theory.</p>
+                  <div className="h-2 bg-muted rounded w-full mt-2"></div>
+                  <div className="h-2 bg-muted rounded w-3/4"></div>
                 </div>
               </div>
             </div>

@@ -27,21 +27,18 @@ document.addEventListener('DOMContentLoaded', async () => {
       showView('error');
     } else if (state.status === 'done') {
       const result = state.analysisResult;
-      if (!result || !result.matched) {
+      if (!result || !result.matched || !result.claim) {
         showView('nomatch');
       } else {
         // Populate match data
-        document.getElementById('match-name').textContent = result.narrative.name;
-        document.getElementById('match-score').textContent = Math.round(result.narrative.similarity_score * 100) + '% Match';
+        document.getElementById('match-name').textContent = result.claim.title;
+        document.getElementById('match-score').textContent = Math.round(result.claim.similarity_score * 100) + '% Match';
         
         const scriptElement = document.getElementById('match-script');
         const scriptContainer = document.getElementById('personal-script-container');
         if (result.prebunk && result.prebunk.personal_script) {
           scriptElement.textContent = `"${result.prebunk.personal_script}"`;
           scriptContainer.classList.remove('hidden');
-        } else if (result.prebunk && result.prebunk.inoculation_hook) {
-           scriptElement.textContent = `"${result.prebunk.inoculation_hook}"`;
-           scriptContainer.classList.remove('hidden');
         } else {
           scriptContainer.classList.add('hidden');
         }
@@ -60,15 +57,33 @@ document.addEventListener('DOMContentLoaded', async () => {
           pointsList.appendChild(li);
         }
 
+        const sourcesList = document.getElementById('match-sources');
+        const sourcesContainer = document.getElementById('sources-container');
+        sourcesList.innerHTML = '';
+        if (result.prebunk && result.prebunk.refutations && result.prebunk.refutations.length > 0) {
+          // Show top 2 refutation sources
+          result.prebunk.refutations.slice(0, 2).forEach(ref => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = ref.source_url;
+            a.target = "_blank";
+            a.textContent = ref.source_name;
+            a.style.color = "#2563eb"; // Optional inline styling for links
+            a.style.textDecoration = "none";
+            
+            li.appendChild(a);
+            sourcesList.appendChild(li);
+          });
+          sourcesContainer.classList.remove('hidden');
+        } else {
+          sourcesContainer.classList.add('hidden');
+        }
+
         // Base URL from settings for links
         chrome.storage.sync.get(["webUrl"], (res) => {
           const webUrl = res.webUrl || "http://localhost:3000";
           const learnMoreLink = document.getElementById('learn-more-link');
-          if (result.prebunk && result.prebunk.brief_id) {
-            learnMoreLink.href = `${webUrl}/briefs/${result.prebunk.brief_id}`;
-          } else {
-            learnMoreLink.href = `${webUrl}/taxonomy/${result.narrative.id}`;
-          }
+          learnMoreLink.href = `${webUrl}/claims/${result.claim.id}`;
         });
         
         showView('match');

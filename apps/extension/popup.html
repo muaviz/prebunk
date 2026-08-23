@@ -26,13 +26,13 @@
     <div id="state-idle" class="state-view">
       <div class="icon-container info-icon">i</div>
       <h3>Spot the Lie</h3>
-      <p>Select any suspicious text on a webpage, right-click, and choose <strong>"Prebunk this text"</strong> to analyze it against our taxonomy.</p>
+      <p>Select any suspicious text on a webpage, right-click, and choose <strong>"Prebunk this text"</strong> to analyze it against our claim database.</p>
     </div>
 
     <div id="state-loading" class="state-view hidden">
       <div class="spinner"></div>
       <h3>Analyzing text...</h3>
-      <p class="small text-muted">Checking against the anti-Muslim narrative taxonomy</p>
+      <p class="small text-muted">Checking against the anti-Muslim claim database</p>
     </div>
 
     <div id="state-error" class="state-view hidden">
@@ -43,24 +43,24 @@
 
     <div id="state-nomatch" class="state-view hidden">
       <div class="icon-container success-icon">&#10003;</div>
-      <h3>No Tropes Detected</h3>
-      <p>We didn't find any known anti-Muslim narratives in this text.</p>
-      <p class="small text-muted note">Note: This doesn't mean the content is harmless — only that it doesn't match our current tracking taxonomy.</p>
+      <h3>No Claims Detected</h3>
+      <p>We didn't find any known anti-Muslim claims in this text.</p>
+      <p class="small text-muted note">Note: This doesn't mean the content is harmless — only that it doesn't match our current tracking database.</p>
     </div>
 
     <div id="state-match" class="state-view hidden text-left">
       <div class="warning-banner">
         <span class="warning-icon">&#9888;</span>
-        <strong>Known Trope Detected</strong>
+        <strong>Harmful Claim Detected</strong>
       </div>
       
       <div class="match-header">
-        <h3 id="match-name">Narrative Name</h3>
+        <h3 id="match-name">Claim Name</h3>
         <span id="match-score" class="badge">--%</span>
       </div>
       
       <div id="personal-script-container" class="card">
-        <h4>What to Say</h4>
+        <h4>How to Respond</h4>
         <p id="match-script" class="script-text">Script goes here.</p>
         <button id="copy-btn" class="btn primary full-width">Copy Response</button>
       </div>
@@ -70,9 +70,15 @@
         <ul id="match-points" class="points-list">
         </ul>
       </div>
+
+      <div class="card" id="sources-container">
+        <h4>Sources</h4>
+        <ul id="match-sources" class="points-list">
+        </ul>
+      </div>
       
       <div class="footer-links">
-        <a href="#" id="learn-more-link" target="_blank">Learn more about this narrative &rarr;</a>
+        <a href="#" id="learn-more-link" target="_blank">See full refutation &rarr;</a>
       </div>
     </div>
   </div>

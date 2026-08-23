@@ -1,0 +1,642 @@
+[
+  {
+    "id": "CLM-001",
+    "title": "The Great Replacement",
+    "claim_text": "Muslims are deliberately immigrating to Europe and the West to replace the native population and establish Islamic dominance.",
+    "description": "The 'Great Replacement' is a white supremacist conspiracy theory that claims non-white and Muslim populations are being deliberately brought into Western countries to replace the existing population. This theory has been directly linked to multiple mass shootings and terrorist attacks. In reality, migration patterns are driven by economic factors, war displacement, and family reunification \u2014 not a coordinated demographic takeover.",
+    "category": "Demographic",
+    "virality_score": 85,
+    "is_featured": true,
+    "refutations": [
+      {
+        "claim": "Muslims are outbreeding Europeans to take over.",
+        "refutation": "Birth rates among Muslim communities in Europe have been steadily declining and converging with national averages. The Pew Research Center projects that even with high migration, Muslims would make up about 14% of Europe's population by 2050 \u2014 far from a 'replacement'.",
+        "source_name": "Pew Research Center",
+        "source_url": "https://www.pewresearch.org/religion/2017/11/29/europes-growing-muslim-population/",
+        "source_type": "academic"
+      },
+      {
+        "claim": "Islam commands Muslims to conquer non-Muslim lands.",
+        "refutation": "The Quran explicitly states 'There is no compulsion in religion' (2:256). The concept of peaceful coexistence is fundamental in Islamic theology. Migration in Islam (Hijra) was historically about fleeing persecution, not conquest.",
+        "source_name": "Quran 2:256",
+        "source_url": "https://quran.com/2/256",
+        "source_type": "quran"
+      },
+      {
+        "claim": "There is a coordinated plan for demographic replacement.",
+        "refutation": "No evidence of any coordinated plan exists. The 'Great Replacement' theory was popularized by French author Renaud Camus and has been classified as a conspiracy theory by scholars and intelligence agencies worldwide.",
+        "source_name": "Wikipedia: Great Replacement",
+        "source_url": "https://en.wikipedia.org/wiki/Great_Replacement",
+        "source_type": "wikipedia"
+      }
+    ],
+    "talking_points": [
+      "Birth rates among Muslims in Europe are declining and converging with national averages.",
+      "The 'Great Replacement' theory has been linked to multiple terrorist attacks, including the Christchurch mosque shootings.",
+      "Migration is driven by economics and conflict, not a coordinated religious agenda."
+    ],
+    "personal_script": "I understand the concern about changing demographics, but the data doesn't support the idea of a deliberate 'replacement.' Birth rates among immigrant communities naturally decline over generations. The real question is: who benefits from making us fear our neighbors?",
+    "semantic_anchors": [
+      "great replacement",
+      "replacing us",
+      "outbreeding",
+      "demographic jihad",
+      "population replacement",
+      "white genocide",
+      "eurabia",
+      "birth rates muslim"
+    ]
+  },
+  {
+    "id": "CLM-002",
+    "title": "Taqiyya (Deception)",
+    "claim_text": "Muslims are commanded by their religion to lie to non-Muslims in order to infiltrate their societies and secretly advance an Islamic agenda.",
+    "description": "The concept of 'Taqiyya' is frequently misrepresented by anti-Muslim activists. In Islamic jurisprudence, Taqiyya refers specifically to concealing one's faith strictly to avoid death or severe persecution. It is not a generalized permission to lie to non-Muslims, nor is it a strategy for infiltration. Honesty and fulfilling contracts are central tenets of Islamic ethics.",
+    "category": "Conspiracy",
+    "virality_score": 65,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Islam tells Muslims to lie to non-believers.",
+        "refutation": "Truthfulness is highly emphasized in Islam. The Quran (33:70) says 'O you who have believed, fear Allah and speak words of appropriate justice.' Lying is considered a major sin.",
+        "source_name": "Quran 33:70",
+        "source_url": "https://quran.com/33/70",
+        "source_type": "quran"
+      },
+      {
+        "claim": "Taqiyya is a strategy for Islamic takeover.",
+        "refutation": "Taqiyya is a historically specific ruling allowing persecuted Muslims (often minorities like Shia facing persecution) to hide their faith to avoid being killed. It is never applied to political infiltration.",
+        "source_name": "Wikipedia: Taqiyya",
+        "source_url": "https://en.wikipedia.org/wiki/Taqiyya",
+        "source_type": "wikipedia"
+      },
+      {
+        "claim": "Prophet Muhammad encouraged deception.",
+        "refutation": "The Prophet Muhammad was known as 'Al-Amin' (The Trustworthy) even before his prophethood. A famous Hadith states: 'Truthfulness leads to righteousness, and righteousness leads to Paradise.'",
+        "source_name": "Sahih al-Bukhari 6094",
+        "source_url": "https://sunnah.com/bukhari:6094",
+        "source_type": "hadith"
+      }
+    ],
+    "talking_points": [
+      "Taqiyya is only permissible when a person's life is in immediate danger.",
+      "Honesty is one of the most emphasized virtues in both the Quran and Hadith.",
+      "Misinterpreting Taqiyya is a tactic used to automatically dismiss any positive statements made by Muslims."
+    ],
+    "personal_script": "Actually, 'Taqiyya' just means concealing your faith if you are about to be murdered for it. It's not a license to lie. In fact, honesty is a core pillar of Islam. Dismissing what someone says just by claiming they are using 'Taqiyya' is just a way to avoid having a real conversation.",
+    "semantic_anchors": [
+      "taqiyya",
+      "lying to infidels",
+      "sacred deception",
+      "allowed to lie",
+      "infiltrating",
+      "secret agenda",
+      "muslims lie",
+      "deception in islam"
+    ]
+  },
+  {
+    "id": "CLM-003",
+    "title": "Creeping Sharia",
+    "claim_text": "Muslims are secretly trying to impose oppressive Sharia law in Western countries, setting up parallel legal systems to eventually overthrow the Constitution.",
+    "description": "The 'Creeping Sharia' trope claims that everyday Islamic practices (like Halal food or wearing a hijab) are the first steps toward a violent overthrow of Western secular law. In reality, Sharia is a broad moral and ethical framework guiding personal conduct, prayer, and charity, not just a penal code. Muslims living in Western countries overwhelmingly support democracy and abide by the law of the land.",
+    "category": "Cultural",
+    "virality_score": 75,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Muslims want to replace Western law with Sharia.",
+        "refutation": "Islamic jurisprudence requires Muslims to obey the laws of the country they reside in. Fulfilling contracts (including citizenship oaths) is a religious obligation.",
+        "source_name": "Quran 5:1",
+        "source_url": "https://quran.com/5/1",
+        "source_type": "quran"
+      },
+      {
+        "claim": "Sharia courts are taking over Western justice systems.",
+        "refutation": "So-called 'Sharia councils' in places like the UK act as voluntary arbitration tribunals for civil matters like divorce, completely subordinate to national law, similar to Jewish Beth Din courts.",
+        "source_name": "Wikipedia: Sharia",
+        "source_url": "https://en.wikipedia.org/wiki/Sharia",
+        "source_type": "wikipedia"
+      },
+      {
+        "claim": "Sharia is purely a violent penal code.",
+        "refutation": "The vast majority of Sharia deals with personal worship (prayer, fasting, charity), ethics, and family life. The penal code constitutes a tiny fraction and cannot be applied outside an established Islamic state.",
+        "source_name": "IslamQA: What is Shariah?",
+        "source_url": "https://islamqa.info/en/answers/210742/what-is-shariah-in-islam",
+        "source_type": "islamqa"
+      }
+    ],
+    "talking_points": [
+      "Sharia is mostly about personal religious practices, like how to pray and give to charity.",
+      "Muslims are religiously bound to follow the laws of the country they live in.",
+      "Voluntary religious arbitration exists in many religions (like Jewish Beth Din) and operates under national law."
+    ],
+    "personal_script": "For most Muslims, Sharia just means praying five times a day, fasting during Ramadan, and giving to charity. It's a personal ethical code. Islamic scholars actually agree that Muslims must obey the laws of the country they live in.",
+    "semantic_anchors": [
+      "creeping sharia",
+      "sharia law",
+      "sharia courts",
+      "no go zones",
+      "parallel society",
+      "imposing sharia",
+      "sharia patrols",
+      "overthrow constitution"
+    ]
+  },
+  {
+    "id": "CLM-004",
+    "title": "Islam Promotes Terrorism",
+    "claim_text": "Islam is inherently a violent religion that commands its followers to commit acts of terrorism and kill non-believers wherever they find them.",
+    "description": "This narrative selectively quotes out-of-context verses to argue that Islam mandates violence. In reality, Islamic rules of engagement strictly prohibit the killing of non-combatants, women, children, and the destruction of property. Violent extremist groups like ISIS represent a tiny, universally condemned fringe whose actions directly violate classical Islamic teachings.",
+    "category": "Violence",
+    "virality_score": 80,
+    "is_featured": true,
+    "refutations": [
+      {
+        "claim": "The Quran commands Muslims to kill non-believers.",
+        "refutation": "Verses about fighting (like the 'Sword Verses') refer to specific historical battles against armies that had attacked Muslims first. The Quran prohibits aggression: 'Fight in the way of Allah those who fight you but do not transgress. Indeed. Allah does not like transgressors.'",
+        "source_name": "Quran 2:190",
+        "source_url": "https://quran.com/2/190",
+        "source_type": "quran"
+      },
+      {
+        "claim": "Islam glorifies the killing of innocent people.",
+        "refutation": "The Quran equates the unjust killing of one person to killing all of humanity.",
+        "source_name": "Quran 5:32",
+        "source_url": "https://quran.com/5/32",
+        "source_type": "quran"
+      },
+      {
+        "claim": "Muslim leaders do not condemn terrorism.",
+        "refutation": "Muslim scholars and leaders worldwide have consistently and unequivocally condemned terrorism. The 'Open Letter to Baghdadi' signed by hundreds of leading scholars explicitly dismantled ISIS's theological justifications.",
+        "source_name": "Wikipedia: Muslim condemnation of terrorism",
+        "source_url": "https://en.wikipedia.org/wiki/Muslim_condemnation_of_terrorism",
+        "source_type": "wikipedia"
+      }
+    ],
+    "talking_points": [
+      "The Quran explicitly states that killing one innocent person is like killing all of humanity.",
+      "Islamic rules of war strictly forbid harming civilians, women, children, and infrastructure.",
+      "Violent extremist groups kill far more Muslims than any other group."
+    ],
+    "personal_script": "It's easy to take quotes out of context from any ancient text. The Quran explicitly says that killing one innocent person is like killing all of humanity. Terrorist groups represent a violent political fringe that the vast majority of Muslims completely reject and actively fight against.",
+    "semantic_anchors": [
+      "religion of peace",
+      "islamic terrorism",
+      "kill all infidels",
+      "violent religion",
+      "quran commands violence",
+      "sword verses",
+      "isis is true islam",
+      "jihad terrorism"
+    ]
+  },
+  {
+    "id": "CLM-005",
+    "title": "Love Jihad",
+    "claim_text": "Muslim men are engaged in a coordinated conspiracy to seduce and marry women of other faiths in order to convert them to Islam and change the demographic balance.",
+    "description": "Originating primarily in India, the 'Love Jihad' conspiracy theory claims without evidence that Muslim men are running organized campaigns to feign love, marry non-Muslim women, and forcefully convert them. It has been used to justify anti-conversion laws and vigilante violence. Multiple investigations by official state agencies have found no evidence of any such organized conspiracy.",
+    "category": "Conspiracy",
+    "virality_score": 60,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "There is a funded network of men doing 'Love Jihad'.",
+        "refutation": "Investigations by the National Investigation Agency (NIA) in India and various state police forces have repeatedly failed to find any evidence of an organized or funded 'Love Jihad' campaign.",
+        "source_name": "BBC News: Love Jihad",
+        "source_url": "https://www.bbc.com/news/world-asia-india-55158684",
+        "source_type": "news"
+      },
+      {
+        "claim": "Islam encourages forced conversions through marriage.",
+        "refutation": "The Quran strictly prohibits forced conversion. Additionally, under Islamic law, a Muslim man marrying a Christian or Jewish woman cannot force her to convert, and her right to practice her religion is protected.",
+        "source_name": "Quran 2:256",
+        "source_url": "https://quran.com/2/256",
+        "source_type": "quran"
+      },
+      {
+        "claim": "Love Jihad is a real demographic threat.",
+        "refutation": "The theory is widely recognized by sociologists and human rights organizations as an Islamophobic conspiracy theory designed to police women's autonomy and stir communal violence.",
+        "source_name": "Wikipedia: Love Jihad",
+        "source_url": "https://en.wikipedia.org/wiki/Love_Jihad",
+        "source_type": "wikipedia"
+      }
+    ],
+    "talking_points": [
+      "Multiple official police investigations have found absolutely no evidence of a 'Love Jihad' conspiracy.",
+      "The concept is often used to restrict women's freedom to choose who they marry.",
+      "Forced conversion is explicitly forbidden in Islamic theology."
+    ],
+    "personal_script": "The 'Love Jihad' theory has been investigated by authorities multiple times and they've never found any evidence of an organized conspiracy. It's mostly just a scare tactic used to stop interfaith marriages and police women's choices.",
+    "semantic_anchors": [
+      "love jihad",
+      "grooming non-muslims",
+      "fake love",
+      "seduce and convert",
+      "forced conversion marriage",
+      "targeting our women",
+      "demographic jihad"
+    ]
+  },
+  {
+    "id": "CLM-006",
+    "title": "Halal Funds Terrorism",
+    "claim_text": "Buying Halal certified products forces consumers to pay a hidden Islamic tax that goes directly to funding international terrorist organizations.",
+    "description": "A popular economic conspiracy theory claims that fees paid by companies to get 'Halal certification' for their products are secretly funneled to terrorist groups. In reality, Halal certification simply means food (usually meat) is prepared according to Islamic dietary laws. The fees go to local, legal certification agencies to cover inspection and administration costs, similar to Kosher certification.",
+    "category": "Media",
+    "virality_score": 45,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Halal certification fees fund terrorism.",
+        "refutation": "There is no evidence that Halal certification bodies fund terrorism. Fact-checkers and intelligence agencies have thoroughly debunked this. The fees pay for food inspectors and administrative costs.",
+        "source_name": "FullFact: Halal Certification",
+        "source_url": "https://fullfact.org/news/does-halal-certification-fund-terrorism/",
+        "source_type": "factcheck"
+      },
+      {
+        "claim": "Halal certification is a secret Islamic tax.",
+        "refutation": "It is a standard business service fee, virtually identical in structure to Kosher certification, organic certification, or fair-trade labeling.",
+        "source_name": "Wikipedia: Halal",
+        "source_url": "https://en.wikipedia.org/wiki/Halal",
+        "source_type": "wikipedia"
+      }
+    ],
+    "talking_points": [
+      "Halal certification fees pay for food safety inspectors, just like organic or Kosher labels.",
+      "No government or intelligence agency has ever found links between standard Halal certifiers and terrorism.",
+      "Food companies choose to get certified because it opens up a massive global market for their products."
+    ],
+    "personal_script": "Halal certification works exactly like Kosher or Organic certification. Companies pay a fee to an inspection agency to verify their food prep standards. It's just a business decision to reach more customers, not a secret tax.",
+    "semantic_anchors": [
+      "halal funds terrorism",
+      "halal tax",
+      "boycott halal",
+      "secret islamic tax",
+      "funding isis through food",
+      "halal certification scam"
+    ]
+  },
+  {
+    "id": "CLM-007",
+    "title": "Muslims Hate Jesus",
+    "claim_text": "Because Islam is opposed to Christianity, Muslims hate Jesus and want to destroy Christian heritage.",
+    "description": "This claim fundamentally misunderstands Islamic theology. Jesus (Isa) is one of the most revered and important prophets in Islam. While Muslims do not believe Jesus is the son of God, they believe he was the Messiah, born of the Virgin Mary, performed miracles, and will return at the end of times. Disrespecting Jesus takes a person out of the fold of Islam.",
+    "category": "Cultural",
+    "virality_score": 40,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Muslims hate or disrespect Jesus.",
+        "refutation": "A Muslim's faith is incomplete without believing in and loving Jesus. The Quran mentions Jesus by name 25 times \u2014 more times than the Prophet Muhammad.",
+        "source_name": "Quran 3:45",
+        "source_url": "https://quran.com/3/45",
+        "source_type": "quran"
+      },
+      {
+        "claim": "Muslims don't believe in the Virgin Mary.",
+        "refutation": "Mary (Maryam) is considered one of the greatest women in Islamic history. An entire chapter of the Quran (Surah 19) is named after her, and the story of the virgin birth is explicitly detailed.",
+        "source_name": "Quran 19:16-21",
+        "source_url": "https://quran.com/19/16-21",
+        "source_type": "quran"
+      },
+      {
+        "claim": "Islam is the enemy of Jesus.",
+        "refutation": "Islamic theology considers Jesus a massive figure of reverence. Islamic tradition holds that Jesus will return to Earth to defeat the Antichrist.",
+        "source_name": "Wikipedia: Jesus in Islam",
+        "source_url": "https://en.wikipedia.org/wiki/Jesus_in_Islam",
+        "source_type": "wikipedia"
+      }
+    ],
+    "talking_points": [
+      "Jesus is one of the five greatest prophets in Islam.",
+      "Muslims believe in the virgin birth and the miracles of Jesus.",
+      "You cannot be a Muslim if you do not believe in Jesus."
+    ],
+    "personal_script": "Actually, Jesus is one of the most loved prophets in Islam. The Quran mentions him by name more times than Muhammad, and Muslims believe in his miracles and virgin birth. No Muslim can hate Jesus and remain a Muslim.",
+    "semantic_anchors": [
+      "muslims hate jesus",
+      "anti-christian islam",
+      "destroying christianity",
+      "islam vs jesus",
+      "false prophet jesus"
+    ]
+  },
+  {
+    "id": "CLM-008",
+    "title": "Spread by the Sword",
+    "claim_text": "Islam only grew because early Muslims violently forced people to convert at sword-point, giving them the choice to 'convert or die'.",
+    "description": "The 'spread by the sword' narrative is a historical myth. While early Islamic empires did expand their political territories through military conquest (typical of all empires of that era), forced conversions were rare and generally forbidden. Populations in places like Egypt, Persia, and Spain remained majority non-Muslim for centuries after Islamic conquest, gradually converting over generations for economic, social, and spiritual reasons.",
+    "category": "Violence",
+    "virality_score": 55,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "People were given the choice to convert to Islam or be killed.",
+        "refutation": "Islamic law explicitly forbade forced conversions. Non-Muslims (People of the Book) were granted 'Dhimmi' status, allowing them to practice their religion and self-govern in exchange for a tax (Jizya).",
+        "source_name": "Wikipedia: Spread of Islam",
+        "source_url": "https://en.wikipedia.org/wiki/Spread_of_Islam",
+        "source_type": "wikipedia"
+      },
+      {
+        "claim": "The Quran mandates forcing people to become Muslim.",
+        "refutation": "The Quran categorically bans forced conversion: 'There is no compulsion in religion. The right direction is distinct from error.'",
+        "source_name": "Quran 2:256",
+        "source_url": "https://quran.com/2/256",
+        "source_type": "quran"
+      },
+      {
+        "claim": "Islam only exists today because of violence.",
+        "refutation": "The largest Muslim population in the world is in Indonesia, a region where Islam spread entirely through trade and Sufi missionaries, not military conquest.",
+        "source_name": "Academic Review: Islam in Southeast Asia",
+        "source_url": "https://en.wikipedia.org/wiki/Islam_in_Indonesia",
+        "source_type": "academic"
+      }
+    ],
+    "talking_points": [
+      "While Islamic empires expanded politically via conquest, religious conversion took centuries and was largely peaceful.",
+      "The largest Muslim country in the world, Indonesia, was never conquered by a Muslim army.",
+      "The Quran explicitly forbids forcing anyone to change their religion."
+    ],
+    "personal_script": "History shows that while Muslim empires expanded through military conquest like all empires did, the actual conversion of the people took centuries. If it was 'convert or die', places like Egypt and Spain wouldn't have remained majority Christian for hundreds of years under Muslim rule.",
+    "semantic_anchors": [
+      "spread by the sword",
+      "convert or die",
+      "forced conversions",
+      "violent history of islam",
+      "islamic conquests",
+      "bloody borders"
+    ]
+  },
+  {
+    "id": "CLM-009",
+    "title": "Refugees as an Invading Army",
+    "claim_text": "Muslim refugees entering Western countries are not actually fleeing war, but are a covert 'invading army' sent to destabilize and take over.",
+    "description": "This dehumanizing trope frames vulnerable people fleeing horrific conflicts (like in Syria, Afghanistan, or Sudan) as hostile military combatants. It often focuses on images of young men to argue they are 'soldiers.' In reality, refugees undergo extreme vetting, and data consistently shows that immigrants and refugees commit crimes at lower rates than native-born citizens.",
+    "category": "Demographic",
+    "virality_score": 72,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Refugees are mostly young men sent as an army.",
+        "refutation": "UNHCR data shows that a significant portion of refugees are women and children. Men often make the dangerous initial journey to secure asylum before legally bringing their families via reunification programs.",
+        "source_name": "UNHCR Refugee Statistics",
+        "source_url": "https://www.unhcr.org/refugee-statistics/",
+        "source_type": "academic"
+      },
+      {
+        "claim": "Muslim refugees cause massive crime waves.",
+        "refutation": "Numerous criminological studies across Europe and North America have shown that refugee populations do not increase violent crime rates, and often commit crimes at lower rates than the native population.",
+        "source_name": "Wikipedia: European migrant crisis",
+        "source_url": "https://en.wikipedia.org/wiki/European_migrant_crisis#Crime",
+        "source_type": "wikipedia"
+      }
+    ],
+    "talking_points": [
+      "Refugees are fleeing the very same terrorists (like ISIS) that the West is fighting.",
+      "Refugees go through the most rigorous security vetting of anyone entering the country.",
+      "Studies consistently show refugees commit crimes at lower rates than native-born citizens."
+    ],
+    "personal_script": "These people are fleeing the exact same terrorist groups that we are against. Framing families running from warzones as an 'invading army' just distracts from the humanitarian crisis. Furthermore, refugees undergo extreme security vetting before being resettled.",
+    "semantic_anchors": [
+      "invading army",
+      "trojan horse refugees",
+      "fake refugees",
+      "military age males",
+      "migrant invasion",
+      "muslim invasion"
+    ]
+  },
+  {
+    "id": "CLM-010",
+    "title": "Islamophobia is a Fake Word",
+    "claim_text": "The word 'Islamophobia' was invented by Islamic extremists to silence any legitimate criticism of Islam and protect the religion from scrutiny.",
+    "description": "Anti-Muslim advocates often claim that 'Islamophobia' doesn't exist and the term is a shield against free speech. In reality, Islamophobia refers to the very real prejudice, discrimination, and violence directed against Muslims. Recognizing anti-Muslim hate does not prevent academic or theological critique of the religion; it protects people from bigotry.",
+    "category": "Victimhood",
+    "virality_score": 50,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "The term was invented by the Muslim Brotherhood.",
+        "refutation": "The term 'Islamophobia' dates back to the early 20th century, notably used by French colonial administrators to describe prejudice against Muslims in Africa. It was popularized in English in 1997 by the UK Runnymede Trust.",
+        "source_name": "Wikipedia: Islamophobia",
+        "source_url": "https://en.wikipedia.org/wiki/Islamophobia",
+        "source_type": "wikipedia"
+      },
+      {
+        "claim": "Islamophobia isn't real because Islam is a religion, not a race.",
+        "refutation": "Bigotry does not require a racial target. Anti-Muslim hate crimes, discrimination in employment, and mosque vandalisms are well-documented realities recognized by the UN and human rights organizations.",
+        "source_name": "UN Special Rapporteur Report",
+        "source_url": "https://www.ohchr.org/en/special-procedures/sr-religion-or-belief/islamophobia-and-anti-muslim-hatred",
+        "source_type": "news"
+      }
+    ],
+    "talking_points": [
+      "The term Islamophobia was coined in the early 20th century to describe documented prejudice, long before modern political debates.",
+      "Criticizing a religion's theology is free speech; discriminating against or attacking people for their faith is Islamophobia.",
+      "Hate crimes against Muslims are objectively tracked and recorded by law enforcement agencies."
+    ],
+    "personal_script": "You can definitely criticize Islamic theology\u2014that's free speech. But when women have their hijabs ripped off, or mosques are vandalized, or people are denied jobs because of their Muslim names, that's bigotry. That's what Islamophobia means.",
+    "semantic_anchors": [
+      "islamophobia is fake",
+      "invented word",
+      "silence criticism",
+      "rational fear of islam",
+      "phobia implies irrational",
+      "not a race"
+    ]
+  },
+  {
+    "id": "CLM-011",
+    "title": "Oppression of Women",
+    "claim_text": "Islam inherently oppresses women, treats them as property, and forces them to wear the hijab or burqa against their will.",
+    "description": "While women in some Muslim-majority countries face severe oppression (often due to patriarchal cultural traditions or authoritarian governments), Islamic theology itself established unprecedented rights for women in the 7th century, including the right to own property, inherit, divorce, and consent to marriage. The vast majority of Muslim women who wear the hijab do so as a voluntary act of faith, not out of coercion.",
+    "category": "Cultural",
+    "virality_score": 68,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Islam forces women to cover up against their will.",
+        "refutation": "The Quran dictates modesty for both men and women, but explicitly forbids religious coercion ('There is no compulsion in religion', 2:256). Forced veiling is a political tool used by specific regimes, not a universal Islamic mandate.",
+        "source_name": "Quran 2:256",
+        "source_url": "https://quran.com/2/256",
+        "source_type": "quran"
+      },
+      {
+        "claim": "Muslim women have no rights.",
+        "refutation": "Islam granted women the right to inherit, own businesses, and divorce 1,400 years ago\u2014rights that women in the West only fully secured in the 19th and 20th centuries.",
+        "source_name": "Wikipedia: Women in Islam",
+        "source_url": "https://en.wikipedia.org/wiki/Women_in_Islam",
+        "source_type": "wikipedia"
+      }
+    ],
+    "talking_points": [
+      "Many oppressive practices, like forced marriages or honor killings, are cultural traditions that Islamic scholars universally condemn.",
+      "Millions of Muslim women proudly wear the hijab as a personal choice of devotion.",
+      "Historically, Islamic law gave women property and divorce rights centuries before Western legal systems did."
+    ],
+    "personal_script": "It's important to separate culture from religion. Authoritarian regimes that oppress women exist, but Islamic teachings actually gave women property and divorce rights 1,400 years ago. For most Muslim women, the hijab is a personal choice of faith, not something forced upon them.",
+    "semantic_anchors": [
+      "oppressed muslim women",
+      "forced hijab",
+      "women as property",
+      "misogynistic religion",
+      "save muslim women",
+      "burqa oppression"
+    ]
+  },
+  {
+    "id": "CLM-012",
+    "title": "Grooming Gangs",
+    "claim_text": "Islamic culture inherently encourages 'grooming gangs' to sexually exploit and target white, non-Muslim girls.",
+    "description": "This narrative emerged primarily in the UK following horrific child sexual exploitation scandals (such as in Rotherham). While the perpetrators in specific high-profile cases were men of Pakistani heritage, far-right groups weaponized this to claim the crimes were motivated by Islamic theology. Comprehensive government reviews concluded that child sexual exploitation is a systemic issue across all demographics and is not driven by any specific religion.",
+    "category": "Violence",
+    "virality_score": 58,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Islam allows the exploitation of non-Muslim women.",
+        "refutation": "Islamic law strictly forbids all forms of rape, fornication, and sexual exploitation. The punishment for such crimes in classical Islamic law is exceptionally severe.",
+        "source_name": "IslamQA: Ruling on Rape",
+        "source_url": "https://islamqa.info/en/answers/72338/ruling-on-rape",
+        "source_type": "islamqa"
+      },
+      {
+        "claim": "Grooming gangs are exclusively an Asian/Muslim problem.",
+        "refutation": "A 2020 UK Home Office report concluded that the majority of child sexual exploitation offenders are white, and that grouping offenders solely by ethnicity or religion hinders effective policing.",
+        "source_name": "UK Home Office Report",
+        "source_url": "https://www.gov.uk/government/publications/group-based-child-sexual-exploitation-characteristics-of-offending",
+        "source_type": "news"
+      }
+    ],
+    "talking_points": [
+      "Government reports show that child sexual exploitation happens across all races and religions.",
+      "Islamic law strictly forbids sexual violence and exploitation of anyone.",
+      "Blaming a religion for the crimes of a specific criminal ring protects other abusers by misdirecting police resources."
+    ],
+    "personal_script": "The crimes committed by those gangs were horrific, but official UK government reports found that child exploitation is committed by men of all backgrounds, with the majority of offenders being white. Blaming Islam for sexual violence ignores the fact that Islamic law explicitly forbids it.",
+    "semantic_anchors": [
+      "grooming gangs",
+      "rotherham",
+      "targeting white girls",
+      "rape gangs",
+      "asian grooming",
+      "islamic grooming"
+    ]
+  },
+  {
+    "id": "CLM-013",
+    "title": "Barbaric Halal Slaughter",
+    "claim_text": "Halal slaughter is an exceptionally cruel, barbaric practice that tortures animals compared to modern Western slaughter methods.",
+    "description": "Anti-Muslim groups frequently target Halal (and Kosher) slaughter methods to portray Muslims as cruel or barbaric. In reality, the traditional Islamic method of slaughter requires a swift cut with a razor-sharp blade to sever the jugular veins, causing rapid unconsciousness. Furthermore, a large percentage of Halal meat in Western countries is pre-stunned (which is accepted by many Islamic authorities), making it identical to standard slaughter practices.",
+    "category": "Cultural",
+    "virality_score": 35,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Islam encourages animal cruelty.",
+        "refutation": "The Prophet Muhammad commanded mercy toward animals, saying: 'When you slaughter, slaughter in a good way. So every one of you should sharpen his knife, and let the slaughtered animal die comfortably.'",
+        "source_name": "Sahih Muslim 1955",
+        "source_url": "https://sunnah.com/muslim:1955a",
+        "source_type": "hadith"
+      },
+      {
+        "claim": "Halal meat is fundamentally different and more cruel than standard meat.",
+        "refutation": "In many countries like the UK, over 80% of Halal meat is stunned before slaughter, meaning the animal is unconscious\u2014exactly the same as secular slaughterhouse standards.",
+        "source_name": "Wikipedia: Halal",
+        "source_url": "https://en.wikipedia.org/wiki/Halal#Animal_welfare",
+        "source_type": "wikipedia"
+      }
+    ],
+    "talking_points": [
+      "Islamic teachings strongly emphasize mercy toward animals and explicitly forbid causing them unnecessary stress or pain.",
+      "Much of the Halal meat in the West involves pre-stunning the animal, making it identical to standard slaughter.",
+      "Attacks on Halal slaughter often single out Muslims while ignoring identical practices in Kosher slaughter."
+    ],
+    "personal_script": "Islamic law actually mandates that animals must be treated with mercy and slaughtered swiftly to minimize pain. In fact, most Halal meat in Western countries is pre-stunned, making the process virtually identical to standard supermarket meat.",
+    "semantic_anchors": [
+      "barbaric slaughter",
+      "animal cruelty halal",
+      "halal torture",
+      "ban halal",
+      "cruel halal meat"
+    ]
+  },
+  {
+    "id": "CLM-014",
+    "title": "No-Go Zones",
+    "claim_text": "European cities have Muslim 'no-go zones' where Sharia law is enforced, non-Muslims are attacked, and the police are too afraid to enter.",
+    "description": "The 'no-go zone' myth gained traction in right-wing media to describe immigrant-heavy neighborhoods in cities like Paris, London, and Malm\u00f6. While these areas may suffer from poverty and higher crime rates, claims that they operate outside the law or that police refuse to enter have been repeatedly debunked by local governments, police forces, and journalists.",
+    "category": "Conspiracy",
+    "virality_score": 62,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Police are forbidden or afraid to enter certain Muslim neighborhoods.",
+        "refutation": "Police departments in London, Paris, and Sweden have categorically denied the existence of any 'no-go zones.' Politicians and media outlets who pushed this claim have frequently had to issue apologies.",
+        "source_name": "Wikipedia: No-go area (Myth)",
+        "source_url": "https://en.wikipedia.org/wiki/No-go_area#In_relation_to_Islam",
+        "source_type": "wikipedia"
+      },
+      {
+        "claim": "Sharia patrols rule the streets in Europe.",
+        "refutation": "While isolated incidents of vigilante groups (like the 'Sharia patrols' in London in 2013) have occurred, they were immediately arrested, prosecuted, and widely condemned by the local Muslim community.",
+        "source_name": "BBC News: Sharia Patrols",
+        "source_url": "https://www.bbc.com/news/uk-england-london-25261494",
+        "source_type": "news"
+      }
+    ],
+    "talking_points": [
+      "Police forces across Europe have repeatedly stated that 'no-go zones' do not exist.",
+      "Media networks have had to issue retractions and apologies for claiming these zones exist.",
+      "Conflating impoverished neighborhoods with 'Sharia law zones' is a tactic to fearmonger about immigration."
+    ],
+    "personal_script": "The 'no-go zone' claim has been thoroughly debunked. Police departments in London and Paris have repeatedly confirmed they patrol all neighborhoods. It's true that some immigrant neighborhoods struggle with poverty and crime, but the idea that they are run by Sharia law and off-limits to police is a total myth.",
+    "semantic_anchors": [
+      "no go zones",
+      "police too afraid",
+      "sharia patrols",
+      "sharia zones",
+      "european no go areas",
+      "lost to islam"
+    ]
+  },
+  {
+    "id": "CLM-015",
+    "title": "Child Marriage Condoned",
+    "claim_text": "Islam condones and encourages pedophilia and child marriage because the Prophet Muhammad married Aisha when she was a child.",
+    "description": "Anti-Muslim polemicists frequently use the historical marriage of Prophet Muhammad to Aisha to claim Islam encourages child marriage. Historical records on Aisha's exact age vary among scholars, but marriages at young ages were the global historical norm in the 7th century across all cultures. Today, the vast majority of Muslim-majority countries have laws banning child marriage, and Islamic scholars universally emphasize that the consent and physical maturity of both parties are mandatory requirements for an Islamic marriage.",
+    "category": "Violence",
+    "virality_score": 70,
+    "is_featured": false,
+    "refutations": [
+      {
+        "claim": "Islam allows the abuse of children.",
+        "refutation": "Islamic law stipulates that a valid marriage requires 'Bulugh' (physical puberty) and 'Rushd' (mental maturity to handle the responsibilities of marriage). Exploiting or harming children is strictly forbidden.",
+        "source_name": "IslamQA: Conditions of Marriage",
+        "source_url": "https://islamqa.info/en/answers/2127/conditions-of-wali-guardian",
+        "source_type": "islamqa"
+      },
+      {
+        "claim": "Muslim countries encourage child marriage.",
+        "refutation": "Most Muslim-majority countries have established minimum ages for marriage (usually 18), recognizing that modern social and biological realities differ from the 7th century.",
+        "source_name": "Academic Study on Marriage Laws",
+        "source_url": "https://en.wikipedia.org/wiki/Child_marriage_in_Islam",
+        "source_type": "wikipedia"
+      }
+    ],
+    "talking_points": [
+      "Historical marriages from 1,400 years ago must be understood in the context of their time, when people across all cultures married younger.",
+      "Islamic law requires both physical puberty and mental maturity for a marriage to be valid.",
+      "The vast majority of modern Muslim countries have laws banning child marriage."
+    ],
+    "personal_script": "Judging a 7th-century historical marriage by 21st-century standards ignores the fact that marrying young was the norm across all cultures worldwide at that time. Today, Islamic scholars emphasize that physical and mental maturity are required for marriage, and most Muslim countries have banned child marriage.",
+    "semantic_anchors": [
+      "pedophile prophet",
+      "married a child",
+      "child marriage islam",
+      "aisha age",
+      "condones pedophilia"
+    ]
+  }
+]

@@ -1,23 +1,41 @@
 import Link from "next/link";
+import { ArrowRight, ShieldAlert } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center text-center p-6 max-w-4xl mx-auto space-y-8 pt-24 pb-16">
-      <h1 className="text-5xl font-bold tracking-tight sm:text-7xl text-foreground">
-        Stop the lie before it goes viral.
-      </h1>
-      <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-        Prebunk tracks coordinated anti-Muslim misinformation in real time. See what's rising now — and get the facts before the narrative peaks.
-      </p>
-      <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-        <Link href="#tracker" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto text-base border-none")}>
-          See What's Trending &darr;
-        </Link>
-        <Link href="#extension" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "border-border bg-transparent hover:bg-muted text-foreground w-full sm:w-auto text-base")}>
-          Get the Chrome Extension
-        </Link>
+    <section className="relative pt-32 pb-24 overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] z-[-1]" />
+      
+      <div className="max-w-5xl mx-auto px-6 flex flex-col items-center text-center">
+        <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm text-primary mb-8 animate-fade-in-up">
+          <ShieldAlert className="h-4 w-4 mr-2" />
+          <span className="font-medium">Real-time threat intelligence</span>
+        </div>
+        
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-8 max-w-4xl animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+          Know what's coming before it hits.
+        </h1>
+        
+        <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          We track anti-Muslim claims before they go viral, so you're always prepared with factual, religiously-grounded refutations.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+          <Link 
+            href="#featured" 
+            className={cn(buttonVariants({ size: "lg" }), "h-14 px-8 text-lg font-medium")}
+          >
+            See Current Threats <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+          <Link 
+            href="/claims" 
+            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-14 px-8 text-lg font-medium")}
+          >
+            Browse All Claims
+          </Link>
+        </div>
       </div>
     </section>
   );

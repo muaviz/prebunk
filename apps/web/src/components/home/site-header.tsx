@@ -13,11 +13,8 @@ export function SiteHeader() {
         </Link>
         
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link href="/briefs" className="text-muted-foreground hover:text-foreground transition-colors">
-            Briefs
-          </Link>
-          <Link href="/taxonomy" className="text-muted-foreground hover:text-foreground transition-colors">
-            Taxonomy
+          <Link href="/claims" className="text-muted-foreground hover:text-foreground transition-colors">
+            Claims
           </Link>
           <Link href="#extension" className={cn(buttonVariants({ size: "sm" }), "bg-primary text-primary-foreground hover:bg-primary/90")}>
             Get the Extension

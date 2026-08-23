@@ -16,8 +16,7 @@ export function SiteFooter() {
         </div>
         
         <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-          <Link href="/briefs" className="text-muted-foreground hover:text-foreground">Briefs</Link>
-          <Link href="/taxonomy" className="text-muted-foreground hover:text-foreground">Taxonomy</Link>
+          <Link href="/claims" className="text-muted-foreground hover:text-foreground">Claims</Link>
           <Link href="#extension" className="text-muted-foreground hover:text-foreground">Extension</Link>
         </div>
       </div>

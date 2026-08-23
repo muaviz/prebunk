@@ -1,9 +1,10 @@
 import time
 from db import supabase
 from pydantic import BaseModel
-from services.embeddings import embed_text
+from services.embeddings import embed_text, embed_texts
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+import json
 
 class NarrativeMatch(BaseModel):
     narrative_id: str
@@ -20,7 +21,7 @@ def get_narratives_cache():
     now = time.time()
     
     if now - _last_cache_update > CACHE_TTL or not _cache_initialized:
-        res = supabase.table("narratives").select("id, name, embedding").execute()
+        res = supabase.table("claims").select("id, title, embedding").execute()
         if res.data is not None:
             _narratives_cache = [n for n in res.data if n.get("embedding")]
             _last_cache_update = now
@@ -39,8 +40,7 @@ def match_text(text: str, threshold: float = 0.45) -> list[NarrativeMatch]:
         
     # Prepare matrix
     narrative_ids = [n["id"] for n in cache]
-    narrative_names = [n["name"] for n in cache]
-    import json
+    narrative_names = [n["title"] for n in cache]
     embeddings_matrix = np.array([json.loads(n["embedding"]) if isinstance(n["embedding"], str) else n["embedding"] for n in cache])
     
     # Compute cosine similarity
@@ -60,8 +60,6 @@ def match_text(text: str, threshold: float = 0.45) -> list[NarrativeMatch]:
     matches.sort(key=lambda x: x.similarity_score, reverse=True)
     return matches
 
-from services.embeddings import embed_texts
-
 def match_texts(texts: list[str], threshold: float = 0.45) -> list[list[NarrativeMatch]]:
     cache = get_narratives_cache()
     if not cache or not texts:
@@ -72,8 +70,7 @@ def match_texts(texts: list[str], threshold: float = 0.45) -> list[list[Narrativ
         return [[] for _ in texts]
         
     narrative_ids = [n["id"] for n in cache]
-    narrative_names = [n["name"] for n in cache]
-    import json
+    narrative_names = [n["title"] for n in cache]
     embeddings_matrix = np.array([json.loads(n["embedding"]) if isinstance(n["embedding"], str) else n["embedding"] for n in cache])
     
     query_matrix = np.array(query_embeddings)
