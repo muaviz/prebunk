@@ -35,12 +35,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // Handle UI difference for LLM generated content vs DB match
         const matchScoreEl = document.getElementById('match-score');
+        const explanationContainer = document.getElementById('explanation-container');
+        const explanationText = document.getElementById('match-explanation');
+
         if (result.is_llm_generated) {
            matchScoreEl.textContent = 'AI Detected';
-           matchScoreEl.style.backgroundColor = '#6366f1'; // Indigo for AI
+           matchScoreEl.style.backgroundColor = '#6366f1'; 
+           matchScoreEl.style.color = '#ffffff'; 
+           
+           // Show the explanation for dog whistles/slurs
+           explanationText.textContent = result.claim.description;
+           explanationContainer.classList.remove('hidden');
         } else {
            matchScoreEl.textContent = Math.round(result.claim.similarity_score * 100) + '% Match';
-           matchScoreEl.style.backgroundColor = ''; // Reset to default
+           matchScoreEl.style.backgroundColor = ''; 
+           matchScoreEl.style.color = ''; 
+           
+           // Hide the explanation box for standard database claims (keeps UI cleaner)
+           explanationContainer.classList.add('hidden');
         }
         
         const scriptElement = document.getElementById('match-script');

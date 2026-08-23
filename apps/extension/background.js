@@ -1,12 +1,14 @@
-// Allow users to open the side panel by clicking on the action toolbar icon
-chrome.sidePanel.setPanelBehavior({ openPanelOnActionIconClick: true }).catch((error) => console.error(error));
-
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "prebunk-analyze",
     title: "Prebunk this text",
     contexts: ["selection"]
   });
+});
+
+// Open side panel when the extension icon in the toolbar is clicked
+chrome.action.onClicked.addListener((tab) => {
+  chrome.sidePanel.open({ windowId: tab.windowId });
 });
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
@@ -40,8 +42,6 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         },
         body: JSON.stringify({
           text: selectedText,
-          // Since we increased it in the backend, let's omit the threshold here 
-          // or set it explicitly to the new default to be safe.
           threshold: 0.55 
         })
       });
