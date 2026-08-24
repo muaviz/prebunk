@@ -22,14 +22,14 @@ export function FeaturedThreatCard({ claim }: { claim: Claim }) {
               "flex w-2 h-2 rounded-full",
               isHighVirality ? "bg-red-500 animate-pulse" : "bg-orange-400"
             )} />
-            <span className={isHighVirality ? "text-red-600" : "text-orange-600"}>
+            <span className={isHighVirality ? "text-red-400" : "text-orange-400"}>
               Virality: {claim.virality_score}/100
             </span>
           </div>
         </div>
 
         <h3 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-2">
-          {isHighVirality && <AlertTriangle className="h-6 w-6 text-red-500 shrink-0" />}
+          {isHighVirality && <AlertTriangle className="h-6 w-6 text-red-400 shrink-0" />}
           {claim.title}
         </h3>
         

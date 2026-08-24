@@ -14,7 +14,7 @@ export function ClaimCard({ claim }: { claim: Claim }) {
         </Badge>
         <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground">
           <Activity className="h-3 w-3" />
-          <span className={isHighVirality ? "text-red-500 font-bold" : ""}>
+          <span className={isHighVirality ? "text-red-400 font-bold" : ""}>
             {claim.virality_score}
           </span>
         </div>

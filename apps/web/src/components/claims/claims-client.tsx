@@ -28,7 +28,7 @@ export function ClaimsClient({ claims }: { claims: Claim[] }) {
         <Input 
           type="text" 
           placeholder="Search claims or dog whistles..." 
-          className="bg-secondary/20 border-border/50"
+          className="h-10 bg-secondary/20 border-border/50"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

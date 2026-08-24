@@ -90,15 +90,17 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
       />
       <SiteHeader />
       
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-24 pt-28">
-        <div className="mb-8">
-          <Link href="/claims" className="inline-flex items-center rounded-full border border-border/70 bg-card/30 px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
-            <ArrowLeft className="h-4 w-4 mr-2" /> Back to all claims
-          </Link>
-        </div>
+      <main className="relative flex-1 overflow-hidden bg-background pb-24 pt-28">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(63,128,93,0.14),transparent_34%)]" />
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-6">
+          <div className="mb-8">
+            <Link href="/claims" className="inline-flex items-center rounded-full border border-border/70 bg-card/30 px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
+              <ArrowLeft className="h-4 w-4 mr-2" /> Back to all claims
+            </Link>
+          </div>
 
-        {/* Hero Area */}
-        <ScrollReveal className="mb-16 max-w-4xl">
+          {/* Hero Area */}
+          <ScrollReveal className="mb-16 max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
             <Badge variant="outline" className="uppercase tracking-wider text-xs bg-primary/5 text-primary border-primary/20">
               {claim.category}
@@ -213,6 +215,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
               <ShareButtons claim={claim} />
             </section>
           </div>
+        </div>
         </div>
       </main>
       
