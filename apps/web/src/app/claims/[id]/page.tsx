@@ -67,9 +67,28 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
             </p>
           </div>
           
-          <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
+          <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground mb-8">
             <p>{claim.description}</p>
           </div>
+          
+          {claim.promoter_links && claim.promoter_links.length > 0 && (
+            <div className="border border-border/70 rounded-xl p-5 bg-card/40">
+              <h4 className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
+                <span className="w-1.5 h-4 bg-orange-500 rounded-full inline-block"></span>
+                Recent Sightings & Sources Promoting This Claim:
+              </h4>
+              <ul className="flex flex-col gap-2">
+                {claim.promoter_links.map((link, idx) => (
+                  <li key={idx}>
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-background hover:bg-muted/50 border border-border/50 text-sm transition-colors group w-full sm:w-auto">
+                      <span className="text-primary group-hover:text-primary/80 font-medium">{link.name}</span>
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground uppercase tracking-wider">{link.platform}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </ScrollReveal>
 
         <div className="grid lg:grid-cols-3 gap-12">

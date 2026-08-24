@@ -6,6 +6,12 @@ export interface Refutation {
   source_type: "wikipedia" | "quran" | "hadith" | "academic" | "islamqa" | "factcheck" | "news";
 }
 
+export interface PromoterLink {
+  name: string;
+  url: string;
+  platform: string;
+}
+
 export interface Claim {
   id: string;
   title: string;
@@ -15,6 +21,7 @@ export interface Claim {
   virality_score: number;
   is_featured: boolean;
   refutations: Refutation[];
+  promoter_links: PromoterLink[];
   talking_points: string[];
   personal_script?: string;
   semantic_anchors: string[];

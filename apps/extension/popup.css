@@ -1,16 +1,16 @@
 :root {
-  --bg-color: #FAFAF8;
-  --text-color: #1A1A1A;
-  --text-muted: #737373;
-  --primary-color: #B8860B;
-  --border-color: #E5E5E0;
-  --card-bg: #FFFFFF;
-  --warning-bg: #FEF3C7;
-  --warning-text: #B45309;
-  --success-bg: #D1FAE5;
-  --success-text: #065F46;
-  --error-bg: #FEE2E2;
-  --error-text: #991B1B;
+  --bg-color: #0B1710;
+  --text-color: #E7F2E9;
+  --text-muted: #9CB2A2;
+  --primary-color: #2F6F4E;
+  --border-color: #244233;
+  --card-bg: #102219;
+  --warning-bg: #422006;
+  --warning-text: #FDE68A;
+  --success-bg: #064E3B;
+  --success-text: #A7F3D0;
+  --error-bg: #450A0A;
+  --error-text: #FECACA;
 }
 
 body {
@@ -110,8 +110,8 @@ p {
 }
 
 .info-icon {
-  background-color: #E0E7FF;
-  color: #3730A3;
+  background-color: #3F805D;
+  color: #FFFFFF;
 }
 
 .success-icon {
@@ -258,11 +258,18 @@ p {
 #settings-view input {
   width: 100%;
   padding: 8px 12px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   border: 1px solid var(--border-color);
   border-radius: 6px;
   margin-bottom: 16px;
   box-sizing: border-box;
   font-size: 14px;
+}
+#settings-view input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(47, 111, 78, 0.2);
 }
 
 .state-view {

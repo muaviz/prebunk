@@ -9,6 +9,7 @@ import { FeaturedThreatCard } from "@/components/claims/featured-threat-card";
 import { ClaimCard } from "@/components/claims/claim-card";
 import { ScrollReveal } from "@/components/landing/scroll-reveal";
 import { LiquidParticles } from "@/components/landing/liquid-particles";
+import { ThreatsChart } from "@/components/claims/threats-chart";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -50,9 +51,16 @@ export default async function Home() {
                 </h2>
                 <p className="text-muted-foreground mt-3">These claims are showing early signs of coordinated spread. Prepare yourself for these conversations.</p>
               </ScrollReveal>
+
+              <div className="mb-12">
+                <ScrollReveal delay={100}>
+                  <ThreatsChart claims={claims} />
+                </ScrollReveal>
+              </div>
+
               <div className="space-y-6">
                 {featuredClaims.map((claim, index) => (
-                  <ScrollReveal key={claim.id} delay={index * 90}>
+                  <ScrollReveal key={claim.id} delay={(index + 2) * 90}>
                     <FeaturedThreatCard claim={claim} />
                   </ScrollReveal>
                 ))}

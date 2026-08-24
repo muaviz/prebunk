@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (result.is_llm_generated) {
            matchScoreEl.textContent = 'AI Detected';
-           matchScoreEl.style.backgroundColor = '#6366f1'; 
+           matchScoreEl.style.backgroundColor = 'var(--primary-color)'; 
            matchScoreEl.style.color = '#ffffff'; 
            
            // Show the explanation for dog whistles/slurs
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             a.href = ref.source_url;
             a.target = "_blank";
             a.textContent = ref.source_name;
-            a.style.color = "#2563eb"; 
+            a.style.color = "var(--primary-color)"; 
             a.style.textDecoration = "none";
             
             li.appendChild(a);

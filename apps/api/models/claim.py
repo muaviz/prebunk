@@ -9,6 +9,11 @@ class Refutation(BaseModel):
     source_url: str
     source_type: str  # "wikipedia", "quran", "hadith", "academic", "islamqa", "factcheck", "news"
 
+class PromoterLink(BaseModel):
+    name: str
+    url: str
+    platform: str # "twitter", "reddit", "news", etc
+
 class ClaimResponse(BaseModel):
     id: str
     title: str
@@ -18,6 +23,7 @@ class ClaimResponse(BaseModel):
     virality_score: int
     is_featured: bool
     refutations: list[Refutation]
+    promoter_links: list[PromoterLink] = []
     talking_points: list[str]
     personal_script: Optional[str]
     semantic_anchors: list[str]

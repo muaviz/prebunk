@@ -3,7 +3,7 @@
 import { Claim } from "@/types";
 
 export function ShareButtons({ claim }: { claim: Claim }) {
-  const url = typeof window !== 'undefined' ? window.location.href : `https://prebunk.app/claims/${claim.id}`;
+  const url = `https://prebunk.app/claims/${claim.id}`;
   
   // Format sources for the tweet
   const sourcesText = claim.refutations

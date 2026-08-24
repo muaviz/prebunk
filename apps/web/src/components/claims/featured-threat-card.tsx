@@ -36,6 +36,26 @@ export function FeaturedThreatCard({ claim }: { claim: Claim }) {
         <div className="rounded-xl border-l-4 border-l-primary/50 bg-muted/35 p-4 text-lg italic text-muted-foreground shadow-inner">
           &quot;{claim.claim_text}&quot;
         </div>
+        
+        {claim.promoter_links && claim.promoter_links.length > 0 && (
+          <div className="mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+              <span className="w-1 h-4 bg-orange-500 rounded-full inline-block"></span>
+              Recent Sightings
+            </h4>
+            <ul className="space-y-2">
+              {claim.promoter_links.map((link, idx) => (
+                <li key={idx} className="text-sm">
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40 inline-block"></span>
+                    <span className="underline underline-offset-2 decoration-muted-foreground/30">{link.name}</span>
+                    <span className="text-xs text-muted-foreground/60 uppercase tracking-wide">[{link.platform}]</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       
       <div className="flex flex-col justify-end shrink-0 md:w-48 pt-4 md:pt-0">
