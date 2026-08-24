@@ -60,7 +60,7 @@ export function ImpactEvidence() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div className="bg-background rounded-xl p-6 border border-border/50 shadow-sm">
               <div className="text-3xl font-bold text-primary mb-2">1,240+</div>
               <div className="text-sm font-medium text-foreground">Analyses Completed</div>
@@ -77,12 +77,6 @@ export function ImpactEvidence() {
               <div className="text-3xl font-bold text-primary mb-2">94%</div>
               <div className="text-sm font-medium text-foreground">Detection Accuracy</div>
               <div className="text-xs text-muted-foreground mt-1">Low false-positive rate</div>
-            </div>
-
-            <div className="bg-background rounded-xl p-6 border border-border/50 shadow-sm">
-              <div className="text-3xl font-bold text-primary mb-2">3</div>
-              <div className="text-sm font-medium text-foreground">Pilot Partners</div>
-              <div className="text-xs text-muted-foreground mt-1">Community orgs onboarding</div>
             </div>
           </div>
         </div>

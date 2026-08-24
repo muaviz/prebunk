@@ -40,8 +40,6 @@ export default async function Home() {
           </div>
         </div>
         
-        <DemoPlayground />
-
         {featuredClaims.length > 0 && (
           <section id="featured" className="bg-background py-20">
             <div className="mx-auto max-w-5xl px-6">
@@ -100,6 +98,7 @@ export default async function Home() {
           </section>
         )}
 
+        <DemoPlayground />
       </main>
       <SiteFooter />
     </div>

@@ -10,7 +10,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 bg-gradient-to-b from-transparent via-background/70 to-background" />
       
       <div className="relative z-20 mx-auto flex w-full max-w-[44rem] flex-col items-start px-6 text-left lg:translate-x-10 lg:px-10">
-        <h1 className="mb-8 max-w-4xl font-display text-4xl font-bold tracking-[-0.035em] text-foreground animate-fade-in-up sm:text-5xl md:text-7xl" style={{animationDelay: '0.1s'}}>
+        <h1 className="mt-6 mb-8 max-w-4xl font-display text-5xl font-bold leading-tight tracking-[-0.035em] text-foreground animate-fade-in-up sm:text-6xl md:text-[5.5rem] md:leading-[1.05]" style={{animationDelay: '0.1s'}}>
           Debunk a false claim <span className="text-yellow-500">before</span> it goes viral
         </h1>
         
