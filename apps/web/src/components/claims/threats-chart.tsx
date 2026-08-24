@@ -51,7 +51,7 @@ export function ThreatsChart({ claims }: { claims: Claim[] }) {
 
   return (
     <div className="w-full h-[350px] bg-secondary/20 rounded-xl border border-border/50 p-6 flex flex-col">
-      <div className="mb-4 flex items-start justify-between">
+      <div className="mb-4 flex flex-col sm:flex-row items-start sm:justify-between gap-2">
         <div>
           <h3 className="text-sm font-semibold text-foreground">Threat Velocity Trend (7 Days)</h3>
           <p className="text-xs text-muted-foreground">Historical virality score fluctuations</p>

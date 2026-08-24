@@ -111,7 +111,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
             </div>
           </div>
           
-          <h1 className="mb-8 font-display text-5xl font-bold tracking-[-0.035em] md:text-6xl">
+          <h1 className="mb-8 font-display text-4xl font-bold tracking-[-0.035em] sm:text-5xl md:text-6xl">
             {claim.title}
           </h1>
           

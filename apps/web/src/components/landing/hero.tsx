@@ -10,11 +10,11 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 bg-gradient-to-b from-transparent via-background/70 to-background" />
       
       <div className="relative z-20 mx-auto flex w-full max-w-[44rem] flex-col items-start px-6 text-left lg:translate-x-10 lg:px-10">
-        <h1 className="mb-8 max-w-4xl font-display text-5xl font-bold tracking-[-0.035em] text-foreground animate-fade-in-up md:text-7xl" style={{animationDelay: '0.1s'}}>
+        <h1 className="mb-8 max-w-4xl font-display text-4xl font-bold tracking-[-0.035em] text-foreground animate-fade-in-up sm:text-5xl md:text-7xl" style={{animationDelay: '0.1s'}}>
           Prebunk the next viral threat before it spreads.
         </h1>
         
-        <p className="mb-12 max-w-2xl text-xl leading-relaxed text-muted-foreground animate-fade-in-up md:text-2xl" style={{animationDelay: '0.2s'}}>
+        <p className="mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground animate-fade-in-up sm:text-xl md:text-2xl" style={{animationDelay: '0.2s'}}>
           We track emerging anti-Muslim narratives to predict what&apos;s about to go mainstream. Arm yourself with factual refutations before the hate hits your feed.
         </p>
         

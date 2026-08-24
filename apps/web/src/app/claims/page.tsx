@@ -24,7 +24,7 @@ export default async function ClaimsPage() {
         <div className="relative z-10 mx-auto max-w-6xl px-6">
           <ScrollReveal className="mb-10 max-w-3xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">Narrative intelligence</p>
-            <h1 className="font-display text-5xl font-bold tracking-[-0.035em] text-foreground md:text-6xl">Claim Database</h1>
+            <h1 className="font-display text-4xl font-bold tracking-[-0.035em] text-foreground sm:text-5xl md:text-6xl">Claim Database</h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Browse our comprehensive database of debunked anti-Muslim tropes.
             </p>
