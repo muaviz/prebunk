@@ -11,7 +11,7 @@ export function Hero() {
       
       <div className="relative z-20 mx-auto flex w-full max-w-[44rem] flex-col items-start px-6 text-left lg:translate-x-10 lg:px-10">
         <h1 className="mb-8 max-w-4xl font-display text-4xl font-bold tracking-[-0.035em] text-foreground animate-fade-in-up sm:text-5xl md:text-7xl" style={{animationDelay: '0.1s'}}>
-          Prebunk the next viral threat before it spreads.
+          Debunk a false claim before it goes viral
         </h1>
         
         <p className="mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground animate-fade-in-up sm:text-xl md:text-2xl" style={{animationDelay: '0.2s'}}>
