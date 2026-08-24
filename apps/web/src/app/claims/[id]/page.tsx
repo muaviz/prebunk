@@ -100,7 +100,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
           </div>
 
           {/* Hero Area */}
-          <ScrollReveal className="mb-16 max-w-4xl">
+          <ScrollReveal className="mb-16 w-full">
           <div className="flex items-center gap-3 mb-6">
             <Badge variant="outline" className="uppercase tracking-wider text-xs bg-primary/5 text-primary border-primary/20">
               {claim.category}
