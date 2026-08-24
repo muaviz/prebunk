@@ -32,7 +32,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     
     // Fetch API URL from sync storage or use default
     const result = await chrome.storage.sync.get(["apiUrl"]);
-    const API_BASE_URL = result.apiUrl || "https://prebunk-api-nctr.onrender.com";
+    const API_BASE_URL = result.apiUrl || "http://127.0.0.1:8000";
     
     try {
       const response = await fetch(`${API_BASE_URL}/extension/analyze`, {

@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     views.settings.classList.remove('hidden');
     
     chrome.storage.sync.get(["apiUrl"], (result) => {
-      document.getElementById('api-url').value = result.apiUrl || "https://prebunk-api-nctr.onrender.com";
+      document.getElementById('api-url').value = result.apiUrl || "http://127.0.0.1:8000";
     });
   });
 
