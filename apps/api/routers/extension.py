@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from db import supabase
 from services.matcher import match_text
@@ -9,7 +9,7 @@ router = APIRouter(prefix="/extension", tags=["extension"])
 
 class AnalyzeRequest(BaseModel):
     text: str
-    threshold: float = 0.55  # Increased default threshold to prevent false matches
+    threshold: float = Field(default=0.55, ge=0.0, le=1.0)
 
 class ClaimMatch(BaseModel):
     id: str
