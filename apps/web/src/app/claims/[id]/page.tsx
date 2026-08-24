@@ -11,6 +11,8 @@ import { CopyButton } from "@/components/claims/copy-button";
 import { ShareButtons } from "@/components/claims/share-buttons";
 import { ScrollReveal } from "@/components/landing/scroll-reveal";
 
+import type { Metadata } from "next";
+
 export const revalidate = 60;
 
 export async function generateStaticParams() {
@@ -19,6 +21,30 @@ export async function generateStaticParams() {
     return claims.map((claim) => ({ id: claim.id }));
   } catch {
     return [];
+  }
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  try {
+    const claim = await fetchApi<Claim>(`/claims/${id}`);
+    return {
+      title: `${claim.title} — Prebunk`,
+      description: claim.claim_text,
+      openGraph: {
+        title: `Debunked: ${claim.title}`,
+        description: claim.description.substring(0, 200),
+        type: "article",
+        url: `https://prebunk.app/claims/${id}`,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `Debunked: ${claim.title}`,
+        description: claim.description.substring(0, 200),
+      },
+    };
+  } catch {
+    return { title: "Claim — Prebunk" };
   }
 }
 
@@ -34,8 +60,34 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
   
   if (!claim) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ClaimReview",
+    "claimReviewed": claim.claim_text,
+    "author": {
+      "@type": "Organization",
+      "name": "Prebunk"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": 1,
+      "bestRating": 5,
+      "worstRating": 1,
+      "alternateName": "False"
+    },
+    "itemReviewed": {
+      "@type": "Claim",
+      "name": claim.title,
+      "datePublished": claim.created_at
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SiteHeader />
       
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-24 pt-28">

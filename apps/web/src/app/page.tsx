@@ -10,6 +10,7 @@ import { ClaimCard } from "@/components/claims/claim-card";
 import { ScrollReveal } from "@/components/landing/scroll-reveal";
 import { LiquidParticles } from "@/components/landing/liquid-particles";
 import { ThreatsChart } from "@/components/claims/threats-chart";
+import { ImpactEvidence } from "@/components/landing/impact-evidence";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -69,6 +70,7 @@ export default async function Home() {
           </section>
         )}
 
+        <ImpactEvidence />
         <HowItWorks />
         
         {otherClaims.length > 0 && (

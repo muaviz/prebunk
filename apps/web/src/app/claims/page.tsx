@@ -3,6 +3,7 @@ import { Claim } from "@/types";
 import { SiteHeader } from "@/components/home/site-header";
 import { SiteFooter } from "@/components/home/site-footer";
 import { ClaimCard } from "@/components/claims/claim-card";
+import { ClaimsClient } from "@/components/claims/claims-client";
 import { ScrollReveal } from "@/components/landing/scroll-reveal";
 
 export const revalidate = 60;
@@ -40,19 +41,7 @@ export default async function ClaimsPage() {
             </div>
           </ScrollReveal>
           
-          {claims.length === 0 ? (
-            <div className="glass-surface rounded-2xl py-20 text-center">
-              <p className="text-muted-foreground">No claims found in the database.</p>
-            </div>
-          ) : (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {claims.map((claim, index) => (
-                <ScrollReveal key={claim.id} delay={index * 60}>
-                  <ClaimCard claim={claim} />
-                </ScrollReveal>
-              ))}
-            </div>
-          )}
+          <ClaimsClient claims={claims} />
         </div>
       </main>
       <SiteFooter />

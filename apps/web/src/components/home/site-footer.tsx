@@ -18,6 +18,7 @@ export function SiteFooter() {
         <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
           <Link href="/claims" className="text-muted-foreground hover:text-foreground">Claims</Link>
           <Link href="#extension" className="text-muted-foreground hover:text-foreground">Extension</Link>
+          <Link href="/privacy" className="text-muted-foreground hover:text-foreground">Privacy Policy</Link>
         </div>
       </div>
       <div className="max-w-5xl mx-auto px-6 mt-8 text-center text-xs text-muted-foreground">

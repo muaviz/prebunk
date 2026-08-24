@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from db import supabase
@@ -28,8 +28,11 @@ class AnalyzeResponse(BaseModel):
     claim: Optional[ClaimMatch] = None
     prebunk: Optional[PrebunkResult] = None
 
+from limiter import limiter
+
 @router.post("/analyze", response_model=AnalyzeResponse)
-def analyze_text(req: AnalyzeRequest):
+@limiter.limit("10/minute")
+def analyze_text(request: Request, req: AnalyzeRequest):
     if not req.text.strip():
         return AnalyzeResponse(matched=False)
 
