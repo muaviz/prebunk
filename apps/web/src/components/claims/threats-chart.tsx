@@ -50,7 +50,7 @@ export function ThreatsChart({ claims }: { claims: Claim[] }) {
   if (topClaims.length === 0) return null;
 
   return (
-    <div className="w-full h-[350px] bg-secondary/20 rounded-xl border border-border/50 p-6 flex flex-col">
+    <div className="w-full h-[280px] sm:h-[350px] bg-secondary/20 rounded-xl border border-border/50 p-4 sm:p-6 flex flex-col">
       <div className="mb-4 flex flex-col sm:flex-row items-start sm:justify-between gap-2">
         <div>
           <h3 className="text-sm font-semibold text-foreground">Threat Velocity Trend (7 Days)</h3>
@@ -72,6 +72,8 @@ export function ThreatsChart({ claims }: { claims: Claim[] }) {
               tickLine={false}
               tick={{ fill: 'var(--color-muted-foreground)', fontSize: 12 }}
               dy={10}
+              interval="preserveEnd"
+              minTickGap={15}
             />
             <YAxis 
               type="number" 
@@ -87,7 +89,7 @@ export function ThreatsChart({ claims }: { claims: Claim[] }) {
                   const sortedPayload = [...payload].sort((a, b) => (b.value as number) - (a.value as number));
                   
                   return (
-                    <div className="bg-background/95 backdrop-blur-md border border-border p-3 rounded-md shadow-xl text-xs min-w-[200px]">
+                    <div className="bg-background/95 backdrop-blur-md border border-border p-3 rounded-md shadow-xl text-xs w-fit min-w-[150px] max-w-[calc(100vw-2rem)]">
                       <p className="text-muted-foreground mb-2 font-medium">{label}</p>
                       <div className="flex flex-col gap-1.5">
                         {sortedPayload.map((entry, index) => (

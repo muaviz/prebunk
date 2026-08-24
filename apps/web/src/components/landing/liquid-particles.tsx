@@ -71,7 +71,10 @@ export function LiquidParticles() {
       canvas.height = Math.floor(height * pixelRatio);
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-      const particleCount = Math.min(320, Math.max(170, Math.floor((width * height) / 6000)));
+      const isMobile = window.innerWidth < 640;
+      const particleCount = isMobile
+        ? Math.max(80, Math.floor((width * height) / 16000))
+        : Math.max(170, Math.floor((width * height) / 8000));
       particles = Array.from({ length: particleCount }, (_, index) =>
         createParticle(width, height, index, particleCount),
       );

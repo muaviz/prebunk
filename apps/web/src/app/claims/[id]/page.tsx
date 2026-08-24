@@ -94,7 +94,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(63,128,93,0.15),transparent_45%)]" />
         <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-6">
           <div className="mb-8">
-            <Link href="/claims" className="inline-flex items-center rounded-full border border-border/70 bg-card/30 px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
+            <Link href="/claims" className="inline-flex items-center rounded-full border border-border/70 bg-card/30 px-3 py-2.5 sm:py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
               <ArrowLeft className="h-4 w-4 mr-2" /> Back to all claims
             </Link>
           </div>
@@ -115,8 +115,8 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
             {claim.title}
           </h1>
           
-          <div className="bg-red-950/35 border border-red-900/60 rounded-2xl p-6 md:p-8 mb-8">
-            <p className="text-xl md:text-2xl font-medium text-red-200 italic leading-relaxed">
+          <div className="bg-red-950/35 border border-red-900/60 rounded-2xl p-5 sm:p-6 md:p-8 mb-8">
+            <p className="text-xl md:text-2xl font-medium text-red-200 italic leading-relaxed break-words">
               &quot;{claim.claim_text}&quot;
             </p>
           </div>
@@ -134,7 +134,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
               <ul className="flex flex-col gap-2">
                 {claim.promoter_links.map((link, idx) => (
                   <li key={idx}>
-                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-background hover:bg-muted/50 border border-border/50 text-sm transition-colors group w-full sm:w-auto">
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2.5 sm:py-1.5 rounded-lg bg-background hover:bg-muted/50 border border-border/50 text-sm transition-colors group w-full sm:w-auto">
                       <span className="text-primary group-hover:text-primary/80 font-medium">{link.name}</span>
                       <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground uppercase tracking-wider">{link.platform}</span>
                     </a>
@@ -169,7 +169,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
           {/* Sidebar: Scripts & Talking Points */}
           <div className="space-y-8">
             {claim.personal_script && (
-              <section className="glass-surface rounded-2xl p-6">
+              <section className="glass-surface rounded-2xl p-4 sm:p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2 text-primary font-bold">
                     <MessageSquare className="w-5 h-5" />
@@ -183,7 +183,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
               </section>
             )}
 
-            <section className="glass-surface rounded-2xl p-6">
+            <section className="glass-surface rounded-2xl p-4 sm:p-6">
               <div className="flex items-center gap-2 mb-6 text-foreground font-bold">
                 <ListChecks className="w-5 h-5 text-primary" />
                 <h3>Quick Talking Points</h3>
@@ -204,7 +204,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
               </ul>
             </section>
 
-            <section className="glass-surface rounded-2xl p-6">
+            <section className="glass-surface rounded-2xl p-4 sm:p-6">
               <div className="flex items-center gap-2 mb-6 text-foreground font-bold">
                 <Share2 className="w-5 h-5 text-accent" />
                 <h3>Help Stop the Spread</h3>

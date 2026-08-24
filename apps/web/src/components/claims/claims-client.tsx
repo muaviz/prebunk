@@ -28,12 +28,12 @@ export function ClaimsClient({ claims }: { claims: Claim[] }) {
         <Input 
           type="text" 
           placeholder="Search claims or dog whistles..." 
-          className="h-10 bg-secondary/20 border-border/50"
+          className="h-11 sm:h-10 bg-secondary/20 border-border/50"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <select 
-          className="flex h-10 w-full sm:w-[200px] items-center justify-between rounded-md border border-border/50 bg-secondary/20 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex h-11 sm:h-10 w-full sm:w-[200px] items-center justify-between rounded-md border border-border/50 bg-secondary/20 px-3 py-2 text-base md:text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
         >
@@ -48,7 +48,7 @@ export function ClaimsClient({ claims }: { claims: Claim[] }) {
           <p className="text-muted-foreground">No claims match your search criteria.</p>
           <button 
             onClick={() => { setSearchQuery(""); setCategoryFilter("All"); }}
-            className="mt-4 text-primary text-sm hover:underline"
+            className="mt-4 text-primary text-sm hover:underline py-3 inline-block"
           >
             Clear filters
           </button>

@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <main className="relative flex-1 overflow-hidden bg-background py-24">
         <div className="relative z-10 mx-auto max-w-3xl px-6">
           <ScrollReveal className="mb-14">
-            <h1 className="font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">Privacy Policy</h1>
+            <h1 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">Privacy Policy</h1>
             <p className="mt-4 text-muted-foreground">Last updated: August 24, 2026</p>
           </ScrollReveal>
           

@@ -31,7 +31,7 @@ export function ClaimCard({ claim }: { claim: Claim }) {
       <div className="mt-auto border-t border-border/60 pt-4">
         <Link 
           href={`/claims/${claim.id}`}
-          className="text-primary font-medium text-sm flex items-center hover:underline"
+          className="text-primary font-medium text-sm inline-flex items-center hover:underline py-2 sm:py-0"
         >
           Learn More <ArrowRight className="ml-1 h-3 w-3" />
         </Link>

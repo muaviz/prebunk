@@ -5,7 +5,7 @@ import { ScrollReveal } from "@/components/landing/scroll-reveal";
 
 export function ExtensionPromo() {
   return (
-    <section id="extension" className="relative isolate flex min-h-[calc(100svh-1rem)] w-full items-center overflow-hidden bg-transparent px-6 py-24 lg:px-10">
+    <section id="extension" className="relative isolate flex min-h-0 py-16 lg:min-h-[calc(100svh-1rem)] lg:py-24 w-full items-center overflow-hidden bg-transparent px-6 lg:px-10">
       <ScrollReveal className="relative z-10 w-full lg:-translate-x-10">
         <div className="mx-auto flex w-full max-w-lg flex-col gap-5">
           <div className="flex w-full justify-center">
@@ -20,7 +20,7 @@ export function ExtensionPromo() {
                  &quot;Eurabia is inevitable unless we remove kebab from our continent...&quot;
               </p>
               
-              <div className="absolute right-8 top-12 w-64 bg-card border border-border rounded-md shadow-lg z-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <div className="absolute right-4 top-10 w-56 sm:right-8 sm:top-12 sm:w-64 bg-card border border-border rounded-md shadow-lg z-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <div className="p-3 border-b border-border flex items-center gap-2">
                    <div className="w-4 h-4 bg-primary rounded-full flex items-center justify-center text-[10px] text-white font-bold">P</div>
                    <span className="font-semibold text-xs">Prebunk Analysis</span>
@@ -36,7 +36,7 @@ export function ExtensionPromo() {
             </div>
             </div>
           </div>
-          <a href="https://github.com/muaviz/prebunk" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "outline", size: "sm" }), "self-center rounded-full border-primary/35 bg-primary/10 px-5 text-foreground shadow-[0_0_20px_rgba(63,128,93,0.12)] hover:border-primary/60 hover:bg-primary/20")}>
+          <a href="https://github.com/muaviz/prebunk" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "outline", size: "sm" }), "self-center rounded-full border-primary/35 bg-primary/10 px-5 min-h-[44px] sm:min-h-0 text-foreground shadow-[0_0_20px_rgba(63,128,93,0.12)] hover:border-primary/60 hover:bg-primary/20")}>
             <Puzzle className="mr-2 h-4 w-4" />
             Install Extension
           </a>

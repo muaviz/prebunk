@@ -9,7 +9,7 @@ export function FeaturedThreatCard({ claim }: { claim: Claim }) {
   const isHighVirality = claim.virality_score > 70;
   
   return (
-    <div className="glass-surface group relative flex flex-col gap-6 overflow-hidden rounded-2xl border-2 border-primary/20 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl md:flex-row">
+    <div className="glass-surface group relative flex flex-col gap-6 overflow-hidden rounded-2xl border-2 border-primary/20 p-5 sm:p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl md:flex-row">
       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 group-hover:bg-primary/10 transition-colors" />
       
       <div className="flex-1 space-y-4">
@@ -28,8 +28,8 @@ export function FeaturedThreatCard({ claim }: { claim: Claim }) {
           </div>
         </div>
 
-        <h3 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-2">
-          {isHighVirality && <AlertTriangle className="h-6 w-6 text-red-400 shrink-0" />}
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground flex items-start gap-2">
+          {isHighVirality && <AlertTriangle className="h-6 w-6 text-red-400 shrink-0 mt-1" />}
           {claim.title}
         </h3>
         
@@ -46,7 +46,7 @@ export function FeaturedThreatCard({ claim }: { claim: Claim }) {
             <ul className="space-y-2">
               {claim.promoter_links.map((link, idx) => (
                 <li key={idx} className="text-sm">
-                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5">
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 py-1.5 sm:py-0">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary/40 inline-block"></span>
                     <span className="underline underline-offset-2 decoration-muted-foreground/30">{link.name}</span>
                     <span className="text-xs text-muted-foreground/60 uppercase tracking-wide">[{link.platform}]</span>
@@ -61,7 +61,7 @@ export function FeaturedThreatCard({ claim }: { claim: Claim }) {
       <div className="flex flex-col justify-end shrink-0 md:w-48 pt-4 md:pt-0">
         <Link 
           href={`/claims/${claim.id}`}
-          className={cn(buttonVariants({ size: "lg" }), "w-full group-hover:bg-primary/90")}
+          className={cn(buttonVariants({ size: "lg" }), "w-full group-hover:bg-primary/90 min-h-[44px] sm:min-h-0")}
         >
           Prepare Yourself <ArrowRight className="ml-2 h-4 w-4" />
         </Link>

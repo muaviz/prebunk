@@ -5,7 +5,7 @@ export function ImpactEvidence() {
     <section className="bg-secondary/5 py-24 border-y border-border/40">
       <div className="mx-auto max-w-5xl px-6">
         <ScrollReveal className="mb-10 text-center">
-          <h2 className="text-3xl font-bold text-foreground">Why Prebunking Works</h2>
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Why Prebunking Works</h2>
           <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
             Our methodology is grounded in social science and inoculation theory. By exposing people to a weakened form of misinformation along with facts, we build cognitive immunity.
           </p>
@@ -20,7 +20,7 @@ export function ImpactEvidence() {
             <p className="text-muted-foreground leading-relaxed flex-1">
               Prebunking reduces susceptibility to misinformation by up to 73% across diverse demographics.
             </p>
-            <a href="https://www.cam.ac.uk/research/news/psychological-inoculation-campaign-could-reduce-susceptibility-to-misinformation-by-up-to-73" target="_blank" rel="noreferrer" className="text-sm text-primary hover:underline font-medium">
+            <a href="https://www.cam.ac.uk/research/news/psychological-inoculation-campaign-could-reduce-susceptibility-to-misinformation-by-up-to-73" target="_blank" rel="noreferrer" className="text-sm text-primary hover:underline font-medium py-2 inline-block">
               Cambridge University (2022) &rarr;
             </a>
           </ScrollReveal>
@@ -33,7 +33,7 @@ export function ImpactEvidence() {
             <p className="text-muted-foreground leading-relaxed flex-1">
               Inoculation-based interventions remain effective for at least 3 months after exposure.
             </p>
-            <a href="https://www.science.org/doi/10.1126/sciadv.abo6254" target="_blank" rel="noreferrer" className="text-sm text-primary hover:underline font-medium">
+            <a href="https://www.science.org/doi/10.1126/sciadv.abo6254" target="_blank" rel="noreferrer" className="text-sm text-primary hover:underline font-medium py-2 inline-block">
               Science Advances (2022) &rarr;
             </a>
           </ScrollReveal>
@@ -46,7 +46,7 @@ export function ImpactEvidence() {
             <p className="text-muted-foreground leading-relaxed flex-1">
               Anti-Muslim hate crimes surged significantly in recent years, largely driven by online narratives.
             </p>
-            <a href="#" className="text-sm text-primary hover:underline font-medium">
+            <a href="#" className="text-sm text-primary hover:underline font-medium py-2 inline-block">
               FBI UCR Data & CAIR Reports &rarr;
             </a>
           </ScrollReveal>

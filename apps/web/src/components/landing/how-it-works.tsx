@@ -24,7 +24,7 @@ export function HowItWorks() {
     <section className="bg-background py-24">
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal className="mb-16 text-center">
-          <h2 className="text-3xl font-bold text-foreground">How Prebunking Works</h2>
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">How Prebunking Works</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
             Don't wait to be reactive. Get ahead of the conversation and stop the spread of misinformation at the source.
           </p>

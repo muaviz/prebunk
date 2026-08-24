@@ -43,7 +43,7 @@ export default async function Home() {
           <section id="featured" className="bg-background py-20">
             <div className="mx-auto max-w-5xl px-6">
               <ScrollReveal className="mb-12 text-center">
-                <h2 className="text-3xl font-bold text-foreground flex items-center justify-center gap-2">
+                <h2 className="text-2xl font-bold text-foreground flex items-center justify-center gap-2 sm:text-3xl">
                   <span className="relative flex h-4 w-4">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500"></span>
@@ -76,9 +76,9 @@ export default async function Home() {
         {otherClaims.length > 0 && (
           <section className="bg-background py-24">
             <div className="mx-auto max-w-5xl px-6">
-              <ScrollReveal className="mb-12 flex flex-col items-end justify-between gap-4 md:flex-row">
+              <ScrollReveal className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
                 <div>
-                  <h2 className="text-3xl font-bold text-foreground">Recently Tracked Claims</h2>
+                  <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Recently Tracked Claims</h2>
                   <p className="text-muted-foreground mt-2">Explore our database of tracked anti-Muslim narratives.</p>
                 </div>
                 <Link href="/claims" className={buttonVariants({ variant: "outline" })}>

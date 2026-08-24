@@ -15,10 +15,10 @@ export function SiteFooter() {
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-          <Link href="/claims" className="text-muted-foreground hover:text-foreground">Claims</Link>
-          <Link href="#extension" className="text-muted-foreground hover:text-foreground">Extension</Link>
-          <Link href="/privacy" className="text-muted-foreground hover:text-foreground">Privacy Policy</Link>
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium">
+          <Link href="/claims" className="text-muted-foreground hover:text-foreground py-2 inline-block">Claims</Link>
+          <Link href="#extension" className="text-muted-foreground hover:text-foreground py-2 inline-block">Extension</Link>
+          <Link href="/privacy" className="text-muted-foreground hover:text-foreground py-2 inline-block">Privacy Policy</Link>
         </div>
       </div>
       <div className="max-w-5xl mx-auto px-6 mt-8 text-center text-xs text-muted-foreground">
