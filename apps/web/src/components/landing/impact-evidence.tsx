@@ -46,7 +46,7 @@ export function ImpactEvidence() {
             <p className="text-muted-foreground leading-relaxed flex-1">
               Anti-Muslim hate crimes surged significantly in recent years, largely driven by online narratives.
             </p>
-            <a href="#" className="text-sm text-muted-foreground hover:underline font-medium">
+            <a href="#" className="text-sm text-primary hover:underline font-medium">
               FBI UCR Data & CAIR Reports &rarr;
             </a>
           </ScrollReveal>

@@ -18,10 +18,10 @@ export default async function ClaimsPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <SiteHeader />
+      <SiteHeader layout="wide" />
       <main className="relative flex-1 overflow-hidden bg-background py-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(63,128,93,0.15),transparent_45%)]" />
-        <div className="relative z-10 mx-auto max-w-5xl px-6">
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <ScrollReveal className="mb-10 max-w-3xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">Narrative intelligence</p>
             <h1 className="font-display text-5xl font-bold tracking-[-0.035em] text-foreground md:text-6xl">Claim Database</h1>

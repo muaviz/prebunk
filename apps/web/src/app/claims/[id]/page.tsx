@@ -88,7 +88,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <SiteHeader />
+      <SiteHeader layout="wide" />
       
       <main className="relative flex-1 overflow-hidden bg-background pb-24 pt-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(63,128,93,0.15),transparent_45%)]" />
