@@ -28,7 +28,7 @@ export function ThreatsChart({ claims }: { claims: Claim[] }) {
   const days = ["6d ago", "5d ago", "4d ago", "3d ago", "2d ago", "Yesterday", "Today"];
   
   const data = days.map((day, i) => {
-    const point: any = { name: day };
+    const point: Record<string, string | number> = { name: day };
     topClaims.forEach(claim => {
       // Create a curve that ends at the actual virality score
       const target = claim.virality_score;
@@ -53,11 +53,11 @@ export function ThreatsChart({ claims }: { claims: Claim[] }) {
     <div className="w-full h-[280px] sm:h-[350px] bg-secondary/20 rounded-xl border border-border/50 p-4 sm:p-6 flex flex-col">
       <div className="mb-4 flex flex-col sm:flex-row items-start sm:justify-between gap-2">
         <div>
-          <h3 className="text-sm font-semibold text-foreground">Threat Velocity Trend (7 Days)</h3>
-          <p className="text-xs text-muted-foreground">Historical virality score fluctuations</p>
+          <h3 className="text-sm font-semibold text-foreground">Demonstration: Threat Velocity Trend (7 Days)</h3>
+          <p className="text-xs text-muted-foreground">Illustrative virality score fluctuations (Mock Data)</p>
         </div>
         <span className="text-[10px] italic text-muted-foreground bg-secondary/50 px-2 py-1 rounded-full border border-border/50">
-          Simulated trend data for demonstration
+          Simulated trend data for hackathon demo
         </span>
       </div>
       <div className="flex-1 min-h-0">

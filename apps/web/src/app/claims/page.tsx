@@ -2,7 +2,6 @@ import { fetchApi } from "@/lib/api";
 import { Claim } from "@/types";
 import { SiteHeader } from "@/components/home/site-header";
 import { SiteFooter } from "@/components/home/site-footer";
-import { ClaimCard } from "@/components/claims/claim-card";
 import { ClaimsClient } from "@/components/claims/claims-client";
 import { ScrollReveal } from "@/components/landing/scroll-reveal";
 
@@ -12,8 +11,8 @@ export default async function ClaimsPage() {
   let claims: Claim[] = [];
   try {
     claims = await fetchApi<Claim[]>("/claims/");
-  } catch (error) {
-    console.error("Failed to fetch claims:", error);
+  } catch (error: any) {
+    console.error(`⚠️ Build Warning: Failed to fetch claims from API (${error.message}). Make sure NEXT_PUBLIC_API_URL is set to your actual Railway deployment.`);
   }
 
   return (

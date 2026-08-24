@@ -7,15 +7,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try { claims = await fetchApi<Claim[]>("/claims/"); } catch {}
 
   const claimPages = claims.map(claim => ({
-    url: `https://prebunk.app/claims/${claim.id}`,
+    url: `https://prebunk.vercel.app/claims/${claim.id}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: claim.is_featured ? 0.9 : 0.7,
   }));
 
   return [
-    { url: "https://prebunk.app", lastModified: new Date(), priority: 1.0 },
-    { url: "https://prebunk.app/claims", lastModified: new Date(), priority: 0.8 },
+    { url: "https://prebunk.vercel.app", lastModified: new Date(), priority: 1.0 },
+    { url: "https://prebunk.vercel.app/claims", lastModified: new Date(), priority: 0.8 },
     ...claimPages,
   ];
 }

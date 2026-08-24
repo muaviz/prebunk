@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Claim } from "@/types";
 import { ClaimCard } from "@/components/claims/claim-card";
 import { ScrollReveal } from "@/components/landing/scroll-reveal";
@@ -12,15 +12,13 @@ export function ClaimsClient({ claims }: { claims: Claim[] }) {
 
   const categories = ["All", ...Array.from(new Set(claims.map((c) => c.category)))].sort();
 
-  const filteredClaims = useMemo(() => {
-    return claims.filter((claim) => {
-      const matchesSearch = 
-        claim.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        claim.description.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = categoryFilter === "All" || claim.category === categoryFilter;
-      return matchesSearch && matchesCategory;
-    });
-  }, [claims, searchQuery, categoryFilter]);
+  const filteredClaims = claims.filter((claim) => {
+    const matchesSearch = 
+      claim.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      claim.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = categoryFilter === "All" || claim.category === categoryFilter;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <>

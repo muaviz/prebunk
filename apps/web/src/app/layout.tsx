@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Prebunk — Narrative Intelligence",
     description: "Track, debunk, and prepare for anti-Muslim misinformation before it spreads.",
-    url: "https://prebunk.app",
+    url: "https://prebunk.vercel.app",
     siteName: "Prebunk",
     type: "website",
   },

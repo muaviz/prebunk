@@ -26,7 +26,7 @@ export function HowItWorks() {
         <ScrollReveal className="mb-16 text-center">
           <h2 className="text-2xl font-bold text-foreground sm:text-3xl">How Prebunking Works</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-            Don't wait to be reactive. Get ahead of the conversation and stop the spread of misinformation at the source.
+            Don&apos;t wait to be reactive. Get ahead of the conversation and stop the spread of misinformation at the source.
           </p>
         </ScrollReveal>
 

@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
         title: `Debunked: ${claim.title}`,
         description: claim.description.substring(0, 200),
         type: "article",
-        url: `https://prebunk.app/claims/${id}`,
+        url: `https://prebunk.vercel.app/claims/${id}`,
       },
       twitter: {
         card: "summary_large_image",

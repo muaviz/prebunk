@@ -11,6 +11,7 @@ import { ScrollReveal } from "@/components/landing/scroll-reveal";
 import { LiquidParticles } from "@/components/landing/liquid-particles";
 import { ThreatsChart } from "@/components/claims/threats-chart";
 import { ImpactEvidence } from "@/components/landing/impact-evidence";
+import { DemoPlayground } from "@/components/landing/demo-playground";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -20,8 +21,8 @@ export default async function Home() {
   let claims: Claim[] = [];
   try {
     claims = await fetchApi<Claim[]>("/claims/");
-  } catch (error) {
-    console.error("Failed to fetch claims:", error);
+  } catch (error: any) {
+    console.error(`⚠️ Build Warning: Failed to fetch claims from API (${error.message}). Make sure NEXT_PUBLIC_API_URL is set to your actual Railway deployment.`);
   }
 
   const featuredClaims = claims.filter(c => c.is_featured);
@@ -39,6 +40,8 @@ export default async function Home() {
           </div>
         </div>
         
+        <DemoPlayground />
+
         {featuredClaims.length > 0 && (
           <section id="featured" className="bg-background py-20">
             <div className="mx-auto max-w-5xl px-6">

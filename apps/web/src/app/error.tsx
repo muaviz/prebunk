@@ -26,7 +26,7 @@ export default function Error({
         </div>
         <h2 className="text-2xl font-bold text-foreground mb-4">Something went wrong</h2>
         <p className="text-muted-foreground max-w-md mb-8">
-          We couldn't load the requested data. Our tracker might be temporarily unavailable.
+          We couldn&apos;t load the requested data. Our tracker might be temporarily unavailable.
         </p>
         <Button onClick={() => reset()} className="bg-primary hover:bg-primary/90 text-primary-foreground">
           Try again

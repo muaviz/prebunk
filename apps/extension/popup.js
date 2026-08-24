@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const matchScoreEl = document.getElementById('match-score');
         const explanationContainer = document.getElementById('explanation-container');
         const explanationText = document.getElementById('match-explanation');
+        const aiWarningBanner = document.getElementById('ai-warning-banner');
 
         if (result.is_llm_generated) {
            matchScoreEl.textContent = 'AI Detected';
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
            // Show the explanation for dog whistles/slurs
            explanationText.textContent = result.claim.description;
            explanationContainer.classList.remove('hidden');
+           if(aiWarningBanner) aiWarningBanner.classList.remove('hidden');
         } else {
            matchScoreEl.textContent = Math.round(result.claim.similarity_score * 100) + '% Match';
            matchScoreEl.style.backgroundColor = ''; 
@@ -53,6 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
            
            // Hide the explanation box for standard database claims (keeps UI cleaner)
            explanationContainer.classList.add('hidden');
+           if(aiWarningBanner) aiWarningBanner.classList.add('hidden');
         }
         
         const scriptElement = document.getElementById('match-script');

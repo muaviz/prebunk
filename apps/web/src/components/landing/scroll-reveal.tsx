@@ -19,7 +19,7 @@ export function ScrollReveal({ children, className, delay = 0 }: ScrollRevealPro
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (prefersReducedMotion.matches) {
-      setIsVisible(true);
+      setTimeout(() => setIsVisible(true), 0);
       return;
     }
 

@@ -7,6 +7,6 @@ class Settings(BaseSettings):
     supabase_service_role_key: str
     gemini_api_key: str = ""
     gemini_model: str = "gemini-2.5-flash"
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = "http://localhost:3000,https://prebunk.vercel.app"
 
 settings = Settings()

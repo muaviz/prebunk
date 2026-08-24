@@ -24,7 +24,7 @@ export default function PrivacyPage() {
                 <h2 className="text-xl font-semibold text-foreground mb-3">1. Information We Collect</h2>
                 <p>Prebunk is designed with privacy as a core principle. We collect minimal data necessary to provide our service:</p>
                 <ul className="list-disc pl-5 mt-2 space-y-2">
-                  <li><strong>Browser Extension:</strong> When you use the "Prebunk this text" feature, only the explicitly selected text is sent to our servers for analysis. We do not track your browsing history or page visits.</li>
+                  <li><strong>Browser Extension:</strong> When you use the &quot;Prebunk this text&quot; feature, only the explicitly selected text is sent to our servers for analysis. We do not track your browsing history or page visits.</li>
                   <li><strong>Website Analytics:</strong> We do not use third-party tracking cookies or aggressive analytics on our web dashboard.</li>
                 </ul>
               </section>

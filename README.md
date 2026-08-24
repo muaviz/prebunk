@@ -101,3 +101,18 @@ pytest
 
 ## 📄 License
 This project is licensed under the MIT License.
+
+## Maintenance & Hackathon Roadmap
+
+### 1. Database Maintenance
+- **Data Curation:** The claims database is currently seeded from the `data/claims.json` manifest. Post-hackathon, we plan to implement a rigorous review process where community volunteers and OSINT researchers can flag emerging narratives.
+- **Source Freshness:** Prebunk uses Supabase edge functions to periodically verify if linked refutation sources (e.g., news articles, academic papers) are still live, flagging dead links for manual review.
+
+### 2. Hackathon Follow-up
+- We intend to refine the Google Gemini prompt templates to reduce false positives.
+- A public issue tracker will be maintained on GitHub where users can report LLM hallucinations or misclassifications.
+- We will seek partnerships with Muslim civil rights organizations (like CAIR or ISPU) to validate and expand our taxonomy of dog whistles.
+
+### 3. API Monitoring & Uptime
+- The FastAPI backend is deployed on Railway, utilizing `slowapi` for rate-limiting to prevent abuse.
+- We monitor API endpoints via built-in health checks and Railway's native observability suite.
