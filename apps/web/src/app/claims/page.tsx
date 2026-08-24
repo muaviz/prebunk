@@ -20,7 +20,7 @@ export default async function ClaimsPage() {
     <div className="flex flex-col min-h-screen">
       <SiteHeader />
       <main className="relative flex-1 overflow-hidden bg-background py-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(63,128,93,0.14),transparent_34%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(63,128,93,0.15),transparent_45%)]" />
         <div className="relative z-10 mx-auto max-w-5xl px-6">
           <ScrollReveal className="mb-10 max-w-3xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">Narrative intelligence</p>
