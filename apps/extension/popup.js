@@ -1,3 +1,13 @@
+function sanitizeUrl(url) {
+  if (!url || typeof url !== 'string') return null;
+  try {
+    const parsed = new URL(url);
+    return (parsed.protocol === 'http:' || parsed.protocol === 'https:') ? parsed.href : null;
+  } catch {
+    return null;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   const views = {
     idle: document.getElementById('state-idle'),
@@ -44,18 +54,22 @@ document.addEventListener('DOMContentLoaded', async () => {
            matchScoreEl.style.backgroundColor = 'var(--primary-color)'; 
            matchScoreEl.style.color = '#ffffff'; 
            
-           // Show the explanation for dog whistles/slurs
-           explanationText.textContent = result.claim.description;
-           explanationContainer.classList.remove('hidden');
            if(aiWarningBanner) aiWarningBanner.classList.remove('hidden');
         } else {
-           matchScoreEl.textContent = Math.round(result.claim.similarity_score * 100) + '% Match';
+           const score = typeof result.claim.similarity_score === 'number' ? Math.round(result.claim.similarity_score * 100) : 100;
+           matchScoreEl.textContent = score + '% Match';
            matchScoreEl.style.backgroundColor = ''; 
            matchScoreEl.style.color = ''; 
            
-           // Hide the explanation box for standard database claims (keeps UI cleaner)
-           explanationContainer.classList.add('hidden');
            if(aiWarningBanner) aiWarningBanner.classList.add('hidden');
+        }
+        
+        // ALWAYS show explanation if available
+        if (result.claim && result.claim.description) {
+          explanationText.textContent = result.claim.description;
+          explanationContainer.classList.remove('hidden');
+        } else {
+          explanationContainer.classList.add('hidden');
         }
         
         const scriptElement = document.getElementById('match-script');
@@ -92,14 +106,19 @@ document.addEventListener('DOMContentLoaded', async () => {
           // Show top 2 refutation sources
           result.prebunk.refutations.slice(0, 2).forEach(ref => {
             const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = ref.source_url;
-            a.target = "_blank";
-            a.textContent = ref.source_name;
-            a.style.color = "var(--primary-color)"; 
-            a.style.textDecoration = "none";
-            
-            li.appendChild(a);
+            const safeUrl = sanitizeUrl(ref.source_url);
+            if (safeUrl) {
+              const a = document.createElement('a');
+              a.href = safeUrl;
+              a.target = "_blank";
+              a.rel = "noopener noreferrer";
+              a.textContent = ref.source_name || safeUrl;
+              a.style.color = "var(--primary-color)"; 
+              a.style.textDecoration = "none";
+              li.appendChild(a);
+            } else {
+              li.textContent = ref.source_name || "Verified Source";
+            }
             sourcesList.appendChild(li);
           });
           sourcesContainer.classList.remove('hidden');
@@ -109,7 +128,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Base URL from settings for links
         chrome.storage.sync.get(["webUrl"], (res) => {
-          const webUrl = res.webUrl || "http://localhost:3000";
+          const webUrl = res.webUrl || "https://prebunk.vercel.app";
           const learnMoreLink = document.getElementById('learn-more-link');
           
           if (result.is_llm_generated) {
@@ -142,13 +161,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Copy button
   document.getElementById('copy-btn')?.addEventListener('click', () => {
-    const scriptText = document.getElementById('match-script').textContent.replace(/^"|"$/g, '');
-    navigator.clipboard.writeText(scriptText).then(() => {
-      const btn = document.getElementById('copy-btn');
-      btn.textContent = "Copied!";
-      setTimeout(() => {
-        btn.textContent = "Copy Response";
-      }, 2000);
+    chrome.storage.local.get(["analysisResult"], (result) => {
+      const scriptText = result.analysisResult?.prebunk?.personal_script;
+      if (!scriptText) return;
+      navigator.clipboard.writeText(scriptText).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = "Copied!";
+        setTimeout(() => {
+          btn.textContent = "Copy Response";
+        }, 2000);
+      }).catch(err => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = "Error copying";
+      });
     });
   });
 
@@ -169,7 +194,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   document.getElementById('save-settings').addEventListener('click', () => {
-    const apiUrl = document.getElementById('api-url').value;
+    let apiUrl = document.getElementById('api-url').value.trim();
+    try {
+      apiUrl = new URL(apiUrl).origin;
+    } catch {
+       alert("Invalid URL");
+       return;
+    }
     chrome.storage.sync.set({ apiUrl }, () => {
       const btn = document.getElementById('save-settings');
       const originalText = btn.textContent;

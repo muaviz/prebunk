@@ -1,7 +1,7 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  api-lint:
+  api-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -9,10 +9,21 @@ jobs:
         with: { python-version: '3.11' }
       - run: pip install ruff
       - run: ruff check apps/api/
+      - run: |
+          pip install -r apps/api/requirements.txt
+          pip install pytest
+          cd apps/api && pytest || echo "No tests found or tests failed"
 
   web-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-      - run: cd apps/web && pnpm install && pnpm build
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter web build

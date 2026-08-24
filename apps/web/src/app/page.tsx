@@ -22,7 +22,7 @@ export default async function Home() {
   try {
     claims = await fetchApi<Claim[]>("/claims/");
   } catch (error: any) {
-    console.error(`⚠️ Build Warning: Failed to fetch claims from API (${error.message}). Make sure NEXT_PUBLIC_API_URL is set to your actual Railway deployment.`);
+    console.error(`⚠️ Build Warning: Failed to fetch claims from API (${error.message}). Make sure NEXT_PUBLIC_API_URL is set to your actual Render deployment.`);
   }
 
   const featuredClaims = claims.filter(c => c.is_featured);

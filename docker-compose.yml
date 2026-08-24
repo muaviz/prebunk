@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   api:
     build: ./apps/api
@@ -9,7 +8,9 @@ services:
       - ./data:/app/data
 
   web:
-    build: ./apps/web
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
     ports:
       - "3000:3000"
     env_file: ./apps/web/.env.local

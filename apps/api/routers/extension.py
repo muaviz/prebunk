@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Request
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
-from db import supabase
+from limiter import limiter
 from services.llm_analysis import analyze_with_llm
 
 router = APIRouter(prefix="/extension", tags=["extension"])
 
 class AnalyzeRequest(BaseModel):
     text: str
-    threshold: float = Field(default=0.55, ge=0.0, le=1.0)
+    threshold: Optional[float] = Field(default=None, le=1.0, ge=0.0)
 
 class ClaimMatch(BaseModel):
     id: str
@@ -27,8 +27,6 @@ class AnalyzeResponse(BaseModel):
     claim: Optional[ClaimMatch] = None
     prebunk: Optional[PrebunkResult] = None
 
-from limiter import limiter
-
 @router.post("/analyze", response_model=AnalyzeResponse)
 @limiter.limit("10/minute")
 def analyze_text(request: Request, req: AnalyzeRequest):
@@ -44,7 +42,7 @@ def analyze_text(request: Request, req: AnalyzeRequest):
     normalized_input = text_to_analyze.strip().lower().replace('\n', ' ')
     normalized_demo_1 = demo_text_1.lower().replace('\n', ' ')
     
-    if normalized_demo_1 in normalized_input or normalized_input in normalized_demo_1:
+    if len(normalized_input) >= 50 and normalized_demo_1 in normalized_input:
         return AnalyzeResponse(
             matched=True,
             is_llm_generated=False,
@@ -66,6 +64,7 @@ def analyze_text(request: Request, req: AnalyzeRequest):
                         "claim": "Immigrants refuse to integrate into European societies.",
                         "refutation": "A comprehensive study by the Bertelsmann Stiftung found that across Western Europe, the vast majority of Muslims are well-integrated into the labor market and educational systems, strongly identifying with their host countries.",
                         "source_name": "Bertelsmann Stiftung Integration Study",
+                        "source_url": "https://www.bertelsmann-stiftung.de/en/our-projects/religion-monitor",
                         "source_type": "academic"
                     }
                 ]
@@ -73,7 +72,7 @@ def analyze_text(request: Request, req: AnalyzeRequest):
         )
         
     demo_text_2 = "Islam is not a religion of peace, it's a political ideology of conquest."
-    if demo_text_2.lower() in normalized_input or normalized_input in demo_text_2.lower():
+    if len(normalized_input) >= 20 and demo_text_2.lower() in normalized_input:
          return AnalyzeResponse(
             matched=True,
             is_llm_generated=False,

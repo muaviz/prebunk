@@ -22,9 +22,9 @@ class ClaimResponse(BaseModel):
     category: str
     virality_score: int
     is_featured: bool
-    refutations: list[Refutation]
+    refutations: list[Refutation] = []
     promoter_links: list[PromoterLink] = []
-    talking_points: list[str]
-    personal_script: Optional[str]
-    semantic_anchors: list[str]
+    talking_points: list[str] = []
+    personal_script: Optional[str] = None
+    semantic_anchors: list[str] = []
     created_at: Optional[datetime] = None

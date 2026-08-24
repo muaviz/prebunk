@@ -148,10 +148,16 @@ export function DemoPlayground() {
                       <h5 className="font-semibold text-sm mb-3">Evidence & Sources</h5>
                       <div className="flex flex-col gap-2">
                         {result.prebunk.refutations.map((ref: any, i: number) => (
-                          <a key={i} href={ref.source_url} target="_blank" rel="noreferrer" className="text-sm text-primary hover:underline p-3 bg-background rounded-lg border border-border/40 inline-flex items-center justify-between">
-                            <span>{ref.source_name}</span>
-                            <span className="text-xs text-muted-foreground ml-2">&rarr;</span>
-                          </a>
+                          ref.source_url ? (
+                            <a key={i} href={ref.source_url} target="_blank" rel="noreferrer" className="text-sm text-primary hover:underline p-3 bg-background rounded-lg border border-border/40 inline-flex items-center justify-between">
+                              <span>{ref.source_name}</span>
+                              <span className="text-xs text-muted-foreground ml-2">&rarr;</span>
+                            </a>
+                          ) : (
+                            <div key={i} className="text-sm p-3 bg-background rounded-lg border border-border/40 inline-flex items-center justify-between">
+                              <span>{ref.source_name}</span>
+                            </div>
+                          )
                         ))}
                       </div>
                     </div>

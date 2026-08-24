@@ -12,7 +12,7 @@ export default async function ClaimsPage() {
   try {
     claims = await fetchApi<Claim[]>("/claims/");
   } catch (error: any) {
-    console.error(`⚠️ Build Warning: Failed to fetch claims from API (${error.message}). Make sure NEXT_PUBLIC_API_URL is set to your actual Railway deployment.`);
+    console.error(`⚠️ Build Warning: Failed to fetch claims from API (${error.message}). Make sure NEXT_PUBLIC_API_URL is set to your actual Render deployment.`);
   }
 
   return (

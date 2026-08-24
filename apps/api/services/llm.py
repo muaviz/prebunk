@@ -1,6 +1,5 @@
 import logging
 import re
-import json
 from google import genai
 from google.genai import types
 from config import settings
@@ -12,16 +11,18 @@ class LLMService:
         self.client = None
         if settings.gemini_api_key:
             self.client = genai.Client(api_key=settings.gemini_api_key)
-        self.model_name = settings.gemini_model or "gemini-2.5-flash"
+        self.model_name = settings.gemini_model or "gemini-2.0-flash"
 
     def is_available(self):
         return self.client is not None
 
-    def generate_content(self, prompt: str, json_mode: bool = False, temperature: float = 0.7) -> str:
+    def generate_content(self, prompt: str, system_instruction: str = None, json_mode: bool = False, temperature: float = 0.7) -> str:
         if not self.is_available():
             raise Exception("Gemini API client not initialized. Check API keys.")
 
         config = types.GenerateContentConfig(temperature=temperature)
+        if system_instruction:
+            config.system_instruction = system_instruction
         if json_mode:
             config.response_mime_type = "application/json"
 
@@ -31,7 +32,11 @@ class LLMService:
             config=config,
         )
         
-        text = response.text
+        if not response.candidates or not response.candidates[0].content or not response.candidates[0].content.parts:
+            logger.warning("Gemini returned empty/blocked response")
+            return "{}"
+
+        text = response.text or ""
         if json_mode:
             match = re.search(r'```(?:json)?\s*(.*?)\s*```', text, re.DOTALL)
             if match:

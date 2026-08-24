@@ -4,16 +4,10 @@
   "version": "1.0.0",
   "description": "Highlight suspicious text and instantly get a fact-based response. Powered by Prebunk's anti-misinformation taxonomy.",
   "permissions": ["contextMenus", "activeTab", "storage", "sidePanel"],
-  "host_permissions": ["http://127.0.0.1:8000/*", "https://*.onrender.com/*", "https://prebunk-api.railway.app/*"],
+  "host_permissions": ["http://localhost:8000/*", "http://127.0.0.1:8000/*", "https://*.onrender.com/*", "https://prebunk-api.railway.app/*"],
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ],
   "side_panel": {
     "default_path": "popup.html"
   },

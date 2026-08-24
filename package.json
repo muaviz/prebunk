@@ -2,6 +2,7 @@
   "name": "prebunk",
   "private": true,
   "scripts": {
+    "dev": "pnpm dev:web",
     "dev:web": "cd apps/web && pnpm dev",
     "dev:api": "cd apps/api && uvicorn main:app --reload",
     "build:web": "cd apps/web && pnpm build",

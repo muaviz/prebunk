@@ -86,7 +86,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
     <div className="flex flex-col min-h-screen bg-background text-foreground pb-20">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
       <SiteHeader layout="wide" />
       

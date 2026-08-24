@@ -11,14 +11,17 @@ app = FastAPI(title="Prebunk API", docs_url="/docs", redoc_url="/redoc")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
+from slowapi.middleware import SlowAPIMiddleware
+
+app.add_middleware(SlowAPIMiddleware)
+
 origins = [o.strip() for o in settings.cors_origins.split(",") if o.strip()]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    # TODO: Replace with specific extension ID before production deployment
     allow_origin_regex=r"chrome-extension://.*",
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )

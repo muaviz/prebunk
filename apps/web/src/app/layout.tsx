@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://prebunk.vercel.app"),
   title: "Prebunk — Narrative Intelligence Against Anti-Muslim Hate",
   description: "A weather radar for Islamophobia. Track, debunk, and prepare for anti-Muslim misinformation before it spreads.",
   openGraph: {
@@ -30,6 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="" suppressHydrationWarning>
+      <head>
+        <noscript>
+          <style>{`.scroll-reveal { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
+      </head>
       <body className={`${inter.className} ${spaceGrotesk.variable} bg-background text-foreground antialiased`} suppressHydrationWarning>
         {children}
       </body>

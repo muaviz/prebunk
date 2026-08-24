@@ -10,12 +10,15 @@ export function ClaimsClient({ claims }: { claims: Claim[] }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All");
 
-  const categories = ["All", ...Array.from(new Set(claims.map((c) => c.category)))].sort();
+  const sortedCategories = Array.from(new Set(claims.map((c) => c.category))).sort();
+  const categories = ["All", ...sortedCategories];
 
   const filteredClaims = claims.filter((claim) => {
+    const q = searchQuery.toLowerCase();
     const matchesSearch = 
-      claim.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      claim.description.toLowerCase().includes(searchQuery.toLowerCase());
+      claim.title.toLowerCase().includes(q) || 
+      claim.description.toLowerCase().includes(q) ||
+      claim.claim_text.toLowerCase().includes(q);
     const matchesCategory = categoryFilter === "All" || claim.category === categoryFilter;
     return matchesSearch && matchesCategory;
   });

@@ -16,6 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: "https://prebunk.vercel.app", lastModified: new Date(), priority: 1.0 },
     { url: "https://prebunk.vercel.app/claims", lastModified: new Date(), priority: 0.8 },
+    { url: "https://prebunk.vercel.app/privacy", lastModified: new Date(), priority: 0.5 },
     ...claimPages,
   ];
 }

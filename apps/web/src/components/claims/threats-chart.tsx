@@ -40,7 +40,8 @@ export function ThreatsChart({ claims }: { claims: Claim[] }) {
       // Add pseudo-random fluctuation (except for "Today" which is the real score)
       if (i < days.length - 1) {
          // Create deterministic "randomness" based on string length and index
-         val += (Math.sin(claim.id.charCodeAt(6) * i * 15) * 12); 
+         const idHash = claim.id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+         val += (Math.sin(idHash * (i + 1) * 15) * 12); 
       }
       point[claim.id] = Math.max(0, Math.min(100, Math.round(val)));
     });

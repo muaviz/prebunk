@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 export function Hero() {
   return (
     <section className="relative isolate min-h-[calc(100svh-1rem)] overflow-hidden pb-24 pt-28 sm:pt-36 lg:pt-[clamp(9rem,28vh,16rem)] md:pb-28">
-      <div className="absolute inset-0 z-0 bg-grid-pattern opacity-[0.025]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 bg-gradient-to-b from-transparent via-background/70 to-background" />
       
       <div className="relative z-20 mx-auto flex w-full max-w-[44rem] flex-col items-start px-6 text-left lg:translate-x-10 lg:px-10">
