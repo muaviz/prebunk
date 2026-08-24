@@ -36,9 +36,9 @@ export function ExtensionPromo() {
             </div>
             </div>
           </div>
-          <a href="#" className={cn(buttonVariants({ variant: "outline", size: "sm" }), "self-center rounded-full border-primary/35 bg-primary/10 px-5 min-h-[44px] sm:min-h-0 text-foreground shadow-[0_0_20px_rgba(63,128,93,0.12)] hover:border-primary/60 hover:bg-primary/20 pointer-events-none opacity-80")}>
+          <a href="https://github.com/muaviz/prebunk" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "outline", size: "sm" }), "self-center rounded-full border-primary/35 bg-primary/10 px-5 min-h-[44px] sm:min-h-0 text-foreground shadow-[0_0_20px_rgba(63,128,93,0.12)] hover:border-primary/60 hover:bg-primary/20")}>
             <Puzzle className="mr-2 h-4 w-4" />
-            Chrome Extension (Coming Soon)
+            Install Extension
           </a>
         </div>
       </ScrollReveal>
