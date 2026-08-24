@@ -13,7 +13,8 @@ def get_model():
         with _model_lock:
             if _model is None:
                 logger.info("Loading SBERT model...")
-                _model = SentenceTransformer('all-mpnet-base-v2')
+                import torch
+                _model = SentenceTransformer('all-mpnet-base-v2', model_kwargs={"torch_dtype": torch.float16})
                 logger.info("SBERT model loaded.")
     return _model
 
