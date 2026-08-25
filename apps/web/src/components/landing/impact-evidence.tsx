@@ -20,7 +20,7 @@ export function ImpactEvidence() {
             <p className="text-muted-foreground leading-relaxed flex-1">
               Prebunking reduces susceptibility to misinformation by up to 73% across diverse demographics.
             </p>
-            <a href="https://www.cam.ac.uk/research/news/psychological-inoculation-campaign-could-reduce-susceptibility-to-misinformation-by-up-to-73" target="_blank" rel="noreferrer" className="text-sm text-primary hover:underline font-medium py-2 inline-block">
+            <a href="https://www.cam.ac.uk/research/news/pre-bunk-tactics-reduce-public-susceptibility-to-covid-19-conspiracies-and-falsehoods-study-finds" target="_blank" rel="noreferrer" className="text-sm text-primary hover:underline font-medium py-2 inline-block">
               Cambridge University (2022) &rarr;
             </a>
           </ScrollReveal>
